@@ -25,7 +25,7 @@ router.post("/postLevel",(req,res) => {
     })
 })
 
-//Get current level
+//Get current level of a user
 router.get("/getCurrentLevel",requireLogin,(req,res) => {
     User.findById(req.user._id)
     .populate("atLevel",["_id","hint","question"])
@@ -38,17 +38,19 @@ router.get("/getCurrentLevel",requireLogin,(req,res) => {
     })
 })
 
-//Answer
+//Checking answer of the level
 router.post("/answer",requireLogin,(req,res) => {
     const {answer} = req.body;
 
     User.findById(req.user._id)
     .populate("atLevel",["_id","answer"])
     .then((level) => {
+        //Checking for the answer
         if(answer === level.atLevel.answer) {
             User.findByIdAndUpdate(req.user._id,{
                 $set : {
-                    atLevel : level.atLevel._id+1
+                    atLevel : level.atLevel._id+1, //Updating level
+                    lastLevelCrackedAt : Date.now() //Updating the time of last cracked level
                 }
             },{
                 new : true,
@@ -69,5 +71,16 @@ router.post("/answer",requireLogin,(req,res) => {
         }
     })
 })   
+
+//Fectching users to be displayed on the leaderboard
+router.get("/leaderboard",(req,res) => {
+    User.find({})
+    .sort({user : 1,lastLevelCrackedAt : 1})
+    .then((users) => {
+        res.status(200).json(users);
+    }).catch((err) => {
+        res.status(401).json(err);
+    })
+})
 
 module.exports = router;
