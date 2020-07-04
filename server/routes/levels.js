@@ -38,4 +38,36 @@ router.get("/getCurrentLevel",requireLogin,(req,res) => {
     })
 })
 
+//Answer
+router.post("/answer",requireLogin,(req,res) => {
+    const {answer} = req.body;
+
+    User.findById(req.user._id)
+    .populate("atLevel",["_id","answer"])
+    .then((level) => {
+        if(answer === level.atLevel.answer) {
+            User.findByIdAndUpdate(req.user._id,{
+                $set : {
+                    atLevel : level.atLevel._id+1
+                }
+            },{
+                new : true,
+                runValidators : true
+            }).populate("atLevel",["_id","hint","question"])
+            .then((newLevel) => {
+                res.status(200).json(newLevel);
+            }).catch((err) => {
+                res.status(401).json({
+                    error : err
+                })
+            })
+        }
+        else {
+            res.status(401).json({
+                error : "Sorry, Incorrect answer"
+            })
+        }
+    })
+})   
+
 module.exports = router;
