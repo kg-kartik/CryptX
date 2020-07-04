@@ -17,6 +17,14 @@ const userSchema = new schema({
     password : {
         type : String,
         required : true
+    },
+    atLevel : {
+        type : Number,
+        ref : "Level",
+        default : 0
+    },
+    lastLevelCrackedAt : {
+        type : Date
     }
 })
 
