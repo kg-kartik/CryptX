@@ -3,6 +3,11 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const db = require('./config/keys').MongoURI;
+const cors = require("cors");
+
+var corsOptions = {
+    origin: 'http://localhost:3000',
+}
 
 //Requiring routes
 const authUser = require("./routes/auth");
@@ -21,8 +26,8 @@ app.use(express.urlencoded({
 }));
 
 app.use(bodyParser.json());
-app.use("/user",authUser);
-app.use("/",level);
+app.use("/user",cors(corsOptions),authUser);
+app.use("/",cors(corsOptions),level);
 
 const PORT = process.env.PORT || 5000;
 
