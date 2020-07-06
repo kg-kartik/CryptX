@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const secret = require("../config/keys").JWT_SECRET;
 const requireLogin = require("../middleware/requireLogin");
 
-router.get('/dashboard',requireLogin,(req,res) => {
+router.get('/getDetails',requireLogin,(req,res) => {
     User.findById(req.user._id)
     .then((user) => {
         res.status(200).json(user);

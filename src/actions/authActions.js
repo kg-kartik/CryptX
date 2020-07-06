@@ -1,4 +1,4 @@
-import {SET_CURRENT_USER,GET_ERRORS} from "./types";
+import {SET_CURRENT_USER,GET_ERRORS, GET_USER_DETAILS} from "./types";
 import axios from "axios";
 import setAuthToken from "../util/setAuthToken";
 import jwt_decode from 'jwt-decode';
@@ -50,6 +50,23 @@ export const setCurrentUser = (decodedToken) => {
         type : SET_CURRENT_USER,
         payload : decodedToken
     }
+}
+
+//Get user details
+export const getUserDetails = () => (dispatch) => {
+    axios
+        .get("http://localhost:5000/user/getDetails")
+        .then((response) => {
+            dispatch({
+              type : GET_USER_DETAILS,
+              payload : response.data  
+            })
+        }).catch((err) => {
+            dispatch({
+                type : GET_ERRORS,
+                payload : err
+            })
+        })
 }
 
 //Logout user
