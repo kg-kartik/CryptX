@@ -1,6 +1,10 @@
 import {combineReducers} from "redux"
-import authReducer from "./authReducer";
+import authReducer from "./authReducer"
+import levelReducer from "./levelReducer"
+import leaderboardReducer from "./leaderboardReducer"
 
 export default combineReducers({
-    auth : authReducer
+    auth : authReducer,
+    level : levelReducer,
+    leaderboard : leaderboardReducer
 })
