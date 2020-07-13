@@ -1,38 +1,41 @@
-import React from "react"
+import React from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import "../App.css"
+import Navbar from "../layouts/Navbar";
 
-const Home = () => {
-    return (
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-    )
-}
-export default Home
+const Home = ({ isAuthenticated }) => {
+  if (isAuthenticated) {
+    return <Redirect to='/level' />;
+  }
+
+  return (
+    <section className='landing'>
+      <Navbar />
+      <div className='dark-overlay'>
+        <div className='landing-inner'>
+          <h1 className='x-large'>CryptX</h1>
+          <p className='lead'>
+            Can you scratch your grey matter to crack these levels?
+          </p>
+          <div className='buttons'>
+            <Link to='/level' className='btn btn-primary btn-lg'>
+              CRACK IT
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+Home.propTypes = {
+  isAuthenticated: PropTypes.bool
+};
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps)(Home);

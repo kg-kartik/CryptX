@@ -5,6 +5,7 @@ import {getUserDetails} from "../actions/authActions"
 import {getCurrentLevel,updateLevel} from "../actions/levelActions";
 import {withRouter,Redirect} from "react-router-dom"
 import PropTypes from "prop-types"
+import Navbar from "../layouts/Navbar"
 
 const Level = ({getCurrentLevel,level,updateLevel}) => {
     
@@ -23,7 +24,8 @@ const Level = ({getCurrentLevel,level,updateLevel}) => {
         updateLevel(newAnswer);
     }
     return (
-       <div>
+       <div class= "main-bg">
+           <Navbar />
          {
              level.isLoading ? 
               (<h1> Loading </h1>) :

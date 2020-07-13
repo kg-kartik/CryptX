@@ -1,55 +1,10 @@
 import React,{useState,useEffect} from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import {useHistory} from "react-router";
 import {connect} from "react-redux"
 import {loginUser} from "../actions/authActions"
 import {withRouter,Redirect} from "react-router-dom"
 import PropTypes from "prop-types"
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-const stylecss = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
+import Navbar from "../layouts/Navbar";
 
 const SignIn = ({loginUser,auth}) => {
 
@@ -71,77 +26,57 @@ const SignIn = ({loginUser,auth}) => {
       history.push('/level');
       window.location.reload();
     }
-  const classes = stylecss();
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
-        <form className={classes.form} noValidate>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            value = {email}
-            onChange =  {(e) => {setEmail(e.target.value)}}
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            value = {password}
-            onChange =  {(e) => {setPassword(e.target.value)}}
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            onClick = {(e) => login(e)}
-            className={classes.submit}
-          >
-            Sign In
-          </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
+    <div className = "main-bg">
+      <Navbar />
+    <div className = "container py-5">
+      <div className = "row">
+        <div className = "col-md-12">
+          <div className = "row">
+            <div className ="col-md-5 mx-auto">
+
+              {/* Login Form */}
+              <div className = "card rounded-2">
+                <div className = "card-header">
+                  <h3 className = "mb-0 heading text-white text-center"> Login </h3>
+                </div>
+                <div className="card-body">
+                  <form className = "form" role = "form" autocompelete = "off">
+
+                      <div className = "form-group">
+                        <label className ="text-white mt-3"> Email </label>
+                        <input 
+                          type = "text" 
+                          className = "form-control form-control rounded-1" 
+                          onChange =  {(e) => {setEmail(e.target.value)}}
+                        />
+                        <div className = "invalid-feedback"> Enter correct password</div>
+                      </div>
+
+                      <div className = "form-group">
+                        <label className ="text-white mt-3"> Password</label>
+                        <input type = "password" 
+                          className = "form-control form-control rounded-1" 
+                          name="password"
+                          onChange =  {(e) => {setPassword(e.target.value)}}
+                        />
+
+                        <div className = "invalid-feedback"> Enter correct password</div>
+                      </div>
+                      <button 
+                        type="submit" 
+                        onClick = {(e) => login(e)}
+                        className="btn btn-primary btn-lg mt-4" id="btnLogin">SignUp</button>
+                  </form>
+                </div>
+              </div>
+              </div>
+            </div>
+        </div>
       </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
-    </Container>
+    </div>
+    </div>
   );
 }
 

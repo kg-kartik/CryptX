@@ -2,6 +2,8 @@ import React, { useEffect } from "react"
 import {connect} from "react-redux"
 import {getUsers} from "../actions/leaderboardActions";
 import PropTypes from "prop-types";
+import Navbar from "../layouts/Navbar"
+import "../App.css"
 
 const Leaderboard = ({getUsers,leaderboard}) => {
   useEffect(() => {
@@ -9,13 +11,14 @@ const Leaderboard = ({getUsers,leaderboard}) => {
   })
     return (
       <div>
-          <h1 class="text-center"> Leaderboard</h1>
+        <Navbar />
+      
           {!leaderboard.users ?
           (
             <h1> Loading ...</h1>
           ) : (
-            <table class="table table-hover table-dark">
-      <thead>
+            <table className="table table-hover table-dark">
+      <thead class="table-header">
         <tr>
           <th scope="col">Rank</th>
           <th scope="col">Name</th>
@@ -24,7 +27,7 @@ const Leaderboard = ({getUsers,leaderboard}) => {
         </tr>
       </thead>
       <tbody> {leaderboard.users.map((detail,index) => (
-          <tr>
+          <tr key = {index+1}>
           <th scope="row">{index+1}</th>
           <td>{detail.name}</td>
           <td>{detail.university}</td>
