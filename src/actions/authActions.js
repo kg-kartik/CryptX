@@ -1,4 +1,4 @@
-import {SET_CURRENT_USER,GET_ERRORS, GET_USER_DETAILS} from "./types";
+import {SET_CURRENT_USER,GET_ERRORS, GET_USER_DETAILS,GET_USERS} from "./types";
 import axios from "axios";
 import setAuthToken from "../util/setAuthToken";
 import jwt_decode from 'jwt-decode';

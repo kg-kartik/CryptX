@@ -51,8 +51,8 @@ const App = () => {
                   <Route exact path ="/home" component = {Home} /> 
                   <Route exact path ="/signup" component = {SignUp} />
                   <Route exact path="/signin" component = {SignIn} />
-                  <ProtectedRoute exact path = "/level" component = {Level} />
                   <Route exact path = "/leaderboard" component = {Leaderboard} />
+                  <ProtectedRoute exact path = "/level" component = {Level} />
                 </Switch>
             </Router>
         </Provider>

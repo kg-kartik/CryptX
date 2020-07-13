@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const setAuthToken = (token) => {
+    console.log(token);
     if(token) {
         
         //Set token in the headers of all the requests 
