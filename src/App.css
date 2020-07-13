@@ -1,4 +1,7 @@
 /* Home Page */
+body {
+  background : black;
+}
 
 .landing {
   position: relative;
@@ -35,4 +38,47 @@
 .lead {
   font-size: 1.5rem;
   margin-bottom: 3rem;
+}
+
+.card {
+  background-color : black;
+}
+#nav-bar {
+  position : sticky;
+  top : 0;
+  z-index : 10;
+}
+.navbar {
+  background-color : black;
+}
+.navbar-nav li {
+  padding : 0 10px;
+}
+.navbar-nav li a {
+  color : #ffffff !important;
+  font-weight: 600;
+}
+.nav-link :hover {
+  color : blue !important; 
+}
+
+input[type=text] {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #ffffff !important;
+}
+input[type=password] {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #ffffff !important;
+}
+.table-header {
+  background-color : #079af7;
+  border-bottom : 1px solid black !important; 
+}
+.table {
+  background-color : black;
+}
+.heading {
+  margin-top : 30% !important;
 }
