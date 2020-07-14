@@ -1,4 +1,4 @@
-import {SET_CURRENT_USER,GET_USER_DETAILS,GET_USERS} from "../actions/types";
+import {SET_CURRENT_USER} from "../actions/types";
 import isEmpty from "../validation/isEmpty"
 
 const initialState= {
@@ -14,12 +14,6 @@ export default function(state = initialState,action) {
                 ...state,
                 isAuthenticated : !isEmpty(action.payload),
                 user : action.payload
-            }
-        case GET_USER_DETAILS :
-            return {
-                ...state,
-                isAuthenticated : !isEmpty(action.payload),
-                userDetails : action.payload
             }
         default : 
             return state;
