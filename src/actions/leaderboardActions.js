@@ -10,9 +10,6 @@ export const getUsers = () => (dispatch) => {
                 payload : response.data
             })
         }).catch((err) => {
-            dispatch({
-                type : GET_ERRORS,
-                payload : err
-            })
+            console.log(err);
         })
 }

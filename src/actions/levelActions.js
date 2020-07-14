@@ -1,4 +1,4 @@
-import {GET_CURRENT_LEVEL,UPDATE_LEVEL, GET_ERRORS} from "./types";
+import {GET_CURRENT_LEVEL,UPDATE_LEVEL} from "./types";
 import axios from "axios";
 
 export const getCurrentLevel = () => (dispatch) => {
@@ -7,13 +7,10 @@ export const getCurrentLevel = () => (dispatch) => {
     .then((response) => {
         dispatch({
             type : GET_CURRENT_LEVEL,
-            payload : response.data.atLevel
+            payload : response.data
         })
     }).catch((err) => {
-        dispatch({
-            type : GET_ERRORS,
-            payload : err
-        })
+        console.log(err);
     })
 } 
 
@@ -28,9 +25,6 @@ export const updateLevel = (answer) => (dispatch) => {
             payload : response.data.atLevel
         })
     }).catch((err) => {
-        dispatch({
-            type : GET_ERRORS,
-            payload : err
-        })
+        console.log(err);
     })
 }

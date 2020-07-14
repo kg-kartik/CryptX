@@ -1,4 +1,5 @@
-import {SET_CURRENT_USER,GET_ERRORS, GET_USER_DETAILS,GET_USERS} from "./types";
+import {SET_CURRENT_USER} from "./types";
+import setAlert from "./alertActions";
 import axios from "axios";
 import setAuthToken from "../util/setAuthToken";
 import jwt_decode from 'jwt-decode';
@@ -7,14 +8,20 @@ import jwt_decode from 'jwt-decode';
 export const registerUser = (userData,history) => (dispatch) => {
     axios.post("http://localhost:5000/user/signup",userData)
     .then((response) => {
+
+        dispatch(setAlert("Successfully Registered","success"));
         history.push("/signin");
     })
-    .catch((error) => {
-        dispatch({
-            type : GET_ERRORS,
-            payload : error
-        })
-        console.log(error);
+    .catch((err) => {
+       
+        const errors = err.response.data.errors;
+        console.log(errors);
+
+        if(errors) {
+            errors.forEach((error ) => {
+                dispatch(setAlert(error.msg,"danger"))
+            })
+        }
     })
 }
 
@@ -34,13 +41,19 @@ export const loginUser = (userData) => (dispatch) => {
 
         //Passing the decoded token to the setCurrentUser function
         dispatch(setCurrentUser(decodedToken));
+        dispatch(setAlert("Successfully LoggedIn","success"));
     })
-    .catch((error) => {
-        dispatch({
-            type : GET_ERRORS,
-            payload : error
-        })
-        console.log(error);
+    .catch((err) => {
+        // const errors = err.response.data.errors;
+        // console.log(errors);
+
+        // if(errors) {
+        //     errors.forEach((error ) => {
+        //         dispatch(setAlert(error.msg,"danger"))
+        //     })
+        // }
+        const errors = response.data.errors;
+        console.log(errors);
     })
 }
 
@@ -50,23 +63,6 @@ export const setCurrentUser = (decodedToken) => {
         type : SET_CURRENT_USER,
         payload : decodedToken
     }
-}
-
-//Get user details
-export const getUserDetails = () => (dispatch) => {
-    axios
-        .get("http://localhost:5000/user/getDetails")
-        .then((response) => {
-            dispatch({
-              type : GET_USER_DETAILS,
-              payload : response.data  
-            })
-        }).catch((err) => {
-            dispatch({
-                type : GET_ERRORS,
-                payload : err
-            })
-        })
 }
 
 //Logout user
