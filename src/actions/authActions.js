@@ -44,16 +44,7 @@ export const loginUser = (userData) => (dispatch) => {
         dispatch(setAlert("Successfully LoggedIn","success"));
     })
     .catch((err) => {
-        // const errors = err.response.data.errors;
-        // console.log(errors);
-
-        // if(errors) {
-        //     errors.forEach((error ) => {
-        //         dispatch(setAlert(error.msg,"danger"))
-        //     })
-        // }
-        const errors = response.data.errors;
-        console.log(errors);
+        dispatch(setAlert("Invalid Credentials","danger"))
     })
 }
 

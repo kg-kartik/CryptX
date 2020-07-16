@@ -3,7 +3,7 @@ import isEmpty from "../validation/isEmpty"
 
 const initialState= {
     isAuthenticated : false,
-    user : {},
+    user : null,
     userDetails : {}
 }
 

@@ -1,5 +1,6 @@
 import {GET_CURRENT_LEVEL,UPDATE_LEVEL} from "./types";
 import axios from "axios";
+import setAlert from "./alertActions";
 
 export const getCurrentLevel = () => (dispatch) => {
     axios
@@ -22,9 +23,12 @@ export const updateLevel = (answer) => (dispatch) => {
     .then((response) => {
         dispatch({
             type : UPDATE_LEVEL,
-            payload : response.data.atLevel
+            payload : response.data
         })
+        dispatch(setAlert("Correct Answer","success"));
     }).catch((err) => {
-        console.log(err);
+        
+        dispatch(setAlert("Incorrect answer","danger"))
+        
     })
 }
