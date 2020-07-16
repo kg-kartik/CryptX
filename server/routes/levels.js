@@ -19,7 +19,7 @@ router.post("/postLevel",(req,res) => {
     .then((savedLevel) => {
         res.status(200).json(savedLevel);
     }).catch((err) => {
-        res.status(401).json({
+        res.status(400).json({
             error : "Error saving the level"
         })
     })
@@ -58,24 +58,22 @@ router.post("/answer",requireLogin,(req,res) => {
             }).populate("atLevel",["_id","hint","question"])
             .then((newLevel) => {
                 res.status(200).json(newLevel);
-            }).catch((err) => {
-                res.status(401).json({
-                    error : err
-                })
             })
         }
         else {
-            res.status(401).json({
-                error : "Sorry, Incorrect answer"
+            res.status(400).json({
+                errors: [{ msg: 'Incorrect answer' }]
             })
         }
+    }).catch((err) => {
+        console.log(err);
     })
 })   
 
 //Fectching users to be displayed on the leaderboard
 router.get("/leaderboard",(req,res) => {
     User.find({})
-    .sort({user : 1,lastLevelCrackedAt : 1})
+    .sort({lastLevelCrackedAt : -1})
     .then((users) => {
         res.status(200).json(users);
     }).catch((err) => {

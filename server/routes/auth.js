@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const secret = require("../config/keys").JWT_SECRET;
 const requireLogin = require("../middleware/requireLogin");
+const { body, validationResult } = require('express-validator');
 
 router.get('/getDetails',requireLogin,(req,res) => {
     User.findById(req.user._id)
@@ -15,54 +16,60 @@ router.get('/getDetails',requireLogin,(req,res) => {
     })
 })
 
-router.post('/signup',(req,res) => {
-    const {name,university,email,password} = req.body;
-    if(!name || !university || !email || !password){
-        return res.status(422).json({
-            error : "Please fill all the fields"
-        })
-    }
-    
-    //Checking if the user is already signed up or not
-    User.findOne({
-        email
-    }).then((user) => {
-        if (user) {
-            return res.status(422).json({
-                error : "User with that Email already exists"
-            })
+router.post('/signup',
+    [   
+        body("name", "Please provide a valid name").not().isEmpty(),
+        body("university","Please provide university name").not().isEmpty(),
+        body("email", "Please provide a valid email address").isEmail(),
+        body("password","Please provide a password altleast 6 characters long").isLength({ min: 6 }),
+    ],
+    (req,res) => {
+
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
         }
 
-    //If not save the new User 
-    bcrypt.hash(password,10).then((hashedPass) => {
-        const newUser = new User({
-            name,
-            university,
-            email,
-            password : hashedPass
-        })
+        const {name,university,email,password} = req.body;
     
-        newUser.save()
-        .then((saveduser) => {
-            res.status(200).json(saveduser);
-        }).catch((err) => {
-            console.log(err);
-        }).catch((err) => {
-            console.log(err);
+    //Checking if the user is already signed up or not
+        User.findOne({
+            email
+        }).then((user) => {
+            if (user) {
+                return res.status(400).json({ 
+                    errors: [{ msg: 'Email already exists' }] 
+                })
+            }
+
+        //If not save the new User 
+        bcrypt.hash(password,10).then((hashedPass) => {
+            const newUser = new User({
+                name,
+                university,
+                email,
+                password : hashedPass
+            })
+
+            newUser.save()
+            .then((saveduser) => {
+                res.status(200).json(saveduser);
+            }).catch((err) => {
+                console.log(err);
+            }).catch((err) => {
+                console.log(err);
+            })
         })
-    })
-    })
+        })
 })
 
 
-router.post('/signin',(req,res) => {
+router.post('/signin',
+    [
+        body("email", "Please provide a valid email address").isEmail(),
+        body("password", "Please provide a password").not().isEmpty(),
+    ],(req,res) => {
     const {email,password} = req.body;
-    
-    if(!email || !password) {
-        return res.status(422).json({
-            error : "Please fill all the fields"
-        })
-    }
 
     //Checking if the user has registered or not
     User.findOne({
@@ -70,8 +77,8 @@ router.post('/signin',(req,res) => {
     }).then((user) => {
 
         if(!user) {
-            return res.status(422).json({
-                error : "Student with this email is not present"
+            return res.status(400).json({
+                errors: [{ msg: 'Invalid Credentials' }]
             })
         }
 
@@ -91,7 +98,7 @@ router.post('/signin',(req,res) => {
             }
             else {
                 res.json({
-                    error : "Sorry Incorrect Email/Password"
+                    errors: [{ msg: 'Invalid Credentials' }]
                 })
             }
         }).catch((err) => {
