@@ -5,7 +5,12 @@ import PropTypes from 'prop-types';
 import { logoutUser } from "../actions/authActions";
 import "../App.css"
 
-const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+const Navbar = ({ auth: { isAuthenticated, loading }}) => {
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  }
 
   return (
     <div id="nav-bar">
@@ -16,7 +21,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           !isAuthenticated ? (
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link" href="/home">HOME</a>
+                <a className="nav-link" href="/">HOME</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/signup">SIGNUP</a>
@@ -32,15 +37,14 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           (
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link" href="/home">HOME</a>
-              </li>
-              <li className="nav-item">
                 <a className="nav-link" href="/level">PLAY</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/logout">LOGOUT</a>
+                <a className="nav-link" href="/leaderboard">LEADERBOARD</a>
               </li>
-  
+              <li className="nav-item">
+                <a className="nav-link logout" onClick={() => logout()}>LOGOUT</a>
+              </li>
             </ul>
           )
         }

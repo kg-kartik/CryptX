@@ -1,11 +1,9 @@
 import React ,{useEffect,useState} from "react"
-import {useHistory} from "react-router";
 import {connect} from "react-redux"
-import {getUserDetails} from "../actions/authActions"
 import {getCurrentLevel,updateLevel} from "../actions/levelActions";
-import {withRouter,Redirect} from "react-router-dom"
 import PropTypes from "prop-types"
 import Navbar from "../layouts/Navbar"
+import image from "../assets/lvl1.jpg"
 
 const Level = ({getCurrentLevel,level,updateLevel}) => {
     
@@ -20,38 +18,62 @@ const Level = ({getCurrentLevel,level,updateLevel}) => {
         const newAnswer = {
             answer
         }
-        console.log(answer);
         updateLevel(newAnswer);
     }
     return (
-       <div class= "main-bg">
+       <div className = "main-bg">
            <Navbar />
-         {
-             level.isLoading ? 
-              (<h1> Loading </h1>) :
-              (
-                  <div>
-                      <h1> You are at level {level.levelDetails._id}</h1> 
-                      <br /> <br />
-                      <h1> {level.levelDetails.hint}</h1>
-                      <h1> {level.levelDetails.question}</h1>
-                  </div>
-              )
-         }
-         <input 
-            type ="text" 
-            onChange = {(e) => setAnswer(e.target.value)}
-            name = "answer"
-            value = {answer}
-            placeholder = "Enter your answer"
-         />
-        <button 
-            type="submit"
-            onClick = {(e) => submitAnswer(e)}
-        >
-            Level++?
-        </button>
-       </div>
+           <div className = "container py-5">
+      <div className = "row">
+        <div className = "col-md-12">
+          <div className = "row">
+            <div className ="col-md-5 mx-auto">
+
+              {/* Login Form */}
+              <div className = "card level rounded-2">
+                <div className="card-body">
+                        {
+                            level.isLoading ? 
+                                (<h1> Loading </h1>) :
+                                (
+                                    <div>
+                                        <h1 className="text-center levelno"> Level {level.levelDetails.atLevel._id}</h1> 
+                                        <h3 className ="hint"> {level.levelDetails.atLevel.hint}</h3>
+                                        {/* <h1> {level.levelDetails.atLevel.question}</h1> */}
+                                        <div className='level-inner'>
+                                            <img className= "text-center mt-3" src={image} />
+                                        </div>
+                                    </div>
+                                )
+                        }
+
+                        <input 
+                            type = "text"
+                            className="form-control mt-4" 
+                            id="exampleFormControlInput1" 
+                            placeholder="Answer daal bc"
+                            onChange={(e) =>setAnswer(e.target.value)}
+                        />
+                        
+                        <div className='level-inner'>
+                            <button 
+                                type="submit"
+                                className = "btn btn-primary btn-lg mt-4 answerbox"
+                                onClick = {(e) => submitAnswer(e)}
+                            >
+                                Level++ ?
+                            </button>
+                        </div>
+                        
+                    </div>
+              </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+        </div>
        
     )
 }
