@@ -1,9 +1,11 @@
 import React from "react"
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
+import Home from "./components/Home"
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
 import Level from "./components/Level";
 import Leaderboard from "./components/Leaderboard";
+import Alert from "./layouts/Alert";
 
 //Bring in Provider to access the global store
 import {Provider} from "react-redux"
@@ -14,7 +16,8 @@ import setAuthToken from "./util/setAuthToken"
 import jwt_decode from "jwt-decode";
 import {setCurrentUser,logoutUser} from "./actions/authActions";
 import ProtectedRoute from "./commons/ProtectedRoute"
-import Home from "./components/Home"
+import PublicRoute from "./commons/PublicRoute";
+
 // export const appHistory = createBrowserHistory();
 
 //Checking if the user is already logged in or not
@@ -47,11 +50,12 @@ const App = () => {
     return (
         <Provider store={store}>
             <Router>
+                <Alert />
                 <Switch>
-                  <Route exact path ="/home" component = {Home} /> 
-                  <Route exact path ="/signup" component = {SignUp} />
-                  <Route exact path="/signin" component = {SignIn} />
-                  <Route exact path = "/leaderboard" component = {Leaderboard} />
+                  <PublicRoute restricted = {false} exact path ="/" component = {Home} /> 
+                  <PublicRoute restricted = {true} exact path ="/signup" component = {SignUp} />
+                  <PublicRoute restricted ={true} exact path="/signin" component = {SignIn} />
+                  <PublicRoute restricted = {false} exact path = "/leaderboard" component = {Leaderboard} />
                   <ProtectedRoute exact path = "/level" component = {Level} />
                 </Switch>
             </Router>

@@ -1,14 +1,18 @@
-/* Home Page */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&display=swap');
+
 body {
   background : black;
+  font-family: 'IBM Plex Sans', sans-serif;
+  letter-spacing: 2px;
 }
+
+/* Home*/
 
 .landing {
   position: relative;
   background-color: black;
   height: 100vh;
 }
-
 .landing-inner {
   color: #fff;
   height: 100%;
@@ -20,7 +24,6 @@ body {
   justify-content: center;
   text-align: center;
 }
-
 .dark-overlay {
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
@@ -29,20 +32,17 @@ body {
   width: 100%;
   height: 100%;
 }
-
 .x-large {
   font-size: 5rem;
   padding-bottom: 2rem;
 }
-
 .lead {
   font-size: 1.5rem;
   margin-bottom: 3rem;
 }
 
-.card {
-  background-color : black;
-}
+/* Navbar */
+
 #nav-bar {
   position : sticky;
   top : 0;
@@ -62,6 +62,11 @@ body {
   color : blue !important; 
 }
 
+/* SignUp and SignIn */
+
+.card {
+  background-color : black;
+}
 input[type=text] {
   background: transparent !important;
   border: none !important;
@@ -72,6 +77,9 @@ input[type=password] {
   border: none !important;
   border-bottom: 1px solid #ffffff !important;
 }
+
+/* Leaderboard */
+
 .table-header {
   background-color : #079af7;
   border-bottom : 1px solid black !important; 
@@ -79,6 +87,27 @@ input[type=password] {
 .table {
   background-color : black;
 }
-.heading {
-  margin-top : 30% !important;
+
+/* Level */
+
+.level {
+  background-color: #ffffff;
+}
+.level-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.answer-box {
+  margin-left : auto !important;
+}
+.hint {
+  color : green;
+}
+.levelno {
+  color : red;
+  font-weight: 600;
+}
+.logout:hover {
+  cursor: pointer;
 }
