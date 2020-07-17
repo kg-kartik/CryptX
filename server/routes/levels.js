@@ -3,14 +3,37 @@ const router = express.Router();
 const Level = require("../model/levels");
 const User = require("../model/user");
 const requireLogin = require("../middleware/requireLogin");
+const multer = require("multer");
+const path = require("path");
+
+//File Storage Config 
+const storageDir = path.join(__dirname,'backend','../..','public');
+console.log(storageDir);
+
+const storage = multer.diskStorage({
+    destination : (req,file,cb) => {
+        cb(null,storageDir);
+    },
+    filename : (req,file,cb) => {
+        console.log(file,"hello");
+        cb(null,+ Date.now()+path.extname(file.originalname));
+    }
+});
+
+const upload = multer({
+    storage
+}).single('file');
 
 //Posting the levels data to the db
-router.post("/postLevel",(req,res) => {
-    const {_id,question,hint,answer} = req.body;
+router.post("/postLevel",upload,(req,res) => {
+
+    const url = req.protocol+"://"+req.get("host");
+
+    const {_id,hint,answer} = req.body;
 
     const newLevel = new Level({
         _id,
-        question,
+        question : url+"/public/"+req.file.filename,
         hint,
         answer    
     })
@@ -20,10 +43,17 @@ router.post("/postLevel",(req,res) => {
         res.status(200).json(savedLevel);
     }).catch((err) => {
         res.status(400).json({
-            error : "Error saving the level"
+            err
         })
     })
 })
+
+//update level from admin side by posting image
+// router.post("/postImage",upload,(req,res) => {
+//     Level.findOneAndUpdate({
+//         atLevel : 
+//     })
+// })
 
 //Get current level of a user
 router.get("/getCurrentLevel",requireLogin,(req,res) => {
