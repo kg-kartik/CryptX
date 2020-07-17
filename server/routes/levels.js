@@ -48,13 +48,6 @@ router.post("/postLevel",upload,(req,res) => {
     })
 })
 
-//update level from admin side by posting image
-// router.post("/postImage",upload,(req,res) => {
-//     Level.findOneAndUpdate({
-//         atLevel : 
-//     })
-// })
-
 //Get current level of a user
 router.get("/getCurrentLevel",requireLogin,(req,res) => {
     User.findById(req.user._id)
