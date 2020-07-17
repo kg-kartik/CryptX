@@ -5,10 +5,6 @@ const mongoose = require('mongoose');
 const db = require('./config/keys').MongoURI;
 const cors = require("cors");
 
-var corsOptions = {
-    origin: 'http://localhost:3000',
-}
-
 //Requiring routes
 const authUser = require("./routes/auth");
 const level = require("./routes/levels");
@@ -26,8 +22,12 @@ app.use(express.urlencoded({
 }));
 
 app.use(bodyParser.json());
-app.use("/user",cors(corsOptions),authUser);
-app.use("/",cors(corsOptions),level);
+
+app.use(cors());
+app.use("/user",authUser);
+app.use("/",level);
+
+app.use("/public",express.static('public'));
 
 const PORT = process.env.PORT || 5000;
 
