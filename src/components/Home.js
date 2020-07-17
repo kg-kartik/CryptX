@@ -1,15 +1,10 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { Link} from 'react-router-dom';
 import "../App.css"
 import Navbar from "../layouts/Navbar";
 
-const Home = ({ isAuthenticated }) => {
-  if (isAuthenticated) {
-    return <Redirect to='/level' />;
-  }
-
+const Home = () => {
+ 
   return (
     <section className='landing'>
       <Navbar />
@@ -30,12 +25,5 @@ const Home = ({ isAuthenticated }) => {
   );
 };
 
-Home.propTypes = {
-  isAuthenticated: PropTypes.bool
-};
 
-const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
-});
-
-export default connect(mapStateToProps)(Home);
+export default Home;

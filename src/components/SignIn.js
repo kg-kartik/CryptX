@@ -1,8 +1,8 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import {useHistory} from "react-router";
 import {connect} from "react-redux"
 import {loginUser} from "../actions/authActions"
-import {withRouter,Redirect} from "react-router-dom"
+import {withRouter} from "react-router-dom"
 import PropTypes from "prop-types"
 import Navbar from "../layouts/Navbar";
 
@@ -35,11 +35,9 @@ const SignIn = ({loginUser,auth}) => {
         <div className = "col-md-12">
           <div className = "row">
             <div className ="col-md-5 mx-auto">
-
-              {/* Login Form */}
               <div className = "card rounded-2">
                 <div className = "card-header">
-                  <h3 className = "mb-0 heading text-white text-center"> Login </h3>
+                  <h3 className = "mb-0 heading text-white text-center"> SignIn </h3>
                 </div>
                 <div className="card-body">
                   <form className = "form" role = "form" autocompelete = "off">
@@ -67,7 +65,7 @@ const SignIn = ({loginUser,auth}) => {
                       <button 
                         type="submit" 
                         onClick = {(e) => login(e)}
-                        className="btn btn-primary btn-lg mt-4" id="btnLogin">SignUp</button>
+                        className="btn btn-primary btn-lg mt-4" id="btnLogin">SignIn</button>
                   </form>
                 </div>
               </div>

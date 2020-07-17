@@ -1,5 +1,4 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logoutUser } from "../actions/authActions";
@@ -36,6 +35,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }}) => {
           ) :
           (
             <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <a className="nav-link" href="/">HOME</a>
+              </li>
               <li className="nav-item">
                 <a className="nav-link" href="/level">PLAY</a>
               </li>
