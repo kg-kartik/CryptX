@@ -4,7 +4,7 @@ import setAlert from "./alertActions";
 
 export const getCurrentLevel = () => (dispatch) => {
     axios
-    .get("http://localhost:5000/getCurrentLevel")
+    .get("/getCurrentLevel")
     .then((response) => {
         dispatch({
             type : GET_CURRENT_LEVEL,

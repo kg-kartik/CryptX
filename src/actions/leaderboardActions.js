@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const getUsers = () => (dispatch) => {
     axios
-        .get("http://localhost:5000/leaderboard")
+        .get("/leaderboard")
         .then((response) => {
             dispatch({
                 type : GET_USERS,
