@@ -99,7 +99,7 @@ router.get("/getlevels",(req,res) => {
     .then((users) => {
         res.status(200).json(users);
     }).catch((err) => {
-        res.status(401).json(err);
+        console.log(err);
     })
 })
 
