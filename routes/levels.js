@@ -8,7 +8,6 @@ const path = require("path");
 
 //File Storage Config 
 const storageDir = path.join(__dirname,'backend','../..','public');
-console.log(storageDir);
 
 const storage = multer.diskStorage({
     destination : (req,file,cb) => {
@@ -94,7 +93,7 @@ router.post("/answer",requireLogin,(req,res) => {
 })   
 
 //Fectching users to be displayed on the leaderboard
-router.get("/leaderboard",(req,res) => {
+router.get("/getlevels",(req,res) => {
     User.find({})
     .sort({lastLevelCrackedAt : -1})
     .then((users) => {

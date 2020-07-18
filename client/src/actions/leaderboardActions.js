@@ -1,9 +1,9 @@
-import {GET_USERS,GET_ERRORS} from "./types";
+import {GET_USERS} from "./types";
 import axios from "axios";
 
 export const getUsers = () => (dispatch) => {
     axios
-        .get("/leaderboard")
+        .get("/getlevels")
         .then((response) => {
             dispatch({
                 type : GET_USERS,

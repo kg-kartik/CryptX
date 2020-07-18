@@ -39,7 +39,7 @@ const Level = ({getCurrentLevel,level,updateLevel}) => {
                                         <h1 className="text-center levelno"> Level {level.levelDetails.atLevel._id}</h1> 
                                         <h4 className ="hint mt-3"> {level.levelDetails.atLevel.hint}</h4>
                                         <div className='level-inner'>
-                                            <img className= "text-center mt-3 level-image" src={level.levelDetails.atLevel.question} />
+                                            <img className= "text-center mt-3 level-image" alt="levels" src={level.levelDetails.atLevel.question} />
                                         </div>
                                     </div>
                                 )

@@ -40,7 +40,7 @@ const SignIn = ({loginUser,auth}) => {
                   <h3 className = "mb-0 heading text-white text-center"> SignIn </h3>
                 </div>
                 <div className="card-body">
-                  <form className = "form" role = "form" autocompelete = "off">
+                  <form className = "form" autocompelete = "off">
 
                       <div className = "form-group">
                         <label className ="text-white mt-3"> Email </label>

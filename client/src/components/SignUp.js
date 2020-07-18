@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import {useHistory} from "react-router";
 import {connect} from "react-redux"
 import {registerUser} from "../actions/authActions";
@@ -7,12 +7,7 @@ import "../App.css";
 import Navbar from "../layouts/Navbar"
 
 const SignUp = ({registerUser,auth}) => { 
-  useEffect(() => {
-    if(auth.isAuthenticated) {
-      history.push("/signin");
-    }
-  },[])  
-
+   
     const history = useHistory();
     
     const [name,setName] = useState("")
@@ -46,7 +41,7 @@ const SignUp = ({registerUser,auth}) => {
                     <h3 className = "mb-0 text-white text-center"> SignUp </h3>
                   </div>
                   <div className="card-body">
-                    <form className = "form" role = "form" autocompelete = "off">
+                    <form className = "form" autocompelete = "off">
 
                         <div className = "form-group">
                           <label className ="text-white"> Name</label>
