@@ -24,7 +24,6 @@
     "uuid": "^8.2.0"
   },
   "scripts": {
-    "postinstall": "npm install --prefix server",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
