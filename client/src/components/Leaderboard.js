@@ -17,6 +17,8 @@ const Leaderboard = ({getUsers,leaderboard}) => {
           (
             <h1> Loading ...</h1>
           ) : (
+            <div className="table-container">
+
             <table className="table table-hover table-dark">
       <thead class="table-header">
         <tr>
@@ -27,7 +29,7 @@ const Leaderboard = ({getUsers,leaderboard}) => {
         </tr>
       </thead>
       <tbody> {leaderboard.users.map((detail,index) => (
-          <tr key = {index+1}>
+        <tr key = {index+1}>
           <th scope="row">{index+1}</th>
           <td>{detail.name}</td>
           <td>{detail.university}</td>
@@ -37,6 +39,7 @@ const Leaderboard = ({getUsers,leaderboard}) => {
         
       </tbody>
     </table>
+      </div>
           )}
       
       </div>
