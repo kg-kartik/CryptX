@@ -1,17 +1,17 @@
-import {GET_USERS} from "../actions/types";
+import { GET_USERS } from "../actions/types";
 
 const initialState = {
-    users : []
-}
+	users: []
+};
 
-export default function(state = initialState,action) {
-    switch(action.type) {
-        case GET_USERS:
-            return {
-                ...state,
-                users : action.payload
-            }
-        default : 
-            return state;
-    }
+export default function (state = initialState, action) {
+	switch (action.type) {
+		case GET_USERS:
+			return {
+				...state,
+				users: action.payload
+			};
+		default:
+			return state;
+	}
 }
