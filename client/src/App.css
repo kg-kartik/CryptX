@@ -11,7 +11,16 @@ body {
 .landing {
   position: relative;
   background-color: black;
+  background: url("https://media0.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif") ;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
+}
+.main-bg{
+  height: 100vh;
+  background: url("https://media0.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif") ;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .landing-inner {
   color: #fff;
@@ -86,14 +95,20 @@ input[type=password] {
 
 /* Leaderboard */
 
+.table {
+  background-color : black;
+}
 .table-header {
   background-color : #079af7;
   border-bottom : 1px solid black !important; 
 }
-.table {
-  background-color : black;
+/* TO BE REMOVED  */
+.table-container{
+  padding: 80px;
 }
-
+.card{
+  margin-top: 30px;
+}
 /* Level */
 
 .level {

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logoutUser } from "../actions/authActions";
+import {Link} from 'react-router-dom'
 import "../App.css"
 
 const Navbar = ({ auth: { isAuthenticated, loading }}) => {
@@ -23,32 +24,32 @@ const Navbar = ({ auth: { isAuthenticated, loading }}) => {
           !isAuthenticated ? (
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link" href="/">HOME</a>
+                <Link className="nav-link" to="/">HOME</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/signup">SIGNUP</a>
+                <Link className="nav-link" to="/signup">SIGNUP</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/signin">SIGNIN</a>
+                <Link className="nav-link" to="/signin">SIGNIN</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/leaderboard">LEADERBOARD</a>
+                <Link className="nav-link" to="/leaderboard">LEADERBOARD</Link>
               </li>
             </ul>
           ) :
           (
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link" href="/">HOME</a>
+                <Link className="nav-link" to="/">HOME</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/level">PLAY</a>
+                <Link className="nav-link" to="/level">PLAY</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/leaderboard">LEADERBOARD</a>
+                <Link className="nav-link" to="/leaderboard">LEADERBOARD</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link logout" onClick={() => logout()}>LOGOUT</a>
+                <Link className="nav-link logout" onClick={() => logout()}>LOGOUT</Link>
               </li>
             </ul>
           )
