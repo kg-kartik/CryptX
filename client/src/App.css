@@ -1,138 +1,146 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&display=swap");
 
 body {
-  background : black;
-  font-family: 'IBM Plex Sans', sans-serif;
-  letter-spacing: 2px;
+	background: black;
+	font-family: "IBM Plex Sans", sans-serif;
+	letter-spacing: 2px;
+	padding: 0px;
+	margin: 0px;
 }
 
 /* Home*/
 
 .landing {
-  position: relative;
-  background-color: black;
-  background: url("https://media0.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif") ;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-}
-.main-bg{
-  height: 100vh;
-  background: url("https://media0.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif") ;
-  background-repeat: no-repeat;
-  background-size: cover;
+	position: relative;
+	background: url("https://media0.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif");
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 100vh;
 }
 .landing-inner {
-  color: #fff;
-  height: 100%;
-  width: 80%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+	color: #fff;
+	height: 100%;
+	width: 80%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
 }
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+	background-color: rgba(0, 0, 0, 0.74);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 .x-large {
-  font-size: 5rem;
-  padding-bottom: 2rem;
+	font-size: 5rem;
+	padding-bottom: 2rem;
 }
 .lead {
-  font-size: 1.5rem;
-  margin-bottom: 3rem;
+	font-size: 1.5rem;
+	margin-bottom: 3rem;
+}
+.main-bg {
+	height: 100vh;
+	background: url("https://media0.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif");
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 100vh;
 }
 
 /* Navbar */
 
 #nav-bar {
-  position : sticky;
-  top : 0;
-  z-index : 10;
+	position: sticky;
+	top: 0;
+	z-index: 10;
 }
 .navbar {
-  background-color : black;
+	background-color: black;
 }
 .navbar-nav li {
-  padding : 0 10px;
+	padding: 0 10px;
 }
 .navbar-nav li a {
-  color : #ffffff !important;
-  font-weight: 600;
+	color: #ffffff !important;
+	font-weight: 600;
 }
 .nav-link :hover {
-  color : blue !important; 
+	color: blue !important;
 }
 
+/* Alert */
+.alert {
+	background-color: #ffc4cb;
+	color: black;
+	font-weight: bold;
+}
 /* SignUp and SignIn */
 
 .card {
-  background-color : black;
+	background-color: black;
 }
-input[type=text] {
-  background: transparent !important;
-  border: none !important;
-  border-bottom: 1px solid #ffffff !important;
-  color : #ffffff !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
+input[type="text"] {
+	background: transparent !important;
+	border: none !important;
+	border-bottom: 1px solid #ffffff !important;
+	color: #ffffff !important;
+	box-shadow: none !important;
+	border-radius: 0 !important;
 }
-input[type=password] {
-  background: transparent !important;
-  border: none !important;
-  color : #ffffff !important;
-  border-bottom: 1px solid #ffffff !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
+input[type="password"] {
+	background: transparent !important;
+	border: none !important;
+	color: #ffffff !important;
+	border-bottom: 1px solid #ffffff !important;
+	box-shadow: none !important;
+	border-radius: 0 !important;
 }
 
 /* Leaderboard */
 
 .table {
-  background-color : black;
+	background-color: black;
 }
 .table-header {
-  background-color : #079af7;
-  border-bottom : 1px solid black !important; 
+	background-color: #079af7;
+	border-bottom: 1px solid black !important;
 }
 /* TO BE REMOVED  */
-.table-container{
-  padding: 80px;
+.table-container {
+	padding: 80px;
 }
-.card{
-  margin-top: 30px;
+.card {
+	margin-top: 30px;
 }
 /* Level */
 
 .level {
-  background-color: #ffffff;
+	background-color: #ffffff;
 }
 .level-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .answer-box {
-  margin-left : auto !important;
+	margin-left: auto !important;
 }
 .hint {
-  color : green;
+	color: green;
 }
 .levelno {
-  color : red;
-  font-weight: 600;
+	color: red;
+	font-weight: 600;
 }
 .level-image {
-  max-width : 400px;
-  max-height: 250px;
+	max-width: 400px;
+	max-height: 250px;
 }
 .logout:hover {
-  cursor: pointer;
+	cursor: pointer;
 }

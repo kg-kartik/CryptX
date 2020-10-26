@@ -2,13 +2,17 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const db = require("./config/keys").MongoURI;
 const cors = require("cors");
 const path = require("path");
+const dotenv = require("dotenv");
 
 //Requiring routes
 const authUser = require("./routes/auth");
 const level = require("./routes/levels");
+
+dotenv.config();
+
+const db = process.env.MONGO_URI;
 
 mongoose
 	.connect(db, {
