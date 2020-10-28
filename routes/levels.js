@@ -102,7 +102,8 @@ router.post("/answer", requireLogin, (req, res) => {
 //Fectching users to be displayed on the leaderboard
 router.get("/getlevels", (req, res) => {
 	User.find({})
-		.sort({ lastLevelCrackedAt: -1 })
+		.sort({ atLevel: -1, lastLevelCrackedAt: 1 })
+		.select({ password: -1 })
 		.then(users => {
 			res.status(200).json(users);
 		})
