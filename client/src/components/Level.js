@@ -17,6 +17,11 @@ const Level = ({ getCurrentLevel, level, updateLevel }) => {
 			answer
 		};
 		updateLevel(newAnswer);
+		setAnswer("");
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth"
+		});
 	};
 	return (
 		<div className="main-bg">

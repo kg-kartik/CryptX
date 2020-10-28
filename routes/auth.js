@@ -8,6 +8,7 @@ const { body, validationResult } = require("express-validator");
 
 require("dotenv").config();
 const secret = process.env.JWT_SECRET;
+console.log("secret", secret);
 
 router.get("/getDetails", requireLogin, (req, res) => {
 	User.findById(req.user._id)

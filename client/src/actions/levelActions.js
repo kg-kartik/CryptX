@@ -18,7 +18,7 @@ export const getCurrentLevel = () => dispatch => {
 
 export const updateLevel = answer => dispatch => {
 	axios
-		.post("http://localhost:5000/answer", answer)
+		.post("/answer", answer)
 		.then(response => {
 			dispatch({
 				type: UPDATE_LEVEL,

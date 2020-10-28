@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const getUsers = () => dispatch => {
 	axios
-		.get("/getlevels")
+		.get("/getLevels")
 		.then(response => {
 			dispatch({
 				type: GET_USERS,

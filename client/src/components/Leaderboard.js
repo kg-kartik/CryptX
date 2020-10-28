@@ -10,9 +10,8 @@ const Leaderboard = ({ getUsers, leaderboard }) => {
 		getUsers();
 	}, []);
 	return (
-		<div>
+		<div className="main-bg">
 			<Navbar />
-
 			{!leaderboard.users ? (
 				<h1> Loading ...</h1>
 			) : (

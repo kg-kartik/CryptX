@@ -1,18 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&display=swap");
 
+/* Global Styles */
+:root {
+	--primary-color: #17a2b8;
+	--dark-color: #343a40;
+	--light-color: #f4f4f4;
+	--danger-color: #f0597a;
+	--success-color: #28a745;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 body {
-	background: black;
 	font-family: "IBM Plex Sans", sans-serif;
 	letter-spacing: 2px;
 	padding: 0px;
 	margin: 0px;
+	background: black;
+	overflow-x: hidden;
 }
 
 /* Home*/
 
 .landing {
-	position: relative;
 	background: url("https://media0.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif");
+	position: relative;
 	background-repeat: no-repeat;
 	background-size: cover;
 	min-height: 100vh;
@@ -29,7 +45,7 @@ body {
 	text-align: center;
 }
 .dark-overlay {
-	background-color: rgba(0, 0, 0, 0.74);
+	background-color: rgba(0, 0, 0, 0.6);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -46,7 +62,7 @@ body {
 }
 .main-bg {
 	height: 100vh;
-	background: url("https://media0.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif");
+	/* background: url("https://media0.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif"); */
 	background-repeat: no-repeat;
 	background-size: cover;
 	min-height: 100vh;
@@ -75,15 +91,31 @@ body {
 
 /* Alert */
 .alert {
-	background-color: #ffc4cb;
-	color: black;
-	font-weight: bold;
+	padding: 0.8rem;
+	border-color: black;
+	/* margin : 1rem 0; */
+	opacity: 0.9;
+	/* background: var(--light-color); */
+	color: #333;
+	position: sticky;
 }
+
+.alert-danger {
+	background: var(--danger-color);
+	color: #fff;
+}
+
+.alert-success {
+	background: var(--success-color);
+	color: #fff;
+}
+
 /* SignUp and SignIn */
 
 .card {
 	background-color: black;
 }
+
 input[type="text"] {
 	background: transparent !important;
 	border: none !important;
@@ -103,21 +135,24 @@ input[type="password"] {
 
 /* Leaderboard */
 
+.table-container {
+	padding: 5vw;
+	/* margin-right: 10vw; */
+}
+
 .table {
 	background-color: black;
 }
+
 .table-header {
 	background-color: #079af7;
 	border-bottom: 1px solid black !important;
 }
-/* TO BE REMOVED  */
-.table-container {
-	padding: 80px;
-}
+
+/* Level */
 .card {
 	margin-top: 30px;
 }
-/* Level */
 
 .level {
 	background-color: #ffffff;
