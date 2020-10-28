@@ -103,7 +103,6 @@ router.post("/answer", requireLogin, (req, res) => {
 router.get("/getlevels", (req, res) => {
 	User.find({})
 		.sort({ atLevel: -1, lastLevelCrackedAt: 1 })
-		.select({ password: -1 })
 		.then(users => {
 			res.status(200).json(users);
 		})
