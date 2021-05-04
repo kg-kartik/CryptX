@@ -2,7 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import SignUp from "./components/SignUp";
+import SignInNew from "./components/SignInNew";
 import SignIn from "./components/SignIn";
+import LevelNew from "./components/LevelNew";
 import Level from "./components/Level";
 import Leaderboard from "./components/Leaderboard";
 import Alert from "./layouts/Alert";
@@ -64,6 +66,12 @@ const App = () => {
 						restricted={true}
 						exact
 						path="/signin"
+						component={SignInNew}
+					/>
+					<PublicRoute
+						restricted={true}
+						exact
+						path="/signinold"
 						component={SignIn}
 					/>
 					<PublicRoute
@@ -72,7 +80,8 @@ const App = () => {
 						path="/leaderboard"
 						component={Leaderboard}
 					/>
-					<ProtectedRoute exact path="/level" component={Level} />
+					<ProtectedRoute exact path="/level" component={LevelNew} />
+					<ProtectedRoute exact path="/levelOld" component={Level} />
 				</Switch>
 			</Router>
 		</Provider>

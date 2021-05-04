@@ -9,6 +9,7 @@ const Level = ({ getCurrentLevel, level, updateLevel }) => {
 
 	useEffect(() => {
 		getCurrentLevel();
+	// eslint-disable-next-line
 	}, []);
 
 	const submitAnswer = e => {

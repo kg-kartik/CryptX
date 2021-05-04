@@ -8,6 +8,7 @@ import "../App.css";
 const Leaderboard = ({ getUsers, leaderboard }) => {
 	useEffect(() => {
 		getUsers();
+	// eslint-disable-next-line
 	}, []);
 	return (
 		<div className="main-bg">
