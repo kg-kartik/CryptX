@@ -23,6 +23,9 @@ const Container = styled.div`
 	color: black;
 	background: ${theme.mainBackground};
 	font-weight: 400;
+	@media (min-width:1224px){
+		padding-top:3rem;
+	}
 `
 
 const QuestionContainer = styled(animated.div)`
