@@ -4,6 +4,12 @@ import PropTypes from "prop-types";
 import { logoutUser } from "../actions/authActions";
 import { Link } from "react-router-dom";
 import "../App.css";
+import theme from "../styles/themes";
+import styled from "styled-components";
+
+const Nav = styled.nav`
+	background:${theme.mainBackground} !important;
+`
 
 const Navbar = ({ auth: { isAuthenticated, loading } }) => {
 	const logout = () => {
@@ -13,7 +19,7 @@ const Navbar = ({ auth: { isAuthenticated, loading } }) => {
 
 	return (
 		<div id="nav-bar">
-			<nav className="navbar navbar-expand-lg navbar-dark">
+			<Nav className="navbar navbar-expand-lg navbar-dark">
 				<button
 					class="navbar-toggler"
 					type="button"
@@ -78,7 +84,7 @@ const Navbar = ({ auth: { isAuthenticated, loading } }) => {
 						</ul>
 					)}
 				</div>
-			</nav>
+			</Nav>
 		</div>
 	);
 };

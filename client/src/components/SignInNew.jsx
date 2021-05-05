@@ -1,82 +1,162 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { useSpring, animated } from 'react-spring';
+import { loginUser } from "../actions/authActions";
+import {
+	withRouter,
+	useHistory
+} from "react-router-dom";
+import PropTypes from "prop-types";
 import InputContainer from "../elements/InputContainer";
+import ButtonContainer from "../elements/ButtonContainer";
+import Waves from "../elements/Waves";
+import Navbar from "../layouts/Navbar";
+import theme from "../styles/themes";
 
 const Container = styled.div`
 	height: 100vh;
 	display: grid;
 	place-items:center;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	letter-spacing:-1px;
-	background: #111111;
-	color: white;
+	letter-spacing:-0.5px;
+	background: ${theme.mainBackground};
+	color: ${theme.cardFontColor};
+	padding-top: 4rem;
 `
 
-const LoginContainer = styled.div`
+const LoginContainer = styled(animated.div)`
 	display: flex;
 	flex-direction:column;
 	align-items:center;
 	justify-content:center;
 	z-index: 1;
+	background: ${theme.cardBackground};
+	// border: 2px solid ${theme.cardBorder};
+	box-shadow: rgb(0 0 0 / 10%) 0px 0px 50px;
+	border-radius: 0.5rem;
+	padding: 2rem;
+	max-width: 90%;
+	opacity: 1;
 `
-const Heading = styled.div``
-const EmailContainer = styled.div``
-const PasswordContainer = styled.div``
+const Heading = styled.h3`
+	padding: 1rem;
+	text-align:center;
+`
+const EmailContainer = styled.div`
+	padding: 1rem;
+`
+const PasswordContainer = styled.div`
+	padding: 1rem;
+`
 
-const SignInNew = () => {
+const SignInNew = ({ loginUser, auth }) => {
+	const history = useHistory();
+	const login = e => {
+		e.preventDefault();
+		loginUser(inputData, history);
+	};
+
+	if (auth.isAuthenticated) {
+		history.push("/level");
+		window.location.reload();
+	}
 	const [inputData, setInputData] = useState({
 		email:"",
 		password:""
 	})
+	const calc = (x, y) => [-(y - window.innerHeight / 2) / 200, (x - window.innerWidth / 2) / 200, 1]
+	const trans = (x, y, s) => `perspective(500px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
+	const [props, set] = useSpring(() => ({
+		xys: [0, 0, 1],
+		config: {
+			mass: 10,
+			tension: 750,
+			friction: 50
+		}
+	})
+	);
 	return (
-		<Container>
-			<LoginContainer>
-				<Heading>
-					SignIn
-				</Heading>
-				<EmailContainer>
-					<InputContainer>
-						<input
-							className={`styled-input ${!(inputData.email.length===0) && "has-content"}`}
-							type="text"
-							key={0}
-							placeholder=""
-							onChange={e=>{
-								setInputData({
-									...inputData,
-									email:e.target.value,
-								})
-							}}
-						/>
-						<label style={{pointerEvents: "none"}}>Email</label>
-						<span className="focus-border">
-							<i></i>
-						</span>
-					</InputContainer>
-				</EmailContainer>
-				<PasswordContainer>
-					<InputContainer>
-						<input
-							className={`styled-input ${!(inputData.password.length === 0) && "has-content"}`}
-							type="text"
-							key={0}
-							placeholder=""
-							onChange={e => {
-								setInputData({
-									...inputData,
-									password: e.target.value,
-								})
-							}}
-						/>
-						<label>Password</label>
-						<span className="focus-border">
-							<i></i>
-						</span>
-					</InputContainer>
-				</PasswordContainer>
-			</LoginContainer>
-		</Container>
+		<>
+			<Navbar />
+			<Container>
+				<LoginContainer
+					onMouseMove={({
+						clientX: x,
+						clientY: y
+					}) => set({ xys: calc(x, y) })}
+					onMouseLeave={() => set({ xys: [0, 0, 1] })}
+					style={{ transform: props.xys.interpolate(trans) }}
+				>
+					<Heading>
+						Log in to your account
+					</Heading>
+					<EmailContainer>
+						<InputContainer>
+							<input
+								className={`styled-input ${!(inputData.email.length===0) && "has-content"}`}
+								type="text"
+								autoComplete="email"
+								key={0}
+								placeholder=""
+								onChange={e=>{
+									setInputData({
+										...inputData,
+										email:e.target.value,
+									})
+								}}
+							/>
+							<label style={{pointerEvents: "none"}}>Email</label>
+							<span className="focus-border">
+								<i></i>
+							</span>
+						</InputContainer>
+					</EmailContainer>
+					<PasswordContainer>
+						<InputContainer>
+							<input
+								className={`styled-input ${!(inputData.password.length === 0) && "has-content"}`}
+								type="password"
+								autoComplete="password"
+								key={0}
+								placeholder=""
+								onKeyUp={ e=>{
+									(e.key === 'Enter' || e.keyCode === 13) && login(e)
+								}}
+								onChange={e => {
+									setInputData({
+										...inputData,
+										password: e.target.value,
+									})
+								}}
+							/>
+							<label>Password</label>
+							<span className="focus-border">
+								<i></i>
+							</span>
+						</InputContainer>
+					</PasswordContainer>
+					<ButtonContainer
+						title="SignIn"
+						clickEvent={e => login(e)}
+						type="submit"
+					/>
+				</LoginContainer>
+				<Waves/>
+			</Container>
+		</>
 	)
 }
 
-export default SignInNew
+SignInNew.propTypes = {
+	loginUser: PropTypes.func.isRequired,
+	auth: PropTypes.object.isRequired,
+	errors: PropTypes.object
+};
+
+const mapStateToProps = state => ({
+	auth: state.auth,
+	errors: state.errors
+});
+
+export default connect(mapStateToProps, { loginUser })(withRouter(SignInNew));

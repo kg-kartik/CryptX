@@ -7,6 +7,8 @@ import { connect } from "react-redux";
 import { useSpring, animated } from 'react-spring';
 import { getCurrentLevel, updateLevel } from "../actions/levelActions";
 import PropTypes from "prop-types";
+import Waves from "../elements/Waves";
+import Loading from "../elements/Loading";
 
 const Wrapper = styled.section`
 	height: 100vh;
@@ -19,9 +21,8 @@ const Container = styled.div`
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	letter-spacing:-1px;
 	color: black;
-	background: #111111;
+	background: ${theme.mainBackground};
 	font-weight: 400;
-	padding-bottom: 3rem;
 `
 
 const QuestionContainer = styled(animated.div)`
@@ -30,9 +31,10 @@ const QuestionContainer = styled(animated.div)`
 	grid-template-rows: 0.5fr 1fr 0.25fr 0.25fr;
 	grid-auto-columns: auto;
 	grid-gap:1rem;
-	background-color: #444444;
+	background: ${theme.cardBackground};
+	box-shadow: rgb(0 0 0 / 10%) 0px 0px 50px;
 	// background-color: white;
-	border-radius: 0.75rem;
+	border-radius: 0.5rem;
 	opacity: 0.85;
 	@media (max-width:1224px){
 		zoom: 0.8;
@@ -111,65 +113,13 @@ const Image = styled.img`
 	object-fit:cover;
 `
 
-const WavesContainer = styled.div`
-	z-index: 0;
-	opacity: 0.2;
-
-	.waves {
-		position: absolute;
-		top: 65%;
-		left: 0;
-		width: 100%;
-		height: 40vh;
-	}
-
-	/* Animation */
-	.wave-paths {
-		use {
-			animation: move-waves 10s ease-in-out infinite;
-			fill: url(#wave-gradient);
-		}
-		use:nth-child(odd) {
-			animation-direction: reverse;
-			animation-duration: 13s;
-		}
-		use:nth-child(1) {
-			animation-delay: -2s;
-			opacity: .7;
-		}
-		use:nth-child(2) {
-			animation-delay: -3s;
-			opacity: .5;
-		}
-		use:nth-child(3) {
-			animation-delay: -4s;
-			opacity: .3;
-		}
-		use:nth-child(4) {
-			animation-delay: -5s;
-		}
-	}
-
-	@keyframes move-waves {
-		0% {
-			transform: translate3d(-30px, 0, 0);
-		}
-		50% {
-			transform: translate3d(30px, 0, 0);
-		}
-		100% {
-			transform: translate3d(-30px, 0, 0);
-		}
-	}
-`
 
 const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 	const [answer, setAnswer] = useState("");
 
 	useEffect(() => {
 		getCurrentLevel();
-		// eslint-disable-next-line
-		console.log(level);
+	// eslint-disable-next-line
 	}, []);
 
 	const submitAnswer = e => {
@@ -218,57 +168,46 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 					}) => set({ xys: calc(x, y) })}
 					onMouseLeave={() => set({ xys: [0, 0, 1] })}
 					style={{ transform: props.xys.interpolate(trans) }}
-				>
-					<LevelInfoContainer>
+				>{level.isLoading ? (
+					<Loading/>
+				):(
+					<>
+						<LevelInfoContainer>
 						<LevelHeading>
 							Level {level.levelDetails.atLevel._id}
-					</LevelHeading>
-						<LevelHint>
-							{level.levelDetails.atLevel.hint}
-					</LevelHint>
-					</LevelInfoContainer>
-					<ImageContainer>
-						<Image
-							src={level.levelDetails.atLevel.question}
-						/>
-					</ImageContainer>
-					<InputContainer>
-						<input
-							className={`styled-input ${!inputIsEmpty && "has-content"}`}
-							type="text"
-							key={0}
-							placeholder=""
-							onChange={handleInput}
-						/>
-						<label>Your Answer</label>
-						<span className="focus-border">
-							<i></i>
-						</span>
-					</InputContainer>
-					<ButtonContainer>
-						<Button
-							onClick={e => submitAnswer(e)}
-						>Level++? <span role="img" aria-label="eye emoji">👀</span></Button>
-					</ButtonContainer>
+						</LevelHeading>
+							<LevelHint>
+								{level.levelDetails.atLevel.hint}
+						</LevelHint>
+						</LevelInfoContainer>
+						<ImageContainer>
+							<Image
+								src={level.levelDetails.atLevel.question}
+							/>
+						</ImageContainer>
+						<InputContainer>
+							<input
+								className={`styled-input ${!inputIsEmpty && "has-content"}`}
+								type="text"
+								key={0}
+								placeholder=""
+								onChange={handleInput}
+							/>
+							<label>Your Answer</label>
+							<span className="focus-border">
+								<i></i>
+							</span>
+						</InputContainer>
+						<ButtonContainer>
+							<Button
+								onClick={e => submitAnswer(e)}
+							>Level++? <span role="img" aria-label="eye emoji">👀</span></Button>
+						</ButtonContainer>
+					</>
+				)}
 				</QuestionContainer>
 			</Container>
-			<WavesContainer>
-				<svg className="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
-					<defs>
-						<linearGradient id="wave-gradient" gradientTransform="rotate(90)">
-							<stop offset="5%" stop-color={theme.stopColorStart} />
-							<stop offset="35%" stop-color={theme.stopColorEnd} />
-						</linearGradient>
-						<path id="a" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z" />
-					</defs>
-					<g className="wave-paths">
-						<use href="#a" x="0" />
-						<use href="#a" x="50" y="3" />
-						<use href="#a" x="100" y="5" />
-						<use href="#a" x="150" y="7" />
-					</g>
-				</svg>
-			</WavesContainer>
+			<Waves />
 		</Wrapper>
 	)
 }

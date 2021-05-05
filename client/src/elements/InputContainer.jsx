@@ -17,6 +17,7 @@ const InputContainer = styled.div`
 		background: transparent;
 		color: white !important;
 		caret-color: #888 !important;
+		letter-spacing: 0.5px;
 		&:focus{
 			outline:none;
 		}
@@ -30,7 +31,7 @@ const InputContainer = styled.div`
 		right: 0;
 		width: 0;
 		height: 2px;
-		background-color: #3399ff;
+		background-color: white;
 		transition: 0.2s;
 		transition-delay: 0.2s;
 	}
@@ -51,7 +52,7 @@ const InputContainer = styled.div`
 		left: 0;
 		width: 2px;
 		height: 0;
-		background-color: #3399ff;
+		background-color: white;
 		transition: 0.2s;
 	}
 
@@ -104,10 +105,10 @@ const InputContainer = styled.div`
 
 	.styled-input:focus~label,
 	.has-content.styled-input~label {
-		top: -18px;
+		top: -1.5rem;
 		left: 0;
 		font-size: 12px;
-		color: #3399ff;
+		color: white;
 		transition: 0.3s;
 	}
 `
