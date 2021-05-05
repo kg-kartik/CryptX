@@ -15,12 +15,15 @@ const Button = styled.button`
 	background: none;
 	border: none;
 	color: #fff;
+	font-family: "IBM Plex Sans", sans-serif;
+	letter-spacing:2px;
 	font-size: 1rem;
+	width:25vw;
 	cursor: pointer;
 	margin: 1.5rem 2rem;
 	background: rgb(47, 128, 237);
 	transition: transform 0.3s ease;
-	border-radius: 0.2rem;
+	border-radius: 0.5rem;
 	transition: box-shadow 0.3s ease;
 	&:hover{
 		box-shadow: rgb(47 128 237 / 31%) 0px 0px 10px;

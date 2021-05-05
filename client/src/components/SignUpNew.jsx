@@ -6,14 +6,16 @@ import { registerUser } from "../actions/authActions";
 import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import InputContainer from "../elements/InputContainer";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ButtonContainer from "../elements/ButtonContainer";
 import Waves from "../elements/Waves";
 import Navbar from "../layouts/Navbar";
 import theme from "../styles/themes";
 
 const Container = styled.div`
-	height: 100vh;
+	margin: 2rem 0;
 	display: grid;
+	height:100vh;
 	place-items:center;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	letter-spacing:-0.5px;
@@ -24,6 +26,7 @@ const Container = styled.div`
 
 const LoginContainer = styled(animated.div)`
 	display: flex;
+	width:40vw;
 	flex-direction:column;
 	align-items:center;
 	justify-content:center;
@@ -36,15 +39,26 @@ const LoginContainer = styled(animated.div)`
 	max-width: 90%;
 	opacity: 1;
 `
-const Heading = styled.h3`
-	padding: 1rem;
-	text-align:center;
+
+const Heading = styled.div`
+	.icon{
+		margin-top:1rem;
+		font-size:5rem;
+	}
 `
+
 const DataContainer = styled.div`
 	padding: 0.5rem;
 `
 const PasswordContainer = styled.div`
 	padding: 0.5rem;
+`
+
+const SignInText = styled.div`
+	font-size:1rem;
+	letter-spacing:1px;
+	font-family: "IBM Plex Sans", sans-serif;
+	color:rgb(47, 128, 237);
 `
 
 const SignUpNew = ({ registerUser, auth }) => {
@@ -92,7 +106,7 @@ const SignUpNew = ({ registerUser, auth }) => {
 					style={{ transform: props.xys.interpolate(trans) }}
 				>
 					<Heading>
-						Create an account
+						<AccountCircleIcon className="icon"/>
 					</Heading>
 					<DataContainer>
 						<InputContainer>
@@ -184,6 +198,11 @@ const SignUpNew = ({ registerUser, auth }) => {
 						clickEvent={e => saveDetails(e)}
 						type="submit"
 					/>
+					<SignInText>
+							<a href="/signin">
+								Already signed up? Login 
+							</a> 
+					</SignInText>
 				</LoginContainer>
 				<Waves />
 			</Container>

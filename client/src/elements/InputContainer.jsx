@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const InputContainer = styled.div`
-
 	display: inline-block;
 	position: relative;
 	text-align: start;
@@ -9,7 +8,8 @@ const InputContainer = styled.div`
 
 	.styled-input {
 		border-bottom: 2px solid #ccc !important;
-		width:100%;
+		font-family: "IBM Plex Sans", sans-serif;
+		width:25vw;
 		font-size: 1em;
 		font-weight: 600;
 		padding: 0.5em 0.5em;
@@ -17,12 +17,12 @@ const InputContainer = styled.div`
 		background: transparent;
 		color: white !important;
 		caret-color: #888 !important;
-		letter-spacing: 0.5px;
+		letter-spacing: 1px;
 		&:focus{
 			outline:none;
 		}
 	}
-
+	
 	.styled-input~.focus-border:before,
 	.styled-input~.focus-border:after {
 		content: "";
@@ -96,8 +96,9 @@ const InputContainer = styled.div`
 		font-size: 1.2rem;
 		left: 0.5rem;
 		top: 0.4rem;
+		font-family: "IBM Plex Sans", sans-serif;
 		width: 100%;
-		color: #aaa;
+		color: #888;
 		transition: 0.3s;
 		z-index: -1;
 		letter-spacing: 0.5px;
@@ -108,7 +109,7 @@ const InputContainer = styled.div`
 		top: -1.5rem;
 		left: 0;
 		font-size: 12px;
-		color: white;
+		color: #aaa;
 		transition: 0.3s;
 	}
 `

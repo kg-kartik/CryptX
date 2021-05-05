@@ -8,10 +8,11 @@ const WavesContainer = styled.div`
 
 	.waves {
 		position: absolute;
-		bottom: 0;
+		// bottom:${(props) => props.signin ? -10 : -50}vh;
+		bottom:-30vh;
 		left: 0;
 		width: 100%;
-		height: 350px;
+		height: 50vh;
 	}
 
 	/* Animation */
@@ -54,9 +55,10 @@ const WavesContainer = styled.div`
 	}
 `
 
-const Waves = () => {
+const Waves = (props) => {
+	console.log(props.signin,"props");
 	return (
-		<WavesContainer>
+		<WavesContainer signin={true}>
 			<svg className="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
 				<defs>
 					<linearGradient id="wave-gradient" gradientTransform="rotate(90)">

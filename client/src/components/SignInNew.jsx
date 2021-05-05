@@ -10,15 +10,17 @@ import {
 import PropTypes from "prop-types";
 import InputContainer from "../elements/InputContainer";
 import ButtonContainer from "../elements/ButtonContainer";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Waves from "../elements/Waves";
 import Navbar from "../layouts/Navbar";
 import theme from "../styles/themes";
 
 const Container = styled.div`
-	height: 100vh;
 	display: grid;
+	font-family: "IBM Plex Sans", sans-serif;
+	margin: 2rem 0;
+	height:100vh;
 	place-items:center;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	letter-spacing:-0.5px;
 	background: ${theme.mainBackground};
 	color: ${theme.cardFontColor};
@@ -39,10 +41,18 @@ const LoginContainer = styled(animated.div)`
 	max-width: 90%;
 	opacity: 1;
 `
-const Heading = styled.h3`
-	padding: 1rem;
-	text-align:center;
+const Heading = styled.div`
+	.icon{
+		font-size:5rem;
+	}
 `
+
+const SignUpText = styled.a`
+	font-size:1rem;
+	letter-spacing:1px;
+	color:rgb(47, 128, 237);
+`
+
 const EmailContainer = styled.div`
 	padding: 1rem;
 `
@@ -89,7 +99,8 @@ const SignInNew = ({ loginUser, auth }) => {
 					style={{ transform: props.xys.interpolate(trans) }}
 				>
 					<Heading>
-						Log in to your account
+						<AccountCircleIcon className="icon" />
+						{/* Log in to your account */}
 					</Heading>
 					<EmailContainer>
 						<InputContainer>
@@ -141,8 +152,11 @@ const SignInNew = ({ loginUser, auth }) => {
 						clickEvent={e => login(e)}
 						type="submit"
 					/>
+					<SignUpText href="/signup">
+						Don't have an account? SignUp 
+					</SignUpText>
 				</LoginContainer>
-				<Waves/>
+				<Waves signin={true}/>
 			</Container>
 		</>
 	)
