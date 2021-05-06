@@ -102,6 +102,7 @@ body {
 /* Alert */
 .alert {
     padding: 0.8rem;
+	width: 100%;
     border-color: black;
     /* margin : 1rem 0; */
     opacity: 0.9;

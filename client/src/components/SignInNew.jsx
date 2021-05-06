@@ -42,7 +42,7 @@ const LoginContainer = styled(animated.div)`
 	// border: 2px solid ${theme.cardBorder};
 	box-shadow: rgb(0 0 0 / 10%) 0px 0px 50px;
 	border-radius: 0.5rem;
-	padding: 2rem;
+	padding: 2rem 1rem;
 	max-width: 90%;
 	opacity: 1;
 `

@@ -13,9 +13,8 @@ import Navbar from "../layouts/Navbar";
 import theme from "../styles/themes";
 
 const Container = styled.div`
-	margin: 2rem 0;
 	display: grid;
-	height:100vh;
+	min-height:100vh;
 	place-items:center;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	letter-spacing:-0.5px;
@@ -26,7 +25,6 @@ const Container = styled.div`
 
 const LoginContainer = styled(animated.div)`
 	display: flex;
-	width:40vw;
 	flex-direction:column;
 	align-items:center;
 	justify-content:center;
@@ -38,6 +36,9 @@ const LoginContainer = styled(animated.div)`
 	padding: 2rem;
 	max-width: 90%;
 	opacity: 1;
+	@media (max-width:1224px){
+		zoom: 0.8;
+	}
 `
 
 const Heading = styled.div`

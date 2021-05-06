@@ -9,6 +9,7 @@ import { getCurrentLevel, updateLevel } from "../actions/levelActions";
 import PropTypes from "prop-types";
 import Waves from "../elements/Waves";
 import Loading from "../elements/Loading";
+import { useMediaQuery } from "react-responsive";
 
 const Wrapper = styled.section`
 	position:absolute;
@@ -20,7 +21,6 @@ const Wrapper = styled.section`
 const Container = styled.div`
 	height: 100vh;
 	display: grid;
-	margin:2rem 0;
 	place-items:center;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	letter-spacing:-1px;
@@ -120,6 +120,7 @@ const Image = styled.img`
 `
 
 const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
+	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 	const [answer, setAnswer] = useState("");
 
 	useEffect(() => {
@@ -212,7 +213,9 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 				)}
 				</QuestionContainer>
 			</Container>
-			<Waves />
+			{!isTabletOrMobile&&(
+				<Waves />
+			)}
 		</Wrapper>
 	)
 }

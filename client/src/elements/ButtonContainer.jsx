@@ -5,7 +5,6 @@ const Container = styled.div`
 	padding: 1rem;
 	span{
 		display: block;
-		padding: 1rem 5.2rem;
 	}
 `
 
@@ -18,13 +17,13 @@ const Button = styled.button`
 	// font-family: "IBM Plex Sans", sans-serif;
 	letter-spacing:2px;
 	font-size: 1rem;
-	width:25vw;
 	cursor: pointer;
 	margin: 1.5rem 2rem;
 	background: rgb(47, 128, 237);
-	transition: transform 0.3s ease;
 	border-radius: 0.5rem;
-	transition: box-shadow 0.3s ease;
+	transition: box-shadow 0.3s ease,transform 0.3s ease;
+	padding: 1rem 5.2rem;
+
 	&:hover{
 		box-shadow: rgb(47 128 237 / 31%) 0px 0px 10px;
 	}

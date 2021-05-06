@@ -9,7 +9,7 @@ const InputContainer = styled.div`
 	.styled-input {
 		border-bottom: 2px solid #ccc !important;
 		// font-family: "IBM Plex Sans", sans-serif;
-		width:25vw;
+		width:100%;
 		font-size: 1em;
 		font-weight: 600;
 		padding: 0.5em 0.5em;
@@ -22,7 +22,7 @@ const InputContainer = styled.div`
 			outline:none;
 		}
 	}
-	
+
 	.styled-input~.focus-border:before,
 	.styled-input~.focus-border:after {
 		content: "";
