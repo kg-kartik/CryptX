@@ -17,6 +17,7 @@ const Wrapper = styled.section`
 const Container = styled.div`
 	height: 100vh;
 	display: grid;
+	margin:2rem 0;
 	place-items:center;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	letter-spacing:-1px;
@@ -43,7 +44,6 @@ const QuestionContainer = styled(animated.div)`
 		zoom: 0.8;
 	}
 `
-
 
 const LevelHeading = styled.div`
 	font-weight: 600;
@@ -102,6 +102,7 @@ const LevelInfoContainer = styled.div`
 const ImageContainer = styled.div`
 	position: relative;
 	display:flex;
+	margin-top:-1rem;
 	align-items:center;
 	justify-content:center;
 	min-width: 400px;
@@ -115,7 +116,6 @@ const Image = styled.img`
 	padding: 0 2rem;
 	object-fit:cover;
 `
-
 
 const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 	const [answer, setAnswer] = useState("");

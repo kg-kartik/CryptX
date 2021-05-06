@@ -11,7 +11,12 @@ export const registerUser = (userData, history) => (dispatch) => {
     axios
         .post(`${apiUrl}/user/signup`, userData)
         .then((response) => {
-            dispatch(setAlert("Successfully Registered", "success"));
+            dispatch(
+                setAlert(
+                    "Successfully Registered.Please check and verify your email.",
+                    "success"
+                )
+            );
             history.push("/signin");
         })
         .catch((err) => {
@@ -46,7 +51,14 @@ export const loginUser = (userData) => (dispatch) => {
             dispatch(setAlert("Successfully LoggedIn", "success"));
         })
         .catch((err) => {
-            dispatch(setAlert("Invalid Credentials", "danger"));
+            const errors = err.response.data.errors;
+            console.log(errors);
+
+            if (errors) {
+                errors.forEach((error) => {
+                    dispatch(setAlert(error.msg, "danger"));
+                });
+            }
         });
 };
 
