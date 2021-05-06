@@ -3,7 +3,15 @@ import { connect } from "react-redux";
 import { getUsers } from "../actions/leaderboardActions";
 import PropTypes from "prop-types";
 import Navbar from "../layouts/Navbar";
+import Loading from "../elements/Loading";
 import "../App.css";
+import styled from "styled-components";
+
+const LoadingContainer = styled.div`
+	display: flex;
+	flex-direction:column;
+	align-items:center;
+`
 
 const Leaderboard = ({ getUsers, leaderboard }) => {
 	useEffect(() => {
@@ -13,10 +21,12 @@ const Leaderboard = ({ getUsers, leaderboard }) => {
 	return (
 		<div className="main-bg">
 			<Navbar />
-			{!leaderboard.users ? (
-				<h1> Loading ...</h1>
+			<div className="table-container">
+			{!leaderboard.users.length ? (
+				<LoadingContainer>
+					<Loading/>
+				</LoadingContainer>
 			) : (
-				<div className="table-container">
 					<table>
 						<thead>
 							<tr className="table100-head">
@@ -38,8 +48,8 @@ const Leaderboard = ({ getUsers, leaderboard }) => {
 							))}
 						</tbody>
 					</table>
-				</div>
 			)}
+			</div>
 		</div>
 	);
 };
