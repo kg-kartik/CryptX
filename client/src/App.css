@@ -8,6 +8,10 @@
     --light-color: #f4f4f4;
     --danger-color: #f0597a;
     --success-color: #28a745;
+	--table-odd-cell:rgba(0, 2, 27, 0.5);
+	--table-even-cell:rgba(0, 10, 45, 0.5);
+	--table-hover-cell:rgba(8, 15, 57,1);
+	--table-header-cell:rgba(24, 34, 76,1);
 }
 
 * {
@@ -138,12 +142,20 @@ input[type="password"] {
 /* Leaderboard */
 
 .table-container {
+	width: 100%;
+	min-height: 100vh;
+
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding: 33px 30px;
     padding: 5vw;
     /* margin-right: 10vw; */
-}
-
-.table {
-    background: rgb(8, 9, 16);
 }
 
 .table-header {
@@ -180,4 +192,177 @@ input[type="password"] {
 }
 .logout:hover {
     cursor: pointer;
+}
+
+table {
+	border-spacing: 1;
+	border-collapse: collapse;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	width: 80%;
+	margin: 0 auto;
+	position: relative;
+}
+
+table * {
+	position: relative;
+}
+
+table td,
+table th {
+	padding-left: 8px;
+}
+
+table thead tr {
+	height: 60px;
+	background: var(--table-header-cell);
+}
+
+table tbody tr {
+	height: 50px;
+	color:white;
+}
+
+table tbody tr:last-child {
+	border: 0;
+}
+
+table td,
+table th {
+	text-align: center;
+}
+
+table td.l,
+table th.l {
+	text-align: right;
+}
+
+table td.c,
+table th.c {
+	text-align: center;
+}
+
+table td.r,
+table th.r {
+	text-align: center;
+}
+
+.table100-head th {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-size: 1.2rem;
+	color: #fff;
+	font-weight: 600;
+	line-height: 1.2;
+	letter-spacing: 0;
+	text-align: center;
+}
+
+tbody tr:nth-child(even) {
+	background-color:var(--table-even-cell);
+}
+
+tbody tr:nth-child(odd) {
+	background-color: var(--table-odd-cell);
+}
+
+tbody tr {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	letter-spacing: 0;
+	font-size: 15px;
+	color: #808080;
+	line-height: 1.2;
+	font-weight: unset;
+}
+
+tbody tr:hover {
+	color: #c6c6c6;
+	background-color: var(--table-hover-cell);
+	cursor: pointer;
+}
+
+.column1 {
+	width: 110px;
+}
+
+.column2 {
+	width: 160px;
+}
+
+.column3 {
+	width: 160px;
+}
+
+.column4 {
+	width: 110px;
+}
+
+@media screen and (max-width: 992px) {
+	table {
+		display: block;
+		margin-top:4rem;
+	}
+
+	table>*,
+	table tr,
+	table td,
+	table th {
+		display: block;
+	}
+
+	table thead {
+		display: none;
+	}
+
+	table tbody tr {
+		height: auto;
+		padding: 37px 0;
+	}
+
+	table tbody tr td {
+		padding-left: 40% !important;
+		margin-bottom: 24px;
+	}
+
+	table tbody tr td:last-child {
+		margin-bottom: 0;
+	}
+
+	table tbody tr td:before {
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		font-size: 14px;
+		color: #999999;
+		line-height: 1.2;
+		font-weight: 700;
+		position: absolute;
+		width: 40%;
+		left: 30px;
+		top: 0;
+	}
+
+	table tbody tr td:nth-child(1):before {
+		content: "Rank";
+	}
+
+	table tbody tr td:nth-child(2):before {
+		content: "Name";
+	}
+
+	table tbody tr td:nth-child(3):before {
+		content: "Institution";
+	}
+
+	table tbody tr td:nth-child(4):before {
+		content: "Level";
+	}
+
+	.column4,
+	.column1,
+	.column2,
+	.column3 {
+		width: 100%;
+	}
+
+	tbody tr {
+		font-size: 14px;
+	}
 }
