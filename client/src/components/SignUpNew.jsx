@@ -57,7 +57,6 @@ const PasswordContainer = styled.div`
 const SignInText = styled.div`
 	font-size:1rem;
 	letter-spacing:1px;
-	font-family: "IBM Plex Sans", sans-serif;
 	color:rgb(47, 128, 237);
 `
 

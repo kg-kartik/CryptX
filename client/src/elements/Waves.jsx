@@ -5,17 +5,17 @@ import styled from "styled-components";
 const WavesContainer = styled.div`
 	z-index: 0;
 	opacity: 0.2;
-	position:absolute;
-	top:0;
-	left:0;
-	width:100vw;
-	height:100vh;
-	overflow:hidden;
+	// position:absolute;
+	// top:0;
+	// left:0;
+	// width:100vw;
+	// height:100vh;
+	// overflow:hidden;
 
 	.waves {
 		position: absolute;
-		bottom:${props => props.signin ? `-25` : `-10`}vh;
-		// bottom:-30vh;
+		// bottom:${props => props.signin ? `-20` : `-10`}vh;
+		bottom:-30vh;
 		left: 0;
 		width: 100%;
 		height: 50vh;

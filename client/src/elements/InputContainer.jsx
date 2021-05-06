@@ -8,7 +8,7 @@ const InputContainer = styled.div`
 
 	.styled-input {
 		border-bottom: 2px solid #ccc !important;
-		font-family: "IBM Plex Sans", sans-serif;
+		// font-family: "IBM Plex Sans", sans-serif;
 		width:25vw;
 		font-size: 1em;
 		font-weight: 600;
@@ -96,7 +96,6 @@ const InputContainer = styled.div`
 		font-size: 1.2rem;
 		left: 0.5rem;
 		top: 0.4rem;
-		font-family: "IBM Plex Sans", sans-serif;
 		width: 100%;
 		color: #888;
 		transition: 0.3s;

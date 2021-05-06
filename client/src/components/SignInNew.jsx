@@ -24,7 +24,6 @@ const Wrapper = styled.section`
 
 const Container = styled.div`
 	display: grid;
-	font-family: "IBM Plex Sans", sans-serif;
 	height:100vh;
 	place-items:center;
 	letter-spacing:-0.5px;

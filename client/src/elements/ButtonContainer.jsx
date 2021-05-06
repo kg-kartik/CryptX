@@ -15,7 +15,7 @@ const Button = styled.button`
 	background: none;
 	border: none;
 	color: #fff;
-	font-family: "IBM Plex Sans", sans-serif;
+	// font-family: "IBM Plex Sans", sans-serif;
 	letter-spacing:2px;
 	font-size: 1rem;
 	width:25vw;
