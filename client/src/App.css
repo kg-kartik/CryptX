@@ -158,7 +158,7 @@ input[type="password"] {
     justify-content: center;
     flex-wrap: wrap;
     padding: 33px 30px;
-    padding: 5vw;
+    padding: 5rem 0;
     /* margin-right: 10vw; */
 }
 
@@ -299,71 +299,22 @@ tbody tr:hover {
 }
 
 @media screen and (max-width: 992px) {
-    table {
-        display: block;
-        margin-top: 4rem;
+    .table100-head th {
+    	font-size: 1rem;
+    	color: #fff;
+    	font-weight: 500;
+    	letter-spacing: 0;
+    	text-align: center;
+		padding: 0.5rem;
     }
-
-    table > *,
-    table tr,
-    table td,
-    table th {
-        display: block;
-    }
-
-    table thead {
-        display: none;
-    }
-
-    table tbody tr {
-        height: auto;
-        padding: 37px 0;
-    }
-
-    table tbody tr td {
-        padding-left: 40% !important;
-        margin-bottom: 24px;
-    }
-
-    table tbody tr td:last-child {
-        margin-bottom: 0;
-    }
-
-    table tbody tr td:before {
-        font-size: 14px;
-        color: #999999;
-        line-height: 1.2;
-        font-weight: 700;
-        position: absolute;
-        width: 40%;
-        left: 30px;
-        top: 0;
-    }
-
-    table tbody tr td:nth-child(1):before {
-        content: "Rank";
-    }
-
-    table tbody tr td:nth-child(2):before {
-        content: "Name";
-    }
-
-    table tbody tr td:nth-child(3):before {
-        content: "Institution";
-    }
-
-    table tbody tr td:nth-child(4):before {
-        content: "Level";
-    }
-
-    .column4,
-    .column1,
-    .column2,
-    .column3 {
-        width: 100%;
-    }
-
-    tbody tr {
-        font-size: 14px;
-    }
+	table thead tr {
+		height: 3.2rem;
+	}
+	tbody tr {
+		font-size: 0.8rem;
+		color: #808080;
+		letter-spacing: 0;
+		line-height: 1.2;
+		font-weight: unset;
+	}
 }
