@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&display=swap");
-@import url(https://fonts.googleapis.com/css?family=Noto+Sans&display=swap);
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
 
 /* Global Styles */
@@ -10,12 +10,13 @@
     --danger-color: #f0597a;
     --success-color: #28a745;
     --background-color: rgb(8, 9, 16);
-    /* --table-odd-cell: rgba(0, 2, 27, 0.5); */
-    --table-odd-cell: rgb(8, 9, 16);
-    /* --table-even-cell: rgba(0, 10, 45, 0.5); */
-    --table-even-cell: rgb(8, 9, 16);
+    --table-odd-cell: #2A4359;
+    /* --table-odd-cell: rgb(8, 9, 16); */
+    --table-even-cell: #426A8C;
+    /* --table-even-cell: rgb(8, 9, 16); */
     --table-hover-cell: #1c1c1c;
-    --table-header-cell: #079af7;
+    /* --table-header-cell: #079af7; */
+    --table-header-cell: #101C26;
 }
 
 * {
