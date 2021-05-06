@@ -11,7 +11,10 @@ import Waves from "../elements/Waves";
 import Loading from "../elements/Loading";
 
 const Wrapper = styled.section`
+	position:absolute;
+	width:100vw;
 	height: 100vh;
+	overflow:auto;
 `
 
 const Container = styled.div`
@@ -39,7 +42,6 @@ const QuestionContainer = styled(animated.div)`
 	box-shadow: rgb(0 0 0 / 10%) 0px 0px 50px;
 	// background-color: white;
 	border-radius: 0.5rem;
-	opacity: 0.85;
 	@media (max-width:1224px){
 		zoom: 0.8;
 	}

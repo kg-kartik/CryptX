@@ -3,7 +3,15 @@ import { connect } from "react-redux";
 import { getUsers } from "../actions/leaderboardActions";
 import PropTypes from "prop-types";
 import Navbar from "../layouts/Navbar";
+import Loading from "../elements/Loading";
 import "../App.css";
+import styled from "styled-components";
+
+const LoadingContainer = styled.div`
+	display: flex;
+	flex-direction:column;
+	align-items:center;
+`
 
 const Leaderboard = ({ getUsers, leaderboard }) => {
 	useEffect(() => {
@@ -13,33 +21,35 @@ const Leaderboard = ({ getUsers, leaderboard }) => {
 	return (
 		<div className="main-bg">
 			<Navbar />
-			{!leaderboard.users ? (
-				<h1> Loading ...</h1>
+			<div className="table-container">
+			{!leaderboard.users.length ? (
+				<LoadingContainer>
+					<Loading/>
+				</LoadingContainer>
 			) : (
-				<div className="table-container">
-					<table className="table table-hover table-dark">
-						<thead class="table-header">
-							<tr>
-								<th scope="col">Rank</th>
-								<th scope="col">Name</th>
-								<th scope="col">Instituition</th>
-								<th scope="col">Level</th>
+					<table>
+						<thead>
+							<tr className="table100-head">
+								<th className="column1">Rank</th>
+								<th className="column2">Name</th>
+								<th className="column3">Institution</th>
+								<th className="column4">Level</th>
 							</tr>
 						</thead>
 						<tbody>
 							{" "}
 							{leaderboard.users.map((detail, index) => (
 								<tr key={index + 1}>
-									<th scope="row">{index + 1}</th>
-									<td>{detail.name}</td>
-									<td>{detail.university}</td>
-									<td>{detail.atLevel}</td>
+									<td className="column1">{index + 1}</td>
+									<td className="column2">{detail.name}</td>
+									<td className="column3">{detail.university}</td>
+									<td className="column4">{detail.atLevel}</td>
 								</tr>
 							))}
 						</tbody>
 					</table>
-				</div>
 			)}
+			</div>
 		</div>
 	);
 };

@@ -15,10 +15,16 @@ import Waves from "../elements/Waves";
 import Navbar from "../layouts/Navbar";
 import theme from "../styles/themes";
 
+const Wrapper = styled.section`
+	position:absolute;
+	width:100vw;
+	height: 100vh;
+	overflow:auto;
+`
+
 const Container = styled.div`
 	display: grid;
 	font-family: "IBM Plex Sans", sans-serif;
-	margin: 2rem 0;
 	height:100vh;
 	place-items:center;
 	letter-spacing:-0.5px;
@@ -91,7 +97,8 @@ const SignInNew = ({ loginUser, auth }) => {
 	})
 	);
 	return (
-		<>
+		<Wrapper>
+
 			<Navbar />
 			<Container>
 				<LoginContainer
@@ -160,9 +167,9 @@ const SignInNew = ({ loginUser, auth }) => {
 						Don't have an account? SignUp 
 					</SignUpText>
 				</LoginContainer>
-				<Waves signin={true}/>
+				<Waves signin/>
 			</Container>
-		</>
+		</Wrapper>
 	)
 }
 
