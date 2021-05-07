@@ -87,7 +87,7 @@ const LoginContainer = styled(animated.div)`
 	opacity: 1;
 	margin: 0 0 2rem;
 	@media (max-width:1224px){
-		zoom: 0.8;
+		zoom: 0.75;
 	}
 `
 

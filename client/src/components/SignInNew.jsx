@@ -96,6 +96,9 @@ const LoginContainer = styled(animated.div)`
 	margin: 0 0 2rem;
 	max-width: 90%;
 	opacity: 1;
+	@media (max-width:1224px){
+		zoom: 0.75;
+	}
 `
 const Heading = styled.div`
 	.icon{
