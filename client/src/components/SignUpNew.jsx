@@ -172,24 +172,6 @@ const SignUpNew = ({ registerUser, auth }) => {
 							/>
 							<label>Name</label>
 						</InputContainer>
-						{/* <InputContainer>
-							<input
-								className={`styled-input ${!(inputData.name.length === 0) && "has-content"}`}
-								type="text"
-								key={0}
-								placeholder=""
-								onChange={e => {
-									setInputData({
-										...inputData,
-										name: e.target.value,
-									})
-								}}
-							/>
-							<label style={{ pointerEvents: "none" }}>Name</label>
-							<span className="focus-border">
-								<i></i>
-							</span>
-						</InputContainer> */}
 					</DataContainer>
 					<DataContainer>
 						<InputContainer>
@@ -207,46 +189,12 @@ const SignUpNew = ({ registerUser, auth }) => {
 							/>
 							<label>University</label>
 						</InputContainer>
-						{/* <InputContainer>
-							<input
-								className={`styled-input ${!(inputData.university.length === 0) && "has-content"}`}
-								type="text"
-								key={0}
-								placeholder=""
-								onChange={e => {
-									setInputData({
-										...inputData,
-										university: e.target.value,
-									})
-								}}
-							/>
-							<label style={{ pointerEvents: "none" }}>University</label>
-							<span className="focus-border">
-								<i></i>
-							</span>
-						</InputContainer> */}
 					</DataContainer>
 					<DataContainer>
 						<InputContainer>
 							<Input
 								className={`styled-input ${!(inputData.email.length === 0) && "has-content"}`}
 								type="text"
-								key={0}
-								placeholder=""
-								onChange={e => {
-									setInputData({
-										...inputData,
-										university: e.target.value,
-									})
-								}}
-							/>
-							<label>Email</label>
-						</InputContainer>
-						{/* <InputContainer>
-							<input
-								className={`styled-input ${!(inputData.email.length === 0) && "has-content"}`}
-								type="text"
-								autoComplete="email"
 								key={0}
 								placeholder=""
 								onChange={e => {
@@ -256,11 +204,8 @@ const SignUpNew = ({ registerUser, auth }) => {
 									})
 								}}
 							/>
-							<label style={{ pointerEvents: "none" }}>Email</label>
-							<span className="focus-border">
-								<i></i>
-							</span>
-						</InputContainer> */}
+							<label>Email</label>
+						</InputContainer>
 					</DataContainer>
 					<DataContainer>
 						<InputContainer>
@@ -282,28 +227,6 @@ const SignUpNew = ({ registerUser, auth }) => {
 							/>
 							<label>Password</label>
 						</InputContainer>
-						{/* <InputContainer>
-							<input
-								className={`styled-input ${!(inputData.password.length === 0) && "has-content"}`}
-								type="password"
-								autoComplete="password"
-								key={0}
-								placeholder=""
-								onKeyUp={e => {
-									(e.key === 'Enter' || e.keyCode === 13) && saveDetails(e)
-								}}
-								onChange={e => {
-									setInputData({
-										...inputData,
-										password: e.target.value,
-									})
-								}}
-							/>
-							<label>Password</label>
-							<span className="focus-border">
-								<i></i>
-							</span>
-						</InputContainer> */}
 					</DataContainer>
 					<ButtonContainer
 						signup={true}
