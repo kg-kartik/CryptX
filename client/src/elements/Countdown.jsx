@@ -53,7 +53,7 @@ const Tag = styled.p`
 
 const OnComplete = () => {
 	return (
-		<span>You are good to go!</span>
+		<span>Huunt is live!</span>
 	)
 }
 
@@ -68,24 +68,21 @@ const Timer = (props) => {
 	)
 }
 
+const renderer = ({ days, hours, minutes, seconds }) => {
+	return (
+		<Timer
+			days={days}
+			hours={hours}
+			minutes={minutes}
+			seconds={seconds}
+		/>
+	)
+};
+
 const CountdownContainer = () => {
-	const renderer = ({ days, hours, minutes, seconds, completed }) => {
-		if (completed) {
-			return <OnComplete />;
-		} else {
-			return (
-				<Timer
-					days={days}
-					hours={hours}
-					minutes={minutes}
-					seconds={seconds}
-				/>
-			)
-		}
-	};
 	return (
 		<Countdown
-			date={Date.now() + 5000000000}
+			date={1620995400000}
 			renderer={renderer}
 		/>
 	)
