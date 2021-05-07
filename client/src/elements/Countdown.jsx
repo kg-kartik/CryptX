@@ -9,11 +9,11 @@ const TimeCard = styled.div`
 	display: flex;
 	flex-direction: column;
 	font-family: "IBM Plex Sans", -sans-serif;
-	font-size: 1rem;
+	font-size: 2rem !important;
 	padding: 1rem;
-	font-weight: 1000;
+	font-weight: 100;
 	line-height: 1;
-	padding: 3vw;
+	padding:2vw;
 	text-align: center;
 	@media (max-width:1300px){
 		font-size:1rem;
@@ -34,7 +34,7 @@ const TimerContainer = styled.div`
 const Tag = styled.p`
 	color: #798EB0;
     font-family: "Noto Sans";
-    font-size: 0.75rem;
+    font-size: 0.75rem !important;
     font-weight: 300;
     letter-spacing: 0.2rem;
     margin: 1.25rem 0px 0px;
@@ -51,11 +51,11 @@ const Tag = styled.p`
 	}
 `
 
-const OnComplete = () => {
-	return (
-		<span>Hunt is live!</span>
-	)
-}
+// const OnComplete = () => {
+// 	return (
+// 		<span>Hunt is live!</span>
+// 	)
+// }
 
 const Timer = (props) => {
 	return (
