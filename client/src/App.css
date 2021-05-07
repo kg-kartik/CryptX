@@ -15,15 +15,6 @@
     --table-header-cell: #101c26;
 }
 
-.btn-primary {
-    background-color: #7289da !important;
-    border-color: transparent;
-    width: 15vw;
-    @media (max-width: 600px) {
-        width: 80vw;
-    }
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -80,9 +71,26 @@ body {
     padding-bottom: 2rem;
 }
 
-.lead {
-    font-size: 1.5rem;
-    margin-bottom: 3rem;
+.btn-primary {
+    background-color: #7289da !important;
+    border-color: transparent;
+    font-size: 1em;
+    min-width: 15vw;
+    @media (max-width: 600px) {
+        width: 80vw;
+    }
+}
+
+.crack {
+    background-color: transparent !important;
+    border-width: 2px !important;
+    border-color: white !important;
+}
+
+.crack:hover {
+    background-color: #01648f !important;
+    border-color: transparent !important;
+    transition: 0.5s ease;
 }
 
 .buttons {
@@ -91,17 +99,22 @@ body {
     justify-content: space-around;
 }
 
-@media screen and (max-width: 662px) {
+@media screen and (max-width: 800px) {
     .buttons {
         display: flex;
         flex-direction: column;
-        height: 25vh;
+        height: 23vh;
         width: 100vw;
     }
     .btn-primary {
         width: 80vw;
         margin: auto;
     }
+}
+
+.lead {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
 }
 
 .example {
@@ -251,7 +264,7 @@ table {
     border-collapse: collapse;
     border-radius: 0.5rem;
     overflow: hidden;
-    width: 80vw;
+    width: 90vw;
     margin: 0 auto;
     position: relative;
 }
@@ -304,7 +317,7 @@ table th.r {
     color: #fff;
     font-weight: 600;
     line-height: 1.2;
-    letter-spacing: 0;
+    letter-spacing: 2px;
     text-align: center;
 }
 

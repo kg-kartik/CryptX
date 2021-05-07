@@ -42,7 +42,6 @@ if (jwtToken) {
     if (decodedToken.exp < currentTime) {
         //Logout current User
         store.dispatch(logoutUser());
-        console.log("User has been logged out");
     }
 }
 

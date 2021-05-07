@@ -21,8 +21,6 @@ export const registerUser = (userData, history) => (dispatch) => {
         })
         .catch((err) => {
             const errors = err.response.data.errors;
-            console.log(errors);
-
             if (errors) {
                 errors.forEach((error) => {
                     dispatch(setAlert(error.msg, "danger"));
@@ -52,8 +50,6 @@ export const loginUser = (userData) => (dispatch) => {
         })
         .catch((err) => {
             const errors = err.response.data.errors;
-            console.log(errors);
-
             if (errors) {
                 errors.forEach((error) => {
                     dispatch(setAlert(error.msg, "danger"));
