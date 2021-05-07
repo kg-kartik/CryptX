@@ -125,10 +125,6 @@ const SignInNew = ({ loginUser, auth }) => {
 	const login = e => {
 		e.preventDefault();
 		loginUser(inputData, history);
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth"
-		});
 	};
 
 	if (auth.isAuthenticated) {

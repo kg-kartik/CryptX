@@ -114,10 +114,6 @@ const SignUpNew = ({ registerUser, auth }) => {
 	const saveDetails = e => {
 		e.preventDefault();
 		registerUser(inputData, history);
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth"
-		});
 	};
 
 	if (auth.isAuthenticated) {
