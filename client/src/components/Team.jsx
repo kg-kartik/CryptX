@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import theme from "../styles/themes";
 import Navbar from "../layouts/Navbar";
+import { useMediaQuery } from "react-responsive";
 
 const StyledCenter = styled.div`
     margin-top:10vh;

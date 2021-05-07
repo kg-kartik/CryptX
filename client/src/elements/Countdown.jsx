@@ -9,11 +9,11 @@ const TimeCard = styled.div`
 	display: flex;
 	flex-direction: column;
 	font-family: "IBM Plex Sans", -sans-serif;
-	font-size: 2rem;
+	font-size: 1rem;
 	padding: 1rem;
-	font-weight: 100;
+	font-weight: 1000;
 	line-height: 1;
-	padding: 2vw
+	padding: 3vw;
 	text-align: center;
 	@media (max-width:1300px){
 		font-size:1rem;
@@ -25,7 +25,7 @@ const TimerContainer = styled.div`
 	grid-template-columns: repeat(4, minmax(0px, 1fr));
     gap: 0px 2rem;
 	font-size: 2rem;
-	margin: 2rem 0;
+	margin: 1rem 0 3rem 0;
 	@media (max-width:1300px){
 		gap: 0px 1rem;
 	}
@@ -53,7 +53,7 @@ const Tag = styled.p`
 
 const OnComplete = () => {
 	return (
-		<span>Huunt is live!</span>
+		<span>Hunt is live!</span>
 	)
 }
 
