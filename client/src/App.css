@@ -15,6 +15,10 @@
 	--table-header-cell: #101c26;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 * {
 	box-sizing: border-box;
 	margin: 0;

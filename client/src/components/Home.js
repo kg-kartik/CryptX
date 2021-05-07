@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import Navbar from "../layouts/Navbar";
 import styled from "styled-components";
+import ScrollDown from "../elements/ScrollDown";
+import Countdown from "../elements/Countdown";
 
 const SectionHeadingContainer = styled.h2`
 	display:block;
@@ -10,13 +12,13 @@ const SectionHeadingContainer = styled.h2`
 	width: 90%;
     background-color: transparent;
 	text-align: center;
-	margin: 0 auto 3%;
+	margin: 4rem auto 3%;
 	text-shadow: 0 0 15px rgb(92 171 195 / 88%);
 	&::before{
 		background: linear-gradient(90deg, rgba(118,223,255,.877), transparent);
 		content: "";
 		display: inline-block;
-		border-radius: 1rem 0 0 1rem ;
+		border-radius: 1rem;
 		height: 5px;
 		position: relative;
 		vertical-align: middle;
@@ -24,12 +26,15 @@ const SectionHeadingContainer = styled.h2`
 		text-shadow: 0 0 4px #000000;
 		right: .5em;
 		margin-left: -50%;
+		@media (max-width:1300px){
+			background: linear-gradient(-90deg, rgba(118,223,255,.877), transparent);
+		}
 	}
 	&::after{
 		background: linear-gradient(-90deg, rgba(118,223,255,.877), transparent);
 		content: "";
 		display: inline-block;
-		border-radius: 0 1rem 1rem 0 ;
+		border-radius: 1rem;
 		height: 5px;
 		position: relative;
 		vertical-align: middle;
@@ -37,6 +42,13 @@ const SectionHeadingContainer = styled.h2`
 		text-shadow: 0 0 4px #000000;
 		left: .5em;
 		margin-right: -50%;
+		@media (max-width:1300px){
+			background: linear-gradient(90deg, rgba(118,223,255,.877), transparent);
+		}
+	}
+	@media (max-width:1300px){
+		font-size: 2rem;
+		width:75%;
 	}
 `
 
@@ -52,6 +64,11 @@ const Section = styled.section`
 	display:grid;
 	place-items:center;
 	width:50%;
+	@media (max-width:1300px){
+		width:75%;
+		padding: 0;
+		margin: 1rem auto 0;
+	}
 `
 
 const Para = styled.p`
@@ -61,7 +78,13 @@ const Para = styled.p`
 	margin: 2rem 0;
 	font-size: 1.5rem;
 	text-align:center;
+	@media (max-width:1300px){
+		margin: 1rem 0;
+		font-size: 1rem;
+	}
 `
+
+const CountdownContainer = styled.div``
 
 const Home = () => {
 	return (
@@ -71,6 +94,12 @@ const Home = () => {
 			<div className="dark-overlay">
 				<div className="landing-inner">
 					<h1 className="x-large">CryptX</h1>
+					<CountdownContainer>
+						<h1>
+							Hunt starts in
+						</h1>
+						<Countdown/>
+					</CountdownContainer>
 					<p className="lead">
 						Can you scratch your grey matter to crack these levels?
 					</p>
@@ -81,8 +110,9 @@ const Home = () => {
 					</div>
 				</div>
 			</div>
+			<ScrollDown target="#about" />
 		</section>
-		<Section>
+		<Section id="about">
 			<SectionHeadingContainer>
 				<Heading className="landing">About</Heading>
 			</SectionHeadingContainer>
