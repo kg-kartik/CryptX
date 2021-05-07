@@ -5,6 +5,7 @@ import Navbar from "../layouts/Navbar";
 import styled from "styled-components";
 import ScrollDown from "../elements/ScrollDown";
 import Countdown from "../elements/Countdown";
+import Alert from 'react-bootstrap/Alert'
 
 const SectionHeadingContainer = styled.h2`
 	display:block;
