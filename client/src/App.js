@@ -89,7 +89,7 @@ const App = () => {
                         component={Leaderboard}
                     />
                     <PublicRoute
-                        restricted={true}
+                        restricted={false}
                         exact
                         path="/team"
                         component={Team}

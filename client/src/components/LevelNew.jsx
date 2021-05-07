@@ -120,7 +120,7 @@ const Image = styled.img`
 `
 
 const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
-	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1300px)' })
 	const [answer, setAnswer] = useState("");
 
 	useEffect(() => {

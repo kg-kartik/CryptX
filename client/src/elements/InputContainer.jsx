@@ -5,6 +5,9 @@ const InputContainer = styled.div`
 	position: relative;
 	text-align: start;
 	margin: 1.5rem 2rem 0;
+	input{
+		border:none!important;
+	}
 
 	.styled-input {
 		border-bottom: 2px solid #ccc !important;

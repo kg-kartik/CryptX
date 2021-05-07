@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-	padding: 1rem;
+	padding: ${props=>props.signup?`0`:`1rem`};
 	span{
 		display: block;
 	}
@@ -31,7 +31,9 @@ const Button = styled.button`
 
 const ButtonContainer = (props) => {
 	return (
-		<Container>
+		<Container
+			signup={props.signup}
+		>
 			<Button
 				onClick={props.clickEvent}
 			><span>{props.title}</span></Button>
