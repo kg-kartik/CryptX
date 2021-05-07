@@ -10,13 +10,10 @@
     --danger-color: #f0597a;
     --success-color: #28a745;
     --background-color: rgb(8, 9, 16);
-    --table-odd-cell: #2A4359;
-    /* --table-odd-cell: rgb(8, 9, 16); */
-    --table-even-cell: #426A8C;
-    /* --table-even-cell: rgb(8, 9, 16); */
-    --table-hover-cell: #1c1c1c;
-    /* --table-header-cell: #079af7; */
-    --table-header-cell: #101C26;
+    --table-odd-cell: #2a4359;
+    --table-even-cell: #426a8c;
+    --table-hover-cell: #294761;
+    --table-header-cell: #101c26;
 }
 
 * {
@@ -39,6 +36,7 @@ body {
 .landing {
     /* background: url("https://media0.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif"); */
     position: relative;
+    font-family: "IBM Plex Sans", sans-serif;
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
@@ -86,16 +84,19 @@ body {
     z-index: 10;
     height: 0;
 }
-.navbar {
-    background-color: black;
-}
+
 .navbar-nav li {
     padding: 0 10px;
 }
+
 .navbar-nav li a {
-    color: #ffffff !important;
+    font-family: "IBM Plex Sans", sans-serif;
+    color: white !important;
     font-weight: 600;
+    font-size: 1.1em;
+    letter-spacing: 0.2em;
 }
+
 .nav-link :hover {
     color: blue !important;
 }
@@ -103,7 +104,7 @@ body {
 /* Alert */
 .alert {
     padding: 0.8rem;
-	width: 100%;
+    width: 100%;
     border-color: black;
     /* margin : 1rem 0; */
     opacity: 0.9;
@@ -161,11 +162,6 @@ input[type="password"] {
     padding: 33px 30px;
     padding: 5rem 0;
     /* margin-right: 10vw; */
-}
-
-.table-header {
-    background-color: #079af7;
-    border-bottom: 1px solid black !important;
 }
 
 /* Level */
@@ -257,7 +253,7 @@ table th.r {
     color: #fff;
     font-weight: 600;
     line-height: 1.2;
-    letter-spacing: 0;
+    letter-spacing: 1px;
     text-align: center;
 }
 
@@ -301,21 +297,21 @@ tbody tr:hover {
 
 @media screen and (max-width: 992px) {
     .table100-head th {
-    	font-size: 1rem;
-    	color: #fff;
-    	font-weight: 500;
-    	letter-spacing: 0;
-    	text-align: center;
-		padding: 0.5rem;
+        font-size: 1rem;
+        color: #fff;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-align: center;
+        padding: 0.5rem;
     }
-	table thead tr {
-		height: 3.2rem;
-	}
-	tbody tr {
-		font-size: 0.8rem;
-		color: #808080;
-		letter-spacing: 0;
-		line-height: 1.2;
-		font-weight: unset;
-	}
+    table thead tr {
+        height: 3.2rem;
+    }
+    tbody tr {
+        font-size: 0.8rem;
+        color: #808080;
+        letter-spacing: 0;
+        line-height: 1.2;
+        font-weight: unset;
+    }
 }
