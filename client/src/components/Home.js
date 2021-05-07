@@ -6,6 +6,7 @@ import styled from "styled-components";
 import ScrollDown from "../elements/ScrollDown";
 import Countdown from "../elements/Countdown";
 import { useMediaQuery } from "react-responsive";
+import Axios from "axios";
 
 const SectionHeadingContainer = styled.h2`
     display: block;
@@ -105,6 +106,7 @@ const CountdownContainer = styled.div``;
 
 const Home = () => {
     const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
+
     return (
         <>
             <section className="landing">
@@ -145,7 +147,7 @@ const Home = () => {
                         <div className="buttons">
                             <Link
                                 to="/level"
-                                className="btn btn-primary btn-lg"
+                                className="btn btn-primary btn-lg crack"
                             >
                                 CRACK IT
                             </Link>
