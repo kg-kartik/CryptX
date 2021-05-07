@@ -6,7 +6,7 @@ import styled from "styled-components";
 import ScrollDown from "../elements/ScrollDown";
 import Countdown from "../elements/Countdown";
 import { useMediaQuery } from "react-responsive";
-import Axios from "axios";
+import Footer from "./Footer";
 
 const SectionHeadingContainer = styled.h2`
     display: block;
@@ -196,6 +196,7 @@ const Home = () => {
                     iusto explicabo deserunt eveniet aspernatur sed ipsam.
                 </Para>
             </Section>
+            <Footer />
         </>
     );
 };
