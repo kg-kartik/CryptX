@@ -92,13 +92,11 @@ body {
 .navbar-nav li {
 	padding: 0 10px;
 }
-
 .navbar-nav li a {
-	font-family: "IBM Plex Sans", sans-serif;
-	color: white !important;
-	font-weight: 600;
-	font-size: 1.1em;
-	letter-spacing: 0.2em;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 1.1em;
+    color: #ffffff !important;
+    font-weight: 600;
 }
 
 .nav-link :hover {
