@@ -8,7 +8,8 @@ const StyledSVG = styled.svg`
 	position: absolute;
 	left: 50%;
 	margin-left: -30px;
-	bottom: 2rem;
+	bottom: 1rem;
+	margin-top:100px;
 	path {
 		stroke: #2994D1;
 		fill: transparent;
