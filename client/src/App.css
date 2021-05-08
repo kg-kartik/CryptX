@@ -76,13 +76,17 @@ body {
     border-color: transparent;
     font-size: 1em;
     min-width: 15vw;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	padding: 0.875rem 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 0;
     @media (max-width: 600px) {
         width: 80vw;
     }
+}
+
+.btn-primary:hover {
+    border-color: transparent !important;
 }
 
 .crack {
@@ -95,6 +99,10 @@ body {
     background-color: #01648f !important;
     border-color: transparent !important;
     transition: 0.5s ease;
+}
+
+.discord-btn:hover {
+    background-color: #9a88e3 !important;
 }
 
 .buttons {
@@ -155,10 +163,11 @@ body {
     color: rgb(148, 148, 148);
     font-weight: 600;
     font-size: 1.1em;
-    letter-spacing: 0;
+    letter-spacing: 2px;
 }
 
 .nav-link :hover {
+    text-decoration: underline !important;
     color: blue !important;
 }
 

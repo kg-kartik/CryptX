@@ -117,7 +117,7 @@ const Footer = () => {
 	const linkList = [
         {
 			name: "Home",
-			href: "/home",
+			href: "/",
 		},
 		{
 			name: "About",
@@ -136,9 +136,7 @@ const Footer = () => {
 		<Section id="contact">
 			<Container>
 				<BrandHeader>
-					<a href="/">
-						<Image src={logo}/>
-					</a>
+					<Image src={logo}/>
 				</BrandHeader>
 				<ParentWrapper>
 
