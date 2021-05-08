@@ -76,7 +76,7 @@ const Links = styled.li`
 	}
 `
 
-const ContactInfo = styled.p`
+const ContactInfo = styled.div`
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
@@ -166,7 +166,7 @@ const Footer = () => {
 					<LinksWrapper>
 						{
 							linkList.map((obj,i) => (
-								<a href={obj.href}>
+								<a key={i} href={obj.href}>
 									<Links key={i}>
 										{obj.name}
 									</Links>
