@@ -5,6 +5,7 @@ import Navbar from "../layouts/Navbar";
 import styled from "styled-components";
 import ScrollDown from "../elements/ScrollDown";
 import Countdown from "../elements/Countdown";
+import DiscordLogo from "../styles/DiscordLogo";
 import { useMediaQuery } from "react-responsive";
 import Footer from "./Footer";
 
@@ -155,7 +156,8 @@ const Home = () => {
                                 to="/level"
                                 className="btn btn-primary btn-lg"
                             >
-                                JOIN DISCORD
+								<DiscordLogo/>
+                                <span className="align-middle">JOIN DISCORD</span>
                             </Link>
                         </div>
                     </div>

@@ -24,7 +24,7 @@ const TimerContainer = styled.div`
 	grid-template-columns: repeat(4, minmax(0px, 1fr));
     gap: 0px 2rem;
 	font-size: 2rem;
-	margin: 2rem 0;
+	margin: 1rem 0 3rem 0;
 	@media (max-width:1300px){
 		gap: 0px 1rem;
 	}
@@ -33,7 +33,7 @@ const TimerContainer = styled.div`
 const Tag = styled.p`
 	color: #798EB0;
     font-family: "Noto Sans";
-    font-size: 0.75rem;
+    font-size: 0.75rem !important;
     font-weight: 300;
     letter-spacing: 0.2rem;
     margin: 1.25rem 0px 0px;
@@ -50,11 +50,11 @@ const Tag = styled.p`
 	}
 `
 
-const OnComplete = () => {
-	return (
-		<span>Huunt is live!</span>
-	)
-}
+// const OnComplete = () => {
+// 	return (
+// 		<span>Hunt is live!</span>
+// 	)
+// }
 
 const Timer = (props) => {
 	return (
