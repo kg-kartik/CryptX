@@ -82,7 +82,7 @@ const Team = () => {
 			text: "Developer",
 			author: "Boidushya Bhattacharyay",
 			github: "https://github.com/boidushya",
-			linkedin: "https://www.linkedin.com/in/boidushya-bhattacharya-6b31a779/",
+			linkedin: "https://www.linkedin.com/in/boidushya/",
 		},
 		{
 			icon: "/photos/ArijitRoy.jpeg",
@@ -186,8 +186,8 @@ const Team = () => {
 			icon: "/photos/SubhankarSen.png",
 			text: "Outreach Coordinator",
 			author: "Subhankar Sen",
-			github: "https://github.com/radioactive11",
-			linkedin: "https://www.linkedin.com/in/kg-kartik/",
+			github: "https://github.com/subhankar01",
+			linkedin: "https://www.linkedin.com/in/subhankar-sen-a62457190",
 		},
 		{
 			icon: "/photos/Sneegdh.jpg",

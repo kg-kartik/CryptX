@@ -100,6 +100,7 @@ const Para = styled.p`
     @media (max-width: 1300px) {
         margin: 1rem 0;
         font-size: 1rem;
+		width: 100%;
     }
 `;
 
