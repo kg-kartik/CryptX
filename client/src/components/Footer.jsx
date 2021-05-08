@@ -20,6 +20,7 @@ const Container = styled.div`
 	justify-content:space-between;
 	@media (max-width: 767px) {
 		justify-content:center;
+		flex-direction:column;
 	}
 `
 
@@ -42,6 +43,7 @@ const MetaWrapper = styled.div`
 const LinksWrapper = styled.ul`
 	display: flex;
 	text-align:center;
+	margin-top:5vh;
 	li:first-child {
 		list-style: none;
 	}
@@ -49,9 +51,9 @@ const LinksWrapper = styled.ul`
 		padding: 0;
 	}
 	@media (max-width: 767px) {
+		margin-top:1rem;
 		padding: 0 !important;
 	}
-	margin-top:5vh;
 `
 
 const Links = styled.li`
@@ -73,7 +75,7 @@ const Links = styled.li`
 
 
 const SocialWrapper = styled.div`
-	padding-bottom: 4rem;
+	padding-bottom: 3rem;
 	width:100%;
 	display:flex;
 	justify-content:center;
@@ -101,6 +103,10 @@ const BrandHeader = styled.div`
     width: 30%;
     display: flex;
     align-items: center;
+	@media (max-width: 767px) {
+		width: 100%;
+		padding:2rem 2rem 0;
+	}
 `
 
 const Image = styled.img`
