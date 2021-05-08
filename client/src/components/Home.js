@@ -92,11 +92,11 @@ const Section = styled.section`
 
 const Para = styled.p`
     font-family: "IBM Plex Sans";
-    letter-spacing: -0.5px;
+    letter-spacing: 2px;
     color: #cccccc;
+    width: 50vw;
     margin: 2rem 0;
     font-size: 1.5rem;
-    text-align: center;
     @media (max-width: 1300px) {
         margin: 1rem 0;
         font-size: 1rem;
@@ -156,8 +156,10 @@ const Home = () => {
                                 to="/level"
                                 className="btn btn-primary btn-lg"
                             >
-								<DiscordLogo/>
-                                <span className="align-middle">JOIN DISCORD</span>
+                                <DiscordLogo />
+                                <span className="align-middle">
+                                    JOIN DISCORD
+                                </span>
                             </Link>
                         </div>
                     </div>
@@ -169,33 +171,53 @@ const Home = () => {
                     <Heading className="landing">About</Heading>
                 </SectionHeadingContainer>
                 <Para>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Assumenda a vel recusandae laboriosam laborum veritatis, qui
-                    accusamus tempora sit provident necessitatibus iste veniam
-                    iusto explicabo deserunt eveniet aspernatur sed ipsam.
+                    CryptX is a one day online cryptic hunt organised by
+                    Randomize MUJ. CryptX will be held from 15 May 2021 18:00 PM
+                    IST to 16 May 2021 18:00 PM IST. The hunt consists of
+                    several questions in form of pictures and players would
+                    require to crack their brains to solve them and reach to an
+                    answer. <br /> <br />
+                    The goal of players should be to find the answer as fast as
+                    possible to stay on top of the leaderboard. At the end of
+                    the day, the player at the top of leaderboard will be
+                    declared as the winner of CRYPTX 2021. This gripping
+                    competition will upskill and hone the expertise and
+                    efficiency of the competitors to solve tasks, by testing
+                    their logical and analytical skills while they search for
+                    clues all over the internet.
                 </Para>
-                <Para>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Assumenda a vel recusandae laboriosam laborum veritatis, qui
-                    accusamus tempora sit provident necessitatibus iste veniam
-                    iusto explicabo deserunt eveniet aspernatur sed ipsam.
-                </Para>
+                <Para></Para>
             </Section>
             <Section>
                 <SectionHeadingContainer>
                     <Heading className="landing">Rules</Heading>
                 </SectionHeadingContainer>
                 <Para>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Assumenda a vel recusandae laboriosam laborum veritatis, qui
-                    accusamus tempora sit provident necessitatibus iste veniam
-                    iusto explicabo deserunt eveniet aspernatur sed ipsam.
-                </Para>
-                <Para>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Assumenda a vel recusandae laboriosam laborum veritatis, qui
-                    accusamus tempora sit provident necessitatibus iste veniam
-                    iusto explicabo deserunt eveniet aspernatur sed ipsam.
+                    At each level, the participants will encounter a number of
+                    clues which shall all, together, point to one final answer.
+                    Each level has only one correct answer.
+                    <br />
+                    <br />
+                    It is compulsary for all participants to join our discord
+                    server. All official hints will be released on the discord
+                    server.
+                    <br />
+                    <br />
+                    Answers will always be in lower-case, alphanumeric and will
+                    contain no spaces. Special characters are not allowed.
+                    Beware of the spelling you enter. For example, if the answer
+                    is 221-B Baker Street, you would type it in as
+                    “221bbakerstreet”.
+                    <br />
+                    <br />
+                    Directly messaging any admin for clues, hints or lead
+                    confirmations is not allowed. Participants could use the
+                    general chat in the discord server for any queries.
+                    <br />
+                    <br />
+                    Team play, answer sharing and collaborating with other
+                    participants is not allowed and any such activity can lead
+                    to disqualification of the people involved.
                 </Para>
             </Section>
             <Footer />

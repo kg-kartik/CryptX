@@ -81,7 +81,7 @@ const renderer = ({ days, hours, minutes, seconds }) => {
 const CountdownContainer = () => {
 	return (
 		<Countdown
-			date={1620995400000}
+			date={1621081800000}
 			renderer={renderer}
 		/>
 	)
