@@ -76,6 +76,10 @@ body {
     border-color: transparent;
     font-size: 1em;
     min-width: 15vw;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.875rem 0;
     @media (max-width: 600px) {
         width: 80vw;
     }

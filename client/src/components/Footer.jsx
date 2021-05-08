@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import theme from '../styles/themes';
+import logo from "../static/logo.png";
 
 const Section = styled.section`
 	min-height: 15vh;
@@ -22,12 +23,6 @@ const Container = styled.div`
 	}
 `
 
-
-const ContactContainer = styled.div`
-	display:flex;
-	flex-direction:row;
-	justify-content:space-between;
-`
 
 const ParentWrapper = styled.div`
 	display:flex;
@@ -76,20 +71,6 @@ const Links = styled.li`
 	}
 `
 
-const ContactInfo = styled.div`
-	display:flex;
-	flex-direction:column;
-	justify-content:center;
-	font-size:1.2rem;
-	color: #b7b7b7;
-	letter-spacing:0;
-	padding: 0 3rem;
-	margin-bottom:0;
-	@media (max-width: 767px) {
-		justify-content:center;
-		padding-top:8vh;
-	}
-`
 
 const SocialWrapper = styled.div`
 	padding-bottom: 4rem;
@@ -115,14 +96,15 @@ const IconContainer = styled.a`
 	font-size:2rem;
 `
 
-const ContactHeading = styled.h4`
-	font-size: 1.25rem;
-	letter-spacing: 0;
-	padding: 1rem 0;
+const BrandHeader = styled.div`
+	padding:2rem;
+    width: 30%;
+    display: flex;
+    align-items: center;
 `
 
-const ContactWrapper = styled.div`
-	margin: 0 0 1rem;
+const Image = styled.img`
+	max-width:100%;
 `
 
 const Footer = () => {
@@ -147,26 +129,18 @@ const Footer = () => {
 	return (
 		<Section id="contact">
 			<Container>
-				<ContactInfo>
-					<ContactHeading>Contact Us:</ContactHeading>
-					<ContactWrapper>
-						<ContactContainer>
-							<b className="pr-5">Arijit Roy</b>
-							987654321
-						</ContactContainer>
-						<ContactContainer>
-							<b className="pr-5">Nitigya Kargeti</b>
-							987654321
-						</ContactContainer>
-					</ContactWrapper>
-				</ContactInfo>
+				<BrandHeader>
+					<a href="/">
+						<Image src={logo}/>
+					</a>
+				</BrandHeader>
 				<ParentWrapper>
 
 				<MetaWrapper>
 					<LinksWrapper>
 						{
 							linkList.map((obj,i) => (
-								<a key={i} href={obj.href}>
+								<a  href={obj.href}>
 									<Links key={i}>
 										{obj.name}
 									</Links>
