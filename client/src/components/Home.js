@@ -175,12 +175,12 @@ const Home = () => {
                     Randomize MUJ. CryptX will be held from 15 May 2021 18:00 PM
                     IST to 16 May 2021 18:00 PM IST. The hunt consists of
                     several questions in form of pictures and players would
-                    require to crack their brains to solve them and reach to an
+                    require to rack their brains to solve them and reach to an
                     answer. <br /> <br />
                     The goal of players should be to find the answer as fast as
                     possible to stay on top of the leaderboard. At the end of
                     the day, the player at the top of leaderboard will be
-                    declared as the winner of CRYPTX 2021. This gripping
+                    declared as the winner of CryptX 2021. This gripping
                     competition will upskill and hone the expertise and
                     efficiency of the competitors to solve tasks, by testing
                     their logical and analytical skills while they search for
