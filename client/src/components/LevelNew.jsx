@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 import Waves from "../elements/Waves";
 import Loading from "../elements/Loading";
 import { useMediaQuery } from "react-responsive";
+import Axios from "axios";
 
 const Wrapper = styled.section`
 	position:absolute;
@@ -32,6 +33,14 @@ const Container = styled.div`
 	}
 `
 
+const NotLiveText = styled.p`
+	margin: 20vh 25vw 0 25vw;
+	color:white;
+	font-family: "IBM Plex Sans", sans-serif;
+	letter-spacing:2px;
+	font-size:5vw;
+`
+
 const QuestionContainer = styled(animated.div)`
 	z-index:1;
 	display: grid;
@@ -50,7 +59,8 @@ const QuestionContainer = styled(animated.div)`
 const LevelHeading = styled.div`
 	font-weight: 600;
 	font-size: 2rem;
-	color: #111111;
+	color: white;
+
 	text-transform: uppercase;
 	color: white;
 `
@@ -119,11 +129,22 @@ const Image = styled.img`
 	object-fit:cover;
 `
 
+// var g1 = new Date(2021, 5, 14, 18, 0, 0);
+
 const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1300px)' })
 	const [answer, setAnswer] = useState("");
+	const [date,setDate] = useState(true); //g1>g2
+
+	const apiUrl = process.env.REACT_APP_API_URL;
 
 	useEffect(() => {
+		const fetchServerTime = () => {
+			Axios.get(`${apiUrl}/getdate`).then((res) => {
+				setDate(res.data.bool);
+			});
+    	};
+		fetchServerTime();
 		getCurrentLevel();
 	// eslint-disable-next-line
 	}, []);
@@ -155,7 +176,6 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 	const [inputIsEmpty, setInputIsEmpty] = useState(true);
 	const handleInput = (event) => {
 		if (event.target.value.length !== 0) {
-			console.log(event.target.value);
 			setInputIsEmpty(false);
 			setAnswer(event.target.value);
 		}
@@ -166,6 +186,12 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 	return (
 		<Wrapper>
 			<Navbar />
+			{
+				date ? (
+					<NotLiveText>
+						The hunt has not yet started. <br />
+						It will go live at 14th May , 18:00 Hrs. </NotLiveText>
+				): (
 			<Container>
 				<QuestionContainer
 					onMouseMove={({
@@ -213,6 +239,8 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 				)}
 				</QuestionContainer>
 			</Container>
+				)
+			}
 			{!isTabletOrMobile&&(
 				<Waves />
 			)}

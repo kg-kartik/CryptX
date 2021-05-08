@@ -8,11 +8,11 @@ const InputContainer = styled.div`
 	input{
 		border:none!important;
 	}
-
 	.styled-input {
 		border-bottom: 2px solid #ccc !important;
 		// font-family: "IBM Plex Sans", sans-serif;
 		width:100%;
+		margin-bottom:20px;
 		font-size: 1em;
 		font-weight: 600;
 		padding: 0.5em 0.5em;

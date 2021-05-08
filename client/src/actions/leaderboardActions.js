@@ -1,5 +1,6 @@
 import { GET_USERS } from "./types";
 import axios from "axios";
+import setAlert from "./alertActions";
 
 export const getUsers = () => (dispatch) => {
     const apiUrl = process.env.REACT_APP_API_URL;
@@ -13,6 +14,6 @@ export const getUsers = () => (dispatch) => {
             });
         })
         .catch((err) => {
-            console.log(err);
+            dispatch(setAlert("Error fetching data", "danger"));
         });
 };
