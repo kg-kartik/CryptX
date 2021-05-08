@@ -157,13 +157,13 @@ const Footer = () => {
 				</MetaWrapper>
 				{/* <FlexBreak /> */}
 				<SocialWrapper>
-					<IconContainer href="https://www.instagram.com/randomize.muj/">
+					<IconContainer href="https://www.instagram.com/randomizemuj/">
 						<Icon className="fab fa-instagram" />
 					</IconContainer>
-					<IconContainer href="https://www.facebook.com/randomize/">
-						<Icon className="fab fa-facebook" />
+					<IconContainer href="https://github.com/Randomize-MUJ/">
+						<Icon className="fab fa-github" />
 					</IconContainer>
-					<IconContainer href="https://www.linkedin.com/randomize/">
+					<IconContainer href="https://www.linkedin.com/company/randomizemuj/">
 						<Icon className="fab fa-linkedin-in" />
 					</IconContainer>
 				</SocialWrapper>
