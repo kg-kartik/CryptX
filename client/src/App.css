@@ -168,7 +168,7 @@ body {
 	text-shadow: 0 0 15px rgb(92 171 195 / 65%);
 	/* border-bottom: none; */
 	/* border-bottom:2px solid white !important; */
-	text-decoration: underline;
+	text-decoration: underline !important;
 	text-underline-offset: 0.2rem;
 }
 

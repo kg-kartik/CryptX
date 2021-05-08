@@ -33,12 +33,26 @@ const Container = styled.div`
 	}
 `
 
-const NotLiveText = styled.p`
-	margin: 20vh 25vw 0 25vw;
+const NLTContainer = styled.div`
+	display:grid;
+	place-items:center;
+	min-height:100vh;
+`
+
+const NotLiveText = styled(animated.div)`
 	color:white;
-	font-family: "IBM Plex Sans", sans-serif;
-	letter-spacing:2px;
-	font-size:5vw;
+	font-family: "Noto Sans", sans-serif;
+	letter-spacing:0.5px;
+	font-size:3rem;
+	padding: 3rem 2rem;
+	background: #1f242db3;
+	border-radius: 0.8rem;
+	text-align:center;
+	box-shadow: 0 0 40px rgb(17 9 33);
+	@media (max-width:1224px){
+		font-size: 2rem;
+		margin:2rem;
+	}
 `
 
 const QuestionContainer = styled(animated.div)`
@@ -188,9 +202,20 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 			<Navbar />
 			{
 				date ? (
-					<NotLiveText>
-						The hunt has not yet started. <br />
-						It will go live at 14th May , 18:00 Hrs. </NotLiveText>
+					<NLTContainer>
+						<NotLiveText
+							onMouseMove={({
+								clientX: x,
+								clientY: y
+							}) => set({ xys: calc(x, y) })}
+							onMouseLeave={() => set({ xys: [0, 0, 1] })}
+							style={{ transform: props.xys.interpolate(trans) }}
+						>
+							The hunt has not yet started. <br />
+							It will go live on <br />
+							15th May , 18:00 Hrs.
+						</NotLiveText>
+					</NLTContainer>
 				): (
 			<Container>
 				<QuestionContainer
