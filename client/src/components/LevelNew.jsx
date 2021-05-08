@@ -190,7 +190,7 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 				date ? (
 					<NotLiveText>
 						The hunt has not yet started. <br />
-						It will go live at 14th May , 18:00 Hrs. </NotLiveText>
+						It will go live at 15th May , 18:00 Hrs. </NotLiveText>
 				): (
 			<Container>
 				<QuestionContainer

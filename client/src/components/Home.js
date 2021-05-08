@@ -153,15 +153,15 @@ const Home = () => {
                             >
                                 CRACK IT
                             </Link>
-                            <Link
-                                to="/level"
-                                className="btn btn-primary btn-lg"
+                            <a
+                                href="https://discord.gg/75gtvPUW"
+                                className="btn btn-primary btn-lg discord-btn"
                             >
                                 <DiscordLogo />
                                 <span className="align-middle">
                                     JOIN DISCORD
                                 </span>
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 </div>

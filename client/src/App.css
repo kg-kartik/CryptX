@@ -85,6 +85,10 @@ body {
     }
 }
 
+.btn-primary:hover {
+    border-color: transparent !important;
+}
+
 .crack {
     background-color: transparent !important;
     border-width: 2px !important;
@@ -95,6 +99,10 @@ body {
     background-color: #01648f !important;
     border-color: transparent !important;
     transition: 0.5s ease;
+}
+
+.discord-btn:hover {
+    background-color: #9a88e3 !important;
 }
 
 .buttons {
