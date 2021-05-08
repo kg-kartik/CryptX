@@ -117,7 +117,7 @@ const Footer = () => {
 	const linkList = [
         {
 			name: "Home",
-			href: "/home",
+			href: "/",
 		},
 		{
 			name: "About",

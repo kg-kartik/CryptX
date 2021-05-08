@@ -131,7 +131,7 @@ const Team = () => {
 			text: "Designer",
 			author: "Aniket Verma",
 			github: "https://github.com/radioactive11",
-			linkedin: "https://www.linkedin.com/in/kg-kartik/",
+			linkedin: "https://github.com/Aniket-x-code/",
 		},
 		{
 			icon: "/photos/Gaurav.jpg",

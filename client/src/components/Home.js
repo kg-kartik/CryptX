@@ -100,7 +100,7 @@ const Para = styled.p`
     @media (max-width: 1300px) {
         margin: 1rem 0;
         font-size: 1rem;
-		width: 100%;
+        width: 100%;
     }
 `;
 
@@ -189,7 +189,7 @@ const Home = () => {
                 </Para>
                 <Para></Para>
             </Section>
-            <Section>
+            <Section id="rules">
                 <SectionHeadingContainer>
                     <Heading className="landing">Rules</Heading>
                 </SectionHeadingContainer>
