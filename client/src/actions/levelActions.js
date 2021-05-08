@@ -13,7 +13,7 @@ export const getCurrentLevel = () => (dispatch) => {
             });
         })
         .catch((err) => {
-            console.log(err);
+            dispatch(setAlert("Error fetching data", "danger"));
         });
 };
 

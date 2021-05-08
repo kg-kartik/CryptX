@@ -136,24 +136,15 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 	const [answer, setAnswer] = useState("");
 	const [date,setDate] = useState(true); //g1>g2
 
-	const fetchServerTime = () => {
-        Axios.get("http://google.com").then((res) => {
-            console.log(res.headers.get("Date"));
-            return res.headers.get("Date");
-        });
-    };
-
-    var g2 = fetchServerTime();
-
-    if (!g2) {
-        g2 = new Date();
-    }
-
-    if (g1 < g2) {
-        setDate(false);
-	}
+	const apiUrl = process.env.REACT_APP_API_URL;
 
 	useEffect(() => {
+		const fetchServerTime = () => {
+			Axios.get(`${apiUrl}/getdate`).then((res) => {
+				setDate(res.data.bool);
+			});
+    	};
+		fetchServerTime();
 		getCurrentLevel();
 	// eslint-disable-next-line
 	}, []);
