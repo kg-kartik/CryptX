@@ -169,7 +169,7 @@ const Team = () => {
 			linkedin: "https://www.linkedin.com/in/kg-kartik/",
 		},
 		{
-			icon: "/photos/Adityayadav.jpeg",
+			icon: "/photos/AdityaYadav.jpeg",
 			text: "Event Coordinator",
 			author: "Aditya Yadav",
 			github: "https://github.com/radioactive11",
