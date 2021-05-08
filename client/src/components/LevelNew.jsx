@@ -129,7 +129,7 @@ const Image = styled.img`
 	object-fit:cover;
 `
 
-var g1 = new Date(2021, 5, 14, 18, 0, 0);
+// var g1 = new Date(2021, 5, 14, 18, 0, 0);
 
 const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1300px)' })

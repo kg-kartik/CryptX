@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logoutUser } from "../actions/authActions";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../App.css";
 import theme from "../styles/themes";
 import styled from "styled-components";
@@ -36,60 +36,61 @@ const Navbar = ({ auth: { isAuthenticated, loading } }) => {
                     {!isAuthenticated ? (
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <Link className="nav-link" to="/">
+                                <NavLink exact activeClassName="selected" className="nav-link" to="/">
                                     HOME
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/signup">
+                                <NavLink activeClassName="selected" className="nav-link" to="/signup">
                                     SIGNUP
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/signin">
+                                <NavLink activeClassName="selected" className="nav-link" to="/signin">
                                     SIGNIN
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/leaderboard">
+                                <NavLink activeClassName="selected" className="nav-link" to="/leaderboard">
                                     LEADERBOARD
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/team">
+                                <NavLink activeClassName="selected" className="nav-link" to="/team">
                                     TEAM
-                                </Link>
+                                </NavLink>
                             </li>
                         </ul>
                     ) : (
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <Link className="nav-link" to="/">
+                                <NavLink exact activeClassName="selected" className="nav-link" to="/">
                                     HOME
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/level">
+                                <NavLink activeClassName="selected" className="nav-link" to="/level">
                                     PLAY
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/leaderboard">
+                                <NavLink activeClassName="selected" className="nav-link" to="/leaderboard">
                                     LEADERBOARD
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/team">
+                                <NavLink activeClassName="selected" className="nav-link" to="/team">
                                     TEAM
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link
-                                    className="nav-link logout"
+                                <NavLink
+                                    activeClassName="selected"
+									className="nav-link logout"
                                     onClick={() => logout()}
                                 >
                                     LOGOUT
-                                </Link>
+                                </NavLink>
                             </li>
                         </ul>
                     )}

@@ -149,7 +149,7 @@ body {
 
 .navbar-nav li a {
     font-family: "IBM Plex Sans", sans-serif;
-    color: white !important;
+    color: rgb(148, 148, 148);
     font-weight: 600;
     font-size: 1.1em;
     letter-spacing: 0.2em;
@@ -157,6 +157,23 @@ body {
 
 .nav-link :hover {
     color: blue !important;
+}
+
+.selected {
+	position: relative;
+	color:white !important;
+	text-shadow: 0 0 15px rgb(92 171 195 / 88%);
+	border-bottom: none;
+}
+
+.selected:after {
+	content: '';
+	border-bottom:2px solid white !important;
+	display: block;
+	position: absolute;
+	right: 0.2em;
+	left: 0;
+	margin: 0 0.4rem;
 }
 
 /* Alert */

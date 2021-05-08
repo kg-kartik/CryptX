@@ -99,7 +99,7 @@ const Heading = styled.div`
 `
 
 const DataContainer = styled.div`
-	padding: 0 0 1rem 0;
+	padding: 0 0 1.5rem 0;
 `
 
 const SignInText = styled.div`
