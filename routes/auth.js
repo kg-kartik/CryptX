@@ -136,8 +136,8 @@ router.post(
                             user: { _id, email, password },
                         });
                     } else {
-                        res.json({
-                            errors: [{ msg: "Invalid Credentials" }],
+                        return res.status(400).json({
+                            errors: [{ msg: "Invalid Credentials." }],
                         });
                     }
                 })

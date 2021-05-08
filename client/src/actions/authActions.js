@@ -13,7 +13,7 @@ export const registerUser = (userData, history) => (dispatch) => {
         .then((response) => {
             dispatch(
                 setAlert(
-                    "Successfully Registered.Please check and verify your email.",
+                    "Successfully Registered.Please verify your email(also check your spam folder)",
                     "success"
                 )
             );
