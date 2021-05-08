@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { useSpring, animated } from 'react-spring';
 import { registerUser } from "../actions/authActions";
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ButtonContainer from "../elements/ButtonContainer";
@@ -231,9 +231,9 @@ const SignUpNew = ({ registerUser, auth }) => {
 						type="submit"
 					/>
 					<SignInText>
-							<a href="/signin">
+							<NavLink to="/signin">
 								Already signed up? Login
-							</a>
+							</NavLink>
 					</SignInText>
 				</LoginContainer>
 				{!isTabletOrMobile && (

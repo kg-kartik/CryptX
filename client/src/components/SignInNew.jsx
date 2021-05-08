@@ -15,6 +15,7 @@ import Waves from "../elements/Waves";
 import Navbar from "../layouts/Navbar";
 import theme from "../styles/themes";
 import { useMediaQuery } from "react-responsive";
+import { NavLink } from "react-router-dom";
 
 const InputContainer = styled.div`
 	display: inline-block;
@@ -252,8 +253,10 @@ const SignInNew = ({ loginUser, auth }) => {
 						clickEvent={e => login(e)}
 						type="submit"
 					/>
-					<SignUpText href="/signup">
-						Don't have an account? SignUp
+					<SignUpText>
+							<NavLink to="/signup">
+								Don't have an account? SignUp
+							</NavLink>	
 					</SignUpText>
 				</LoginContainer>
 				{!isTabletOrMobile && (

@@ -36,27 +36,48 @@ const Navbar = ({ auth: { isAuthenticated, loading } }) => {
                     {!isAuthenticated ? (
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <NavLink exact activeClassName="selected" className="nav-link" to="/">
+                                <NavLink
+                                    exact
+                                    activeClassName="selected"
+                                    className="nav-link"
+                                    to="/"
+                                >
                                     HOME
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink activeClassName="selected" className="nav-link" to="/signup">
+                                <NavLink
+                                    activeClassName="selected"
+                                    className="nav-link"
+                                    to="/signup"
+                                >
                                     SIGNUP
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink activeClassName="selected" className="nav-link" to="/signin">
+                                <NavLink
+                                    activeClassName="selected"
+                                    className="nav-link"
+                                    to="/signin"
+                                >
                                     SIGNIN
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink activeClassName="selected" className="nav-link" to="/leaderboard">
+                                <NavLink
+                                    activeClassName="selected"
+                                    className="nav-link"
+                                    to="/leaderboard"
+                                >
                                     LEADERBOARD
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink activeClassName="selected" className="nav-link" to="/team">
+                                <NavLink
+                                    activeClassName="selected"
+                                    className="nav-link"
+                                    to="/team"
+                                >
                                     TEAM
                                 </NavLink>
                             </li>
@@ -64,29 +85,47 @@ const Navbar = ({ auth: { isAuthenticated, loading } }) => {
                     ) : (
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <NavLink exact activeClassName="selected" className="nav-link" to="/">
+                                <NavLink
+                                    exact
+                                    activeClassName="selected"
+                                    className="nav-link"
+                                    to="/"
+                                >
                                     HOME
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink activeClassName="selected" className="nav-link" to="/level">
-                                    PLAY
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink activeClassName="selected" className="nav-link" to="/leaderboard">
-                                    LEADERBOARD
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink activeClassName="selected" className="nav-link" to="/team">
-                                    TEAM
                                 </NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink
                                     activeClassName="selected"
-									className="nav-link logout"
+                                    className="nav-link"
+                                    to="/level"
+                                >
+                                    PLAY
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink
+                                    activeClassName="selected"
+                                    className="nav-link"
+                                    to="/leaderboard"
+                                >
+                                    LEADERBOARD
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink
+                                    activeClassName="selected"
+                                    className="nav-link"
+                                    to="/team"
+                                >
+                                    TEAM
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink
+                                    to="/signin"
+                                    activeClassName="selected"
+                                    className="nav-link logout"
                                     onClick={() => logout()}
                                 >
                                     LOGOUT
