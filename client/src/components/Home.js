@@ -172,20 +172,20 @@ const Home = () => {
                     <Heading className="landing">About</Heading>
                 </SectionHeadingContainer>
                 <Para>
-                    CryptX is a one day online cryptic hunt organised by
-                    Randomize MUJ. CryptX will be held from 15 May 2021 18:00 PM
-                    IST to 16 May 2021 18:00 PM IST. The hunt consists of
-                    several questions in form of pictures and players would
-                    require to rack their brains to solve them and reach to an
-                    answer. <br /> <br />
-                    The goal of players should be to find the answer as fast as
-                    possible to stay on top of the leaderboard. At the end of
-                    the day, the player at the top of leaderboard will be
+                    CryptX is a one-day long online cryptic hunt organized by
+                    Randomize(); MUJ. It will be held from 15 May 2021 18:00 IST
+                    to 16 May 2021 18:00 IST. The hunt consists of 20 questions
+                    in the form of pictures, and players are required to rack
+                    their brains to solve them and reach an answer. <br />{" "}
+                    <br />
+                    The goal of the players should be to find the answer as fast
+                    as possible to stay on top of the leaderboard. At the end of
+                    the event, the player at the top of leaderboard will be
                     declared as the winner of CryptX 2021. This gripping
-                    competition will upskill and hone the expertise and
-                    efficiency of the competitors to solve tasks, by testing
-                    their logical and analytical skills while they search for
-                    clues all over the internet.
+                    competition will up-skill the competitors and hone their
+                    investigative skills, while testing their logical and
+                    analytical skills as they search for clues all over the
+                    Internet.
                 </Para>
                 <Para></Para>
             </Section>
