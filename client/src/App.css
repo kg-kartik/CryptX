@@ -157,7 +157,9 @@ body {
 
 .navbar-nav li {
     padding: 0 10px;
+	text-align: left;
 }
+
 .navbar-nav li a {
     font-family: "IBM Plex Sans", sans-serif;
     color: rgb(148, 148, 148);
