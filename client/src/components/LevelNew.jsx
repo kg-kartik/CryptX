@@ -159,9 +159,12 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 			});
     	};
 		fetchServerTime();
-		getCurrentLevel();
 	// eslint-disable-next-line
 	}, []);
+
+	if(date === false){
+		getCurrentLevel();
+	}
 
 	const submitAnswer = e => {
 		e.preventDefault();
@@ -209,7 +212,7 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 								clientY: y
 							}) => set({ xys: calc(x, y) })}
 							onMouseLeave={() => set({ xys: [0, 0, 1] })}
-							style={{ transform: props.xys.interpolate(trans) }}
+							style={{ transform: props.xys.to(trans) }}
 						>
 							The hunt has not yet started. <br />
 							It will go live on <br />
@@ -224,7 +227,7 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 						clientY: y
 					}) => set({ xys: calc(x, y) })}
 					onMouseLeave={() => set({ xys: [0, 0, 1] })}
-					style={{ transform: props.xys.interpolate(trans) }}
+					style={{ transform: props.xys.to(trans) }}
 				>{level.isLoading ? (
 					<Loading/>
 				):(

@@ -158,7 +158,7 @@ const SignInNew = ({ loginUser, auth }) => {
 						clientY: y
 					}) => set({ xys: calc(x, y) })}
 					onMouseLeave={() => set({ xys: [0, 0, 1] })}
-					style={{ transform: props.xys.interpolate(trans) }}
+					style={{ transform: props.xys.to(trans) }}
 				>
 					<Heading>
 						<AccountCircleIcon className="icon" />
