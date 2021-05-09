@@ -60,13 +60,13 @@ const Links = styled.li`
 	cursor: pointer;
 	letter-spacing:0;
 	color: lightgray !important;
-	font-size: 1rem;
+	font-size: 1.2rem;
 	// padding: 0 1rem 0 0;
 	margin: 0 1rem 0 1rem;
 	@media (max-width: 767px) {
-		margin: 0 0.5rem;
+		margin: 0 0.5rem 1.5rem 0.5rem;
 		list-style:none;
-		font-size: 1em;
+		font-size: 1.1em;
 	}
 	&:hover{
 		text-decoration:underline;
@@ -75,7 +75,7 @@ const Links = styled.li`
 
 
 const SocialWrapper = styled.div`
-	padding-bottom: 3rem;
+	padding-bottom: 2rem;
 	width:100%;
 	display:flex;
 	justify-content:center;
@@ -99,18 +99,21 @@ const IconContainer = styled.a`
 `
 
 const BrandHeader = styled.div`
-	padding:2rem;
+	padding:1rem;
     width: 30%;
     display: flex;
     align-items: center;
 	@media (max-width: 767px) {
 		width: 100%;
-		padding:2rem 2rem 0;
+		padding:1rem 1rem 0;
 	}
 `
 
 const Image = styled.img`
-	max-width:100%;
+	max-width:120%;
+	@media (max-width: 767px) {
+		max-width: 100%;
+	}
 `
 
 const Footer = () => {

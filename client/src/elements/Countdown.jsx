@@ -9,9 +9,9 @@ const TimeCard = styled.div`
 	display: flex;
 	flex-direction: column;
 	font-family: "IBM Plex Sans", -sans-serif;
-	font-size: 2rem 1rem;
-	padding: 1rem;
-	font-weight: 100;
+	font-size: 1.5rem !important;
+	padding: 2rem;
+	font-weight: 600;
 	line-height: 1;
 	text-align: center;
 	@media (max-width:1300px){
