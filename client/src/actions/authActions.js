@@ -1,4 +1,11 @@
-import { SET_CURRENT_USER } from "./types";
+import {
+    SET_CURRENT_USER,
+    SIGNUP_REQUEST,
+    SIGNUP_FAILED,
+    SIGNUP_SUCCESSFUL,
+    SIGNIN_REQUEST,
+    SIGNIN_FAILED,
+} from "./types";
 import setAlert from "./alertActions";
 import axios from "axios";
 import setAuthToken from "../util/setAuthToken";
@@ -8,9 +15,16 @@ import jwt_decode from "jwt-decode";
 const apiUrl = process.env.REACT_APP_API_URL;
 
 export const registerUser = (userData, history) => (dispatch) => {
+    dispatch({
+        type: SIGNUP_REQUEST,
+    });
+
     axios
         .post(`${apiUrl}/user/signup`, userData)
         .then((response) => {
+            dispatch({
+                type: SIGNUP_SUCCESSFUL,
+            });
             dispatch(
                 setAlert(
                     "Successfully Registered.Please verify your email(also check your spam folder)",
@@ -21,6 +35,9 @@ export const registerUser = (userData, history) => (dispatch) => {
         })
         .catch((err) => {
             const errors = err.response.data.errors;
+            dispatch({
+                type: SIGNUP_FAILED,
+            });
             if (errors) {
                 errors.forEach((error) => {
                     dispatch(setAlert(error.msg, "danger"));
@@ -31,6 +48,9 @@ export const registerUser = (userData, history) => (dispatch) => {
 
 //Login user
 export const loginUser = (userData) => (dispatch) => {
+    dispatch({
+        type: SIGNIN_REQUEST,
+    });
     axios
         .post(`${apiUrl}/user/signin`, userData)
         .then((response) => {
@@ -49,6 +69,9 @@ export const loginUser = (userData) => (dispatch) => {
             dispatch(setAlert("Successfully LoggedIn", "success"));
         })
         .catch((err) => {
+            dispatch({
+                type: SIGNIN_FAILED,
+            });
             const errors = err.response.data.errors;
             if (errors) {
                 errors.forEach((error) => {

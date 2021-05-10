@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { useSpring, animated } from 'react-spring';
@@ -121,12 +121,19 @@ const PasswordContainer = styled.div`
 `
 
 const SignInNew = ({ loginUser, auth }) => {
+	const [loading,setLoading] = useState(false);
+	
+	useEffect(() => {
+		setLoading(auth.loading);
+	},[auth.loading])
+
 	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1300px)' })
 	const history = useHistory();
 	const login = e => {
 		e.preventDefault();
 		loginUser(inputData, history);
 	};
+
 
 	if (auth.isAuthenticated) {
 		history.push("/level");
@@ -249,7 +256,7 @@ const SignInNew = ({ loginUser, auth }) => {
 						</InputContainer>
 					</PasswordContainer>
 					<ButtonContainer
-						title="SignIn"
+						title={loading ? "Signing In.." : "SignIn"}
 						clickEvent={e => login(e)}
 						type="submit"
 					/>

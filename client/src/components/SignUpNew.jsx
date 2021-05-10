@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { useSpring, animated } from 'react-spring';
@@ -109,6 +109,12 @@ const SignInText = styled.div`
 `
 
 const SignUpNew = ({ registerUser, auth }) => {
+	const [loading,setLoading] = useState(false);
+
+	useEffect(() => {
+		setLoading(auth.loading);
+	},[auth.loading])
+
 	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1300px)' })
 	const history = useHistory();
 	const saveDetails = e => {
@@ -226,7 +232,7 @@ const SignUpNew = ({ registerUser, auth }) => {
 					</DataContainer>
 					<ButtonContainer
 						signup={true}
-						title="Register"
+						title={loading ? "Registering.." : "Register"}
 						clickEvent={e => saveDetails(e)}
 						type="submit"
 					/>
