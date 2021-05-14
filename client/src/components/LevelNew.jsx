@@ -84,6 +84,7 @@ const LevelHint = styled.div`
 	font-weight: 400;
 	font-size: 1.5rem;
 	margin:1vh 0;
+	padding: 0 20px;
 	color:#00C896;
 `
 
@@ -176,7 +177,7 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
     	};
 		fetchServerTime();
 	// eslint-disable-next-line
-	}, []);
+	}, [getCurrentLevel]);
 
 	useEffect(() => {
 		if(date === false){
@@ -210,6 +211,7 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 	})
 	);
 	const [inputIsEmpty, setInputIsEmpty] = useState(true);
+
 	const handleInput = (event) => {
 		if (event.target.value.length !== 0) {
 			setInputIsEmpty(false);
@@ -284,7 +286,8 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 						<ButtonContainer>
 							<Button
 								onClick={e => submitAnswer(e)}
-							>Level++? <span role="img" aria-label="eye emoji">👀</span></Button>
+							>{level.isUpdateLevelLoading ? "Checking" : "Level++"}
+							 <span role="img" aria-label="eye emoji">👀</span></Button>
 						</ButtonContainer>
 					</>
 				)}

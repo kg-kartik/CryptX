@@ -1,4 +1,9 @@
-import { GET_CURRENT_LEVEL, UPDATE_LEVEL } from "./types";
+import {
+    GET_CURRENT_LEVEL,
+    REQUEST_UPDATE_LEVEL,
+    REQUEST_UPDATE_LEVEL_FAILED,
+    UPDATE_LEVEL,
+} from "./types";
 import axios from "axios";
 import setAlert from "./alertActions";
 
@@ -19,6 +24,9 @@ export const getCurrentLevel = () => (dispatch) => {
 };
 
 export const updateLevel = (answer) => (dispatch) => {
+    dispatch({
+        type: REQUEST_UPDATE_LEVEL,
+    });
     axios
         .post(`${apiUrl}/answer`, answer)
         .then((response) => {
@@ -29,6 +37,9 @@ export const updateLevel = (answer) => (dispatch) => {
             dispatch(setAlert("Correct Answer", "success"));
         })
         .catch((err) => {
+            dispatch({
+                type: REQUEST_UPDATE_LEVEL_FAILED,
+            });
             dispatch(setAlert("Incorrect answer", "danger"));
         });
 };
