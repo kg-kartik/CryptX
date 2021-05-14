@@ -28,8 +28,9 @@ const Container = styled.div`
 	color: black;
 	background: ${theme.mainBackground};
 	font-weight: 400;
-	@media (min-width:1224px){
+	@media (max-width:1224px){
 		padding-top:3rem;
+		grid-auto-rows: 0.5fr;
 	}
 `
 
@@ -143,6 +144,20 @@ const Image = styled.img`
 	object-fit:cover;
 `
 
+const NameHeading = styled.h1`
+	color: white;
+	font-size: 2rem;
+	position:absolute;
+	top:0;
+	left:0;
+	padding: 0.5rem 1rem;
+	z-index:10;
+	@media (max-width:1224px){
+		position:relative;
+		z-index:normal;
+	}
+`
+
 // var g1 = new Date(2021, 5, 14, 18, 0, 0);
 
 const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
@@ -159,12 +174,12 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 			});
     	};
 		fetchServerTime();
-		
 	// eslint-disable-next-line
 	}, []);
 
 	useEffect(() => {
 		if(date === false){
+			// eslint-disable-next-line
 			getCurrentLevel();
 		}
 	},[date])
@@ -203,6 +218,7 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 			setInputIsEmpty(true);
 		}
 	}
+	const name = "epicSaxophoneGuy" //fetch the name from store later :)))
 	return (
 		<Wrapper>
 			<Navbar />
@@ -224,6 +240,9 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 					</NLTContainer>
 				): (
 			<Container>
+				<NameHeading>
+					Hey {name}
+				</NameHeading>
 				<QuestionContainer
 					onMouseMove={({
 						clientX: x,
