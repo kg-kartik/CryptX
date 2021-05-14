@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
 const dotenv = require("dotenv");
+const { rateLimiterUsingThirdParty } = require("./middleware/rateLimiter");
 
 //Requiring routes
 const authUser = require("./routes/auth");
@@ -32,6 +33,8 @@ app.use(
 );
 
 app.use(bodyParser.json());
+
+app.use(rateLimiterUsingThirdParty);
 
 app.use(cors());
 app.use("/user", authUser);

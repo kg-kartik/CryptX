@@ -7,6 +7,7 @@ const requireLogin = require("../middleware/requireLogin");
 const multer = require("multer");
 const path = require("path");
 const bcrypt = require("bcrypt");
+const fs = require("fs");
 
 //File Storage Config
 const storageDir = path.join(__dirname, "backend", "../..", "public");
@@ -80,7 +81,6 @@ router.post("/answer", requireLogin, (req, res) => {
         .populate("atLevel", ["_id", "answer"])
         .then((level) => {
             //Checking for the answer
-            console.log(answer, level.atLevel.answer);
 
             bcrypt.compare(answer, level.atLevel.answer).then((isMatch) => {
                 if (isMatch) {
@@ -113,13 +113,6 @@ router.post("/answer", requireLogin, (req, res) => {
         });
 });
 
-//Get levels posted (For own purpose)
-router.get("/getPostedLevels", (req, res) => {
-    Level.find({}).then((levels) => {
-        res.status(200).json(levels);
-    });
-});
-
 //Fectching users to be displayed on the leaderboard
 router.get("/getlevels", (req, res) => {
     User.find(
@@ -136,7 +129,7 @@ router.get("/getlevels", (req, res) => {
 });
 
 router.get("/getdate", (req, res) => {
-    var g1 = new Date(2021, 4, 15, 18, 0, 0);
+    var g1 = new Date(2021, 4, 13, 18, 0, 0);
     var g2 = new Date();
 
     if (g1.getTime() < g2.getTime()) {
@@ -149,5 +142,52 @@ router.get("/getdate", (req, res) => {
         });
     }
 });
+
+//Get validated users
+router.get("/getValidation", (req, res) => {
+    User.find({
+        isValid: false,
+    })
+        .then((users) => {
+            res.status(200).json(users.length);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
+
+// router.get("/postLevelsTogether", (req, res) => {
+//     const levels = JSON.parse(
+//         fs.readFileSync(`${__dirname}/../_data/questions.json`, "utf-8")
+//     );
+
+//     levels.map(({ _id, question, password, hint, answer }) => {
+//         if (password === "youcannotcrackit54") {
+//             bcrypt.hash(answer, 10).then((hashedAnswer) => {
+//                 const newLevel = new Level({
+//                     _id,
+//                     question,
+//                     hint,
+//                     answer: hashedAnswer,
+//                 });
+
+//                 newLevel
+//                     .save()
+//                     .then((savedLevel) => {
+//                         // res.status(200).json(savedLevel);
+//                         console.log(savedLevel, "level");
+//                     })
+//                     .catch((err) => {
+//                         // res.status(400).json({
+//                         //     err,
+//                         // });
+//                         console.log(err);
+//                     });
+//             });
+//         } else {
+//             console.log("!admin");
+//         }
+//     });
+// });
 
 module.exports = router;
