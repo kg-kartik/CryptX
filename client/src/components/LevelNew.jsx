@@ -30,7 +30,7 @@ const Container = styled.div`
 	font-weight: 400;
 	@media (max-width:1224px){
 		padding-top:3rem;
-		grid-auto-rows: 0.5fr;
+		// grid-auto-rows: 0.5fr;
 	}
 `
 
@@ -144,19 +144,19 @@ const Image = styled.img`
 	object-fit:cover;
 `
 
-const NameHeading = styled.h1`
-	color: white;
-	font-size: 2rem;
-	position:absolute;
-	top:0;
-	left:0;
-	padding: 0.5rem 1rem;
-	z-index:10;
-	@media (max-width:1224px){
-		position:relative;
-		z-index:normal;
-	}
-`
+// const NameHeading = styled.h1`
+// 	color: white;
+// 	font-size: 2rem;
+// 	position:absolute;
+// 	top:0;
+// 	left:0;
+// 	padding: 0.5rem 1rem;
+// 	z-index: 6;
+// 	@media (max-width:1224px){
+// 		position:relative;
+// 		z-index:0;
+// 	}
+// `
 
 // var g1 = new Date(2021, 5, 14, 18, 0, 0);
 
@@ -240,9 +240,9 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 					</NLTContainer>
 				): (
 			<Container>
-				<NameHeading>
+				{/* <NameHeading>
 					Hey {name}
-				</NameHeading>
+				</NameHeading> */}
 				<QuestionContainer
 					onMouseMove={({
 						clientX: x,
