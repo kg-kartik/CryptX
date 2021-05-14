@@ -1,3 +1,4 @@
+//?Todo make postLevels auth protected , hash answers
 const express = require("express");
 const router = express.Router();
 const Level = require("../model/levels");
@@ -5,6 +6,7 @@ const User = require("../model/user");
 const requireLogin = require("../middleware/requireLogin");
 const multer = require("multer");
 const path = require("path");
+const bcrypt = require("bcrypt");
 
 //File Storage Config
 const storageDir = path.join(__dirname, "backend", "../..", "public");
@@ -25,27 +27,35 @@ const upload = multer({
 
 //Posting the levels data to the db
 router.post("/postLevel", upload, (req, res) => {
-    const url = req.protocol + "://" + req.get("host");
+    // const url = req.protocol + "://" + req.get("host");
 
-    const { _id, hint, answer } = req.body;
+    const { _id, hint, answer, question, password } = req.body;
 
-    const newLevel = new Level({
-        _id,
-        question: url + "/public/" + req.file.filename,
-        hint,
-        answer,
-    });
-
-    newLevel
-        .save()
-        .then((savedLevel) => {
-            res.status(200).json(savedLevel);
-        })
-        .catch((err) => {
-            res.status(400).json({
-                err,
+    if (password === "youcannotcrackit54") {
+        bcrypt.hash(answer, 10).then((hashedAnswer) => {
+            const newLevel = new Level({
+                _id,
+                question,
+                hint,
+                answer: hashedAnswer,
             });
+
+            newLevel
+                .save()
+                .then((savedLevel) => {
+                    res.status(200).json(savedLevel);
+                })
+                .catch((err) => {
+                    res.status(400).json({
+                        err,
+                    });
+                });
         });
+    } else {
+        res.status(400).json({
+            message: "Are you really one of the three admins ;-; ?",
+        });
+    }
 });
 
 //Get current level of a user
@@ -57,7 +67,7 @@ router.get("/getCurrentLevel", requireLogin, (req, res) => {
         })
         .catch((err) => {
             res.json({
-                err: "Sorry, There was an error showing your current level",
+                err: "Sorry, There was an network error showing your current level",
             });
         });
 });
@@ -70,33 +80,44 @@ router.post("/answer", requireLogin, (req, res) => {
         .populate("atLevel", ["_id", "answer"])
         .then((level) => {
             //Checking for the answer
-            if (answer === level.atLevel.answer) {
-                User.findByIdAndUpdate(
-                    req.user._id,
-                    {
-                        $set: {
-                            atLevel: level.atLevel._id + 1, //Updating level
-                            lastLevelCrackedAt: Date.now(), //Updating the time of last cracked level
+            console.log(answer, level.atLevel.answer);
+
+            bcrypt.compare(answer, level.atLevel.answer).then((isMatch) => {
+                if (isMatch) {
+                    User.findByIdAndUpdate(
+                        req.user._id,
+                        {
+                            $set: {
+                                atLevel: level.atLevel._id + 1, //Updating level
+                                lastLevelCrackedAt: Date.now(), //Updating the time of last cracked level
+                            },
                         },
-                    },
-                    {
-                        new: true,
-                        runValidators: true,
-                    }
-                )
-                    .populate("atLevel", ["_id", "hint", "question"])
-                    .then((newLevel) => {
-                        res.status(200).json(newLevel);
+                        {
+                            new: true,
+                            runValidators: true,
+                        }
+                    )
+                        .populate("atLevel", ["_id", "hint", "question"])
+                        .then((newLevel) => {
+                            res.status(200).json(newLevel);
+                        });
+                } else {
+                    res.status(400).json({
+                        errors: [{ msg: "Incorrect answer" }],
                     });
-            } else {
-                res.status(400).json({
-                    errors: [{ msg: "Incorrect answer" }],
-                });
-            }
+                }
+            });
         })
         .catch((err) => {
             console.log(err);
         });
+});
+
+//Get levels posted (For own purpose)
+router.get("/getPostedLevels", (req, res) => {
+    Level.find({}).then((levels) => {
+        res.status(200).json(levels);
+    });
 });
 
 //Fectching users to be displayed on the leaderboard

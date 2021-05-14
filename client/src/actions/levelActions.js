@@ -2,8 +2,9 @@ import { GET_CURRENT_LEVEL, UPDATE_LEVEL } from "./types";
 import axios from "axios";
 import setAlert from "./alertActions";
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 export const getCurrentLevel = () => (dispatch) => {
-    const apiUrl = process.env.REACT_APP_API_URL;
     axios
         .get(`${apiUrl}/getCurrentLevel`)
         .then((response) => {
@@ -19,7 +20,7 @@ export const getCurrentLevel = () => (dispatch) => {
 
 export const updateLevel = (answer) => (dispatch) => {
     axios
-        .post("/answer", answer)
+        .post(`${apiUrl}/answer`, answer)
         .then((response) => {
             dispatch({
                 type: UPDATE_LEVEL,

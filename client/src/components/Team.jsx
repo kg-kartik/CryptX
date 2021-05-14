@@ -96,7 +96,7 @@ const Team = () => {
 			text: "Problem Setter",
 			author: "Samank Gupta",
 			github: "https://github.com/samankgupta/",
-			linkedin: "https://www.linkedin.com/",
+			linkedin: "https://in.linkedin.com/in/samank-gupta-5b55b0195",
 		},
 		{
 			icon: "/photos/vanshaj.jpg",
