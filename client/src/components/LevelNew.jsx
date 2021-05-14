@@ -28,9 +28,9 @@ const Container = styled.div`
 	color: black;
 	background: ${theme.mainBackground};
 	font-weight: 400;
-	@media (max-width:1224px){
+	margin: 4vh 0;
+	@media (min-width:1224px){
 		padding-top:3rem;
-		// grid-auto-rows: 0.5fr;
 	}
 `
 
@@ -83,6 +83,7 @@ const LevelHeading = styled.div`
 const LevelHint = styled.div`
 	font-weight: 400;
 	font-size: 1.5rem;
+	margin:1vh 0;
 	color:#00C896;
 `
 
@@ -129,7 +130,7 @@ const LevelInfoContainer = styled.div`
 const ImageContainer = styled.div`
 	position: relative;
 	display:flex;
-	margin-top:-1rem;
+	margin-top:-1vh 0 1vh 0;
 	align-items:center;
 	justify-content:center;
 	min-width: 400px;
