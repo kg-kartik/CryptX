@@ -159,12 +159,15 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 			});
     	};
 		fetchServerTime();
+		
 	// eslint-disable-next-line
 	}, []);
 
-	if(date === false){
-		getCurrentLevel();
-	}
+	useEffect(() => {
+		if(date === false){
+			getCurrentLevel();
+		}
+	},[date])
 
 	const submitAnswer = e => {
 		e.preventDefault();
