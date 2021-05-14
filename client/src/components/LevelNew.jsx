@@ -28,7 +28,7 @@ const Container = styled.div`
 	color: black;
 	background: ${theme.mainBackground};
 	font-weight: 400;
-	margin: 4vh 0;
+	// margin: 4vh 0;
 	@media (min-width:1224px){
 		padding-top:3rem;
 	}
@@ -180,9 +180,9 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 
 	useEffect(() => {
 		if(date === false){
-			// eslint-disable-next-line
 			getCurrentLevel();
 		}
+	// eslint-disable-next-line
 	},[date])
 
 	const submitAnswer = e => {
@@ -219,7 +219,7 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 			setInputIsEmpty(true);
 		}
 	}
-	const name = "epicSaxophoneGuy" //fetch the name from store later :)))
+	// const name = "epicSaxophoneGuy" //fetch the name from store later :)))
 	return (
 		<Wrapper>
 			<Navbar />
