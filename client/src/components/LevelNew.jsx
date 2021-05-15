@@ -195,6 +195,7 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 		};
 		updateLevel(newAnswer);
 		setAnswer("");
+		setInputIsEmpty(true);
 	};
 
 	const calc = (x, y) => [-(y - window.innerHeight / 2) / 200, (x - window.innerWidth / 2) / 200, 1]
@@ -211,9 +212,9 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 	const [inputIsEmpty, setInputIsEmpty] = useState(true);
 
 	const handleInput = (event) => {
+		setAnswer(event.target.value);
 		if (event.target.value.length !== 0) {
 			setInputIsEmpty(false);
-			setAnswer(event.target.value);
 		}
 		else{
 			setInputIsEmpty(true);
@@ -274,6 +275,7 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 								key={0}
 								placeholder=""
 								onChange={handleInput}
+								value={answer}
 							/>
 							<label>Your Answer</label>
 							<span className="focus-border">
