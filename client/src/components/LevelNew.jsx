@@ -10,7 +10,6 @@ import PropTypes from "prop-types";
 import Waves from "../elements/Waves";
 import Loading from "../elements/Loading";
 import { useMediaQuery } from "react-responsive";
-import Axios from "axios";
 
 const Wrapper = styled.section`
 	position:absolute;
@@ -34,27 +33,6 @@ const Container = styled.div`
 	}
 `
 
-const NLTContainer = styled.div`
-	display:grid;
-	place-items:center;
-	min-height:100vh;
-`
-
-const NotLiveText = styled(animated.div)`
-	color:white;
-	font-family: "Noto Sans", sans-serif;
-	letter-spacing:0.5px;
-	font-size:3rem;
-	padding: 3rem 2rem;
-	background: #1f242db3;
-	border-radius: 0.8rem;
-	text-align:center;
-	box-shadow: 0 0 40px rgb(17 9 33);
-	@media (max-width:1224px){
-		font-size: 2rem;
-		margin:2rem;
-	}
-`
 
 const QuestionContainer = styled(animated.div)`
 	z-index:1;
@@ -167,26 +145,11 @@ const NameHeading = styled.h1`
 const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1300px)' })
 	const [answer, setAnswer] = useState("");
-	const [date,setDate] = useState(true); //g1>g2
-
-	const apiUrl = process.env.REACT_APP_API_URL;
 
 	useEffect(() => {
-		const fetchServerTime = () => {
-			Axios.get(`${apiUrl}/getdate`).then((res) => {
-				setDate(res.data.bool);
-			});
-    	};
-		fetchServerTime();
+		getCurrentLevel();
 	// eslint-disable-next-line
 	}, [getCurrentLevel]);
-
-	useEffect(() => {
-		if(date === false){
-			getCurrentLevel();
-		}
-	// eslint-disable-next-line
-	},[date])
 
 	const submitAnswer = e => {
 		e.preventDefault();
@@ -223,23 +186,7 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 	return (
 		<Wrapper>
 			<Navbar />
-			{
-				date ? (
-					<NLTContainer>
-						<NotLiveText
-							onMouseMove={({
-								clientX: x,
-								clientY: y
-							}) => set({ xys: calc(x, y) })}
-							onMouseLeave={() => set({ xys: [0, 0, 1] })}
-							style={{ transform: props.xys.to(trans) }}
-						>
-							The hunt has not yet started. <br />
-							It will go live on <br />
-							15th May , 18:00 Hrs.
-						</NotLiveText>
-					</NLTContainer>
-				): (
+			 
 			<Container>
 				<NameHeading>
 					{level.isLoading ? " " : `Hey ${level.levelDetails.name}!`}
@@ -292,8 +239,7 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 				)}
 				</QuestionContainer>
 			</Container>
-				)
-			}
+				
 			{!isTabletOrMobile&&(
 				<Waves />
 			)}
