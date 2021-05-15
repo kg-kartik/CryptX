@@ -34,9 +34,10 @@ app.use(
 
 app.use(bodyParser.json());
 
+app.use(cors());
+
 app.use(rateLimiterUsingThirdParty);
 
-app.use(cors());
 app.use("/user", authUser);
 app.use("/", level);
 

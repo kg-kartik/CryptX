@@ -172,7 +172,7 @@ router.get("/verify/:uniqueString", (req, res) => {
             console.log(user);
         });
 
-        res.redirect("http://localhost:3000/signin");
+        res.redirect("http://cryptxmuj.tech/signin");
     } else {
         console.log("User not found");
         res.json("User not found");

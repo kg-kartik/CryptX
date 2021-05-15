@@ -64,6 +64,7 @@ router.get("/getCurrentLevel", requireLogin, (req, res) => {
     User.findById(req.user._id)
         .populate("atLevel", ["_id", "hint", "question"])
         .then((level) => {
+            console.log(level, "level");
             res.status(200).json(level);
         })
         .catch((err) => {
@@ -102,7 +103,7 @@ router.post("/answer", requireLogin, (req, res) => {
                             res.status(200).json(newLevel);
                         });
                 } else {
-                    res.status(400).json({
+                    return res.status(400).json({
                         errors: [{ msg: "Incorrect answer" }],
                     });
                 }
