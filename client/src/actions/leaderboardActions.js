@@ -14,6 +14,11 @@ export const getUsers = () => (dispatch) => {
             });
         })
         .catch((err) => {
-            dispatch(setAlert("Error fetching data", "danger"));
+            console.log(err.response, "err");
+            if (err.response) {
+                dispatch(setAlert(err.response.data, "danger"));
+            } else {
+                dispatch(setAlert("There's a network error", "danger"));
+            }
         });
 };

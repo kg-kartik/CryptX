@@ -23,7 +23,7 @@ const Container = styled.div`
 	height: 100vh;
 	display: grid;
 	place-items:center;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-fam
 	letter-spacing:-1px;
 	color: black;
 	background: ${theme.mainBackground};
@@ -146,18 +146,20 @@ const Image = styled.img`
 	object-fit:cover;
 `
 
-// const NameHeading = styled.h1`
-// 	color: white;
-// 	font-size: 2rem;
-// 	position:absolute;
-// 	top:0;
-// 	left:0;
-// 	padding: 0.5rem 1rem;
-// 	z-index: 6;
-// 	@media (max-width:1224px){
-// 		position:relative;
-// 		z-index:0;
-// 	}
+const NameHeading = styled.h1`
+	color: white;
+    font-family: "IBM Plex Sans";
+	font-size: 1.5rem;
+	position:absolute;
+	top:0;
+	left:0;
+	letter-spacing:1px;
+	padding: 0.7rem 1rem;
+	z-index: 6;
+	@media (max-width:1224px){
+		position:relative;
+		z-index:0;
+	}
 // `
 
 // var g1 = new Date(2021, 5, 14, 18, 0, 0);
@@ -193,10 +195,6 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 		};
 		updateLevel(newAnswer);
 		setAnswer("");
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth"
-		});
 	};
 
 	const calc = (x, y) => [-(y - window.innerHeight / 2) / 200, (x - window.innerWidth / 2) / 200, 1]
@@ -221,7 +219,6 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 			setInputIsEmpty(true);
 		}
 	}
-	// const name = "epicSaxophoneGuy" //fetch the name from store later :)))
 	return (
 		<Wrapper>
 			<Navbar />
@@ -243,9 +240,9 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 					</NLTContainer>
 				): (
 			<Container>
-				{/* <NameHeading>
-					Hey {name}
-				</NameHeading> */}
+				<NameHeading>
+					{level.isLoading ? " " : `Hey ${level.levelDetails.name}!`}
+				</NameHeading>
 				<QuestionContainer
 					onMouseMove={({
 						clientX: x,

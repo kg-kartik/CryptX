@@ -19,7 +19,11 @@ export const getCurrentLevel = () => (dispatch) => {
             });
         })
         .catch((err) => {
-            dispatch(setAlert("Error fetching level", "danger"));
+            if (err.response) {
+                dispatch(setAlert(err.response.data, "danger"));
+            } else {
+                dispatch(setAlert("There's a network error", "danger"));
+            }
         });
 };
 
@@ -40,6 +44,16 @@ export const updateLevel = (answer) => (dispatch) => {
             dispatch({
                 type: REQUEST_UPDATE_LEVEL_FAILED,
             });
-            dispatch(setAlert("Incorrect answer", "danger"));
+
+            const errors = err.response.data.errors;
+            if (errors) {
+                errors.forEach((error) => {
+                    dispatch(setAlert(error.msg, "danger"));
+                });
+            } else if (err.response) {
+                dispatch(setAlert(err.response.data, "danger"));
+            } else {
+                dispatch(setAlert("There's a network error", "danger"));
+            }
         });
 };
