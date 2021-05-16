@@ -4,8 +4,6 @@ import "../App.css";
 import Navbar from "../layouts/Navbar";
 import styled from "styled-components";
 import ScrollDown from "../elements/ScrollDown";
-import Countdown from "../elements/Countdown";
-import DiscordLogo from "../styles/DiscordLogo";
 import { useMediaQuery } from "react-responsive";
 import Footer from "./Footer";
 
@@ -139,21 +137,20 @@ const Home = () => {
                 <div className="dark-overlay">
                     <div className="landing-inner">
                         <h1 className="x-large">CryptX</h1>
-                        <CountdownContainer>
+                        {/* <CountdownContainer>
                             <Countdown />
-                        </CountdownContainer>
+                        </CountdownContainer> */}
                         <p className="lead">
-                            Can you scratch your grey matter to crack these
-                            levels?
+                            The hunt is over now. Check the results below!
                         </p>
                         <div className="buttons">
                             <Link
-                                to="/level"
+                                to="/leaderboard"
                                 className="btn btn-primary btn-lg crack"
                             >
-                                CRACK IT
+                                Leaderboard
                             </Link>
-                            <a
+                            {/* <a
                                 href="https://discord.gg/HaTtzqxJ"
                                 className="btn btn-primary btn-lg discord-btn"
                             >
@@ -161,7 +158,7 @@ const Home = () => {
                                 <span className="align-middle">
                                     JOIN DISCORD
                                 </span>
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                 </div>

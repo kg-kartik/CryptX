@@ -12,10 +12,10 @@ const Nav = styled.nav`
 `;
 
 const Navbar = ({ auth: { isAuthenticated, loading } }) => {
-    const logout = () => {
-        localStorage.removeItem("token");
-        window.location.reload();
-    };
+    // const logout = () => {
+    //     localStorage.removeItem("token");
+    //     window.location.reload();
+    // };
 
     return (
         <div id="nav-bar">
@@ -45,15 +45,7 @@ const Navbar = ({ auth: { isAuthenticated, loading } }) => {
                                     HOME
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink
-                                    activeClassName="selected"
-                                    className="nav-link"
-                                    to="/signin"
-                                >
-                                    SIGNIN
-                                </NavLink>
-                            </li>
+
                             <li className="nav-item">
                                 <NavLink
                                     activeClassName="selected"
@@ -85,15 +77,7 @@ const Navbar = ({ auth: { isAuthenticated, loading } }) => {
                                     HOME
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink
-                                    activeClassName="selected"
-                                    className="nav-link"
-                                    to="/level"
-                                >
-                                    PLAY
-                                </NavLink>
-                            </li>
+
                             <li className="nav-item">
                                 <NavLink
                                     activeClassName="selected"
@@ -110,16 +94,6 @@ const Navbar = ({ auth: { isAuthenticated, loading } }) => {
                                     to="/team"
                                 >
                                     TEAM
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink
-                                    to="/signin"
-                                    activeClassName="selected"
-                                    className="nav-link logout"
-                                    onClick={() => logout()}
-                                >
-                                    LOGOUT
                                 </NavLink>
                             </li>
                         </ul>

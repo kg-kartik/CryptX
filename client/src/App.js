@@ -1,8 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Home from "./components/Home";
-import SignInNew from "./components/SignInNew";
-import LevelNew from "./components/LevelNew";
 import Leaderboard from "./components/Leaderboard";
 import Alert from "./layouts/Alert";
 
@@ -14,7 +12,6 @@ import store from "./store.js";
 import setAuthToken from "./util/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
-import ProtectedRoute from "./commons/ProtectedRoute";
 import PublicRoute from "./commons/PublicRoute";
 import Team from "./components/Team";
 
@@ -55,13 +52,6 @@ const App = () => {
                     />
 
                     <PublicRoute
-                        restricted={true}
-                        exact
-                        path="/signin"
-                        component={SignInNew}
-                    />
-
-                    <PublicRoute
                         restricted={false}
                         exact
                         path="/leaderboard"
@@ -73,7 +63,6 @@ const App = () => {
                         path="/team"
                         component={Team}
                     />
-                    <ProtectedRoute exact path="/level" component={LevelNew} />
                 </Switch>
             </Router>
         </Provider>
