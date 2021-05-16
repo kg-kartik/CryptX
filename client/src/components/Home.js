@@ -102,8 +102,6 @@ const Para = styled.p`
     }
 `;
 
-const CountdownContainer = styled.div``;
-
 const Home = () => {
     const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
 
