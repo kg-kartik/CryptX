@@ -223,6 +223,9 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 								placeholder=""
 								onChange={handleInput}
 								value={answer}
+								onKeyUp={e => {
+									(e.key === 'Enter' || e.keyCode === 13) && submitAnswer(e)
+								}}
 							/>
 							<label>Your Answer</label>
 							<span className="focus-border">

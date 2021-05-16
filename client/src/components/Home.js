@@ -4,6 +4,8 @@ import "../App.css";
 import Navbar from "../layouts/Navbar";
 import styled from "styled-components";
 import ScrollDown from "../elements/ScrollDown";
+import Countdown from "../elements/Countdown";
+import DiscordLogo from "../styles/DiscordLogo";
 import { useMediaQuery } from "react-responsive";
 import Footer from "./Footer";
 
@@ -102,6 +104,8 @@ const Para = styled.p`
     }
 `;
 
+const CountdownContainer = styled.div``;
+
 const Home = () => {
     const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
 
@@ -135,28 +139,29 @@ const Home = () => {
                 <div className="dark-overlay">
                     <div className="landing-inner">
                         <h1 className="x-large">CryptX</h1>
-                        {/* <CountdownContainer>
+                        <CountdownContainer>
                             <Countdown />
-                        </CountdownContainer> */}
+                        </CountdownContainer>
                         <p className="lead">
-                            The hunt is over now. Check the results below!
+                            Can you scratch your grey matter to crack these
+                            levels?
                         </p>
                         <div className="buttons">
                             <Link
-                                to="/leaderboard"
+                                to="/level"
                                 className="btn btn-primary btn-lg crack"
                             >
-                                Leaderboard
+                                CRACK IT
                             </Link>
-                            {/* <a
-                                href="https://discord.gg/HaTtzqxJ"
+                            <a
+                                href="https://discord.gg/75gtvPUW"
                                 className="btn btn-primary btn-lg discord-btn"
                             >
                                 <DiscordLogo />
                                 <span className="align-middle">
                                     JOIN DISCORD
                                 </span>
-                            </a> */}
+                            </a>
                         </div>
                     </div>
                 </div>
