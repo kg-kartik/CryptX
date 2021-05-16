@@ -49,15 +49,6 @@ const Navbar = ({ auth: { isAuthenticated, loading } }) => {
                                 <NavLink
                                     activeClassName="selected"
                                     className="nav-link"
-                                    to="/signup"
-                                >
-                                    SIGNUP
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink
-                                    activeClassName="selected"
-                                    className="nav-link"
                                     to="/signin"
                                 >
                                     SIGNIN

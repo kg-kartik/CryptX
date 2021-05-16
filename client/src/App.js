@@ -1,10 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Home from "./components/Home";
-import SignUp from "./components/SignUp";
-import SignUpNew from "./components/SignUpNew";
 import SignInNew from "./components/SignInNew";
-import SignIn from "./components/SignIn";
 import LevelNew from "./components/LevelNew";
 import Level from "./components/Level";
 import Leaderboard from "./components/Leaderboard";
@@ -57,30 +54,14 @@ const App = () => {
                         path="/"
                         component={Home}
                     />
-                    <PublicRoute
-                        restricted={true}
-                        exact
-                        path="/signup"
-                        component={SignUpNew}
-                    />
-                    <PublicRoute
-                        restricted={true}
-                        exact
-                        path="/signupold"
-                        component={SignUp}
-                    />
+
                     <PublicRoute
                         restricted={true}
                         exact
                         path="/signin"
                         component={SignInNew}
                     />
-                    <PublicRoute
-                        restricted={true}
-                        exact
-                        path="/signinold"
-                        component={SignIn}
-                    />
+
                     <PublicRoute
                         restricted={false}
                         exact
@@ -94,7 +75,6 @@ const App = () => {
                         component={Team}
                     />
                     <ProtectedRoute exact path="/level" component={LevelNew} />
-                    <ProtectedRoute exact path="/levelOld" component={Level} />
                 </Switch>
             </Router>
         </Provider>
