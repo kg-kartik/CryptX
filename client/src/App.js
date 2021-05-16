@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import SignInNew from "./components/SignInNew";
 import LevelNew from "./components/LevelNew";
-import Level from "./components/Level";
 import Leaderboard from "./components/Leaderboard";
 import Alert from "./layouts/Alert";
 
