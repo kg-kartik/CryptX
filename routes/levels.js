@@ -130,7 +130,7 @@ router.get("/getlevels", (req, res) => {
 });
 
 router.get("/getdate", (req, res) => {
-    var g1 = new Date(2021, 4, 15, 18, 0, 0);
+    var g1 = new Date(2022, 3, 14, 18, 0, 0);
     var g2 = new Date();
 
     if (g1.getTime() < g2.getTime()) {

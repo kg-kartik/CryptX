@@ -146,10 +146,26 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1300px)' })
 	const [answer, setAnswer] = useState("");
 
+	const [date,setDate] = useState(true); //g1>g2
+
+	const apiUrl = process.env.REACT_APP_API_URL;
+
 	useEffect(() => {
-		getCurrentLevel();
+		const fetchServerTime = () => {
+			Axios.get(`${apiUrl}/getdate`).then((res) => {
+				setDate(res.data.bool);
+			});
+    	};
+		fetchServerTime();
 	// eslint-disable-next-line
 	}, [getCurrentLevel]);
+
+	useEffect(() => {
+		if(date === false){
+			getCurrentLevel();
+		}
+	// eslint-disable-next-line
+	},[date])
 
 	const submitAnswer = e => {
 		e.preventDefault();
@@ -186,7 +202,24 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 	return (
 		<Wrapper>
 			<Navbar />
-			 
+			
+			{ 
+				date ? (
+					<NLTContainer>
+						<NotLiveText
+							onMouseMove={({
+								clientX: x,
+								clientY: y
+							}) => set({ xys: calc(x, y) })}
+							onMouseLeave={() => set({ xys: [0, 0, 1] })}
+							style={{ transform: props.xys.to(trans) }}
+						>
+							The hunt has not yet started. <br />
+							It will go live on <br />
+							15th May , 18:00 Hrs.
+						</NotLiveText>
+					</NLTContainer>
+			): (
 			<Container>
 				<NameHeading>
 					{level.isLoading ? " " : `Hey ${level.levelDetails.name}!`}
@@ -242,6 +275,7 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 				)}
 				</QuestionContainer>
 			</Container>
+		)}
 				
 			{!isTabletOrMobile&&(
 				<Waves />
