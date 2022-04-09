@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 import Waves from "../elements/Waves";
 import Loading from "../elements/Loading";
 import { useMediaQuery } from "react-responsive";
+import Axios from "axios";
 
 const Wrapper = styled.section`
 	position:absolute;
@@ -139,6 +140,28 @@ const NameHeading = styled.h1`
 		z-index:0;
 	}
 // `
+
+const NLTContainer = styled.div`
+	display:grid;
+	place-items:center;
+	min-height:100vh;
+`
+
+const NotLiveText = styled(animated.div)`
+	color:white;
+	font-family: "Noto Sans", sans-serif;
+	letter-spacing:0.5px;
+	font-size:3rem;
+	padding: 3rem 2rem;
+	background: #1f242db3;
+	border-radius: 0.8rem;
+	text-align:center;
+	box-shadow: 0 0 40px rgb(17 9 33);
+	@media (max-width:1224px){
+		font-size: 2rem;
+		margin:2rem;
+	}
+`
 
 // var g1 = new Date(2021, 5, 14, 18, 0, 0);
 
