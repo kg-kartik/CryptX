@@ -225,9 +225,9 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 	return (
 		<Wrapper>
 			<Navbar />
-			
+
 			{ 
-				date ? (
+				!date ? (
 					<NLTContainer>
 						<NotLiveText
 							onMouseMove={({
@@ -239,7 +239,7 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 						>
 							The hunt has not yet started. <br />
 							It will go live on <br />
-							15th May , 18:00 Hrs.
+							14th April , 18:00 Hrs.
 						</NotLiveText>
 					</NLTContainer>
 			): (
