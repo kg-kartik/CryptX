@@ -227,7 +227,7 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
 			<Navbar />
 
 			{ 
-				!date ? (
+				date ? (
 					<NLTContainer>
 						<NotLiveText
 							onMouseMove={({
