@@ -3,7 +3,7 @@ import axios from "axios";
 import setAlert from "./alertActions";
 
 export const getUsers = () => (dispatch) => {
-    const deployedApiUrl = process.env.REACT_APP_DEPLOYED_API_URL;
+    const deployedApiUrl = process.env.REACT_APP_API_URL;
 
     axios
         .get(`${deployedApiUrl}/getLevels`)
