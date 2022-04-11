@@ -138,7 +138,7 @@ const Home = () => {
                 <Navbar />
                 <div className="dark-overlay">
                     <div className="landing-inner">
-                        <h1 className="x-large">CryptX</h1>
+                        <h1 className="x-large">CryptX v2.0</h1>
                         <CountdownContainer>
                             <Countdown />
                         </CountdownContainer>
@@ -172,16 +172,16 @@ const Home = () => {
                     <Heading className="landing">About</Heading>
                 </SectionHeadingContainer>
                 <Para>
-                    CryptX is a one-day long online cryptic hunt organized by
-                    Randomize(); MUJ. It will be held from 15 May 2021 18:00 IST
-                    to 16 May 2021 18:00 IST. The hunt consists of 20 questions
+                    CryptX v2.0 is a one-day long online cryptic hunt organized by
+                    Randomize(); MUJ. It will be held from 14 April 2022 18:00 IST
+                    to 15 April 2022 18:00 IST. The hunt consists of 20 questions
                     in the form of pictures, and players are required to rack
                     their brains to solve them and reach an answer. <br />{" "}
                     <br />
                     The goal of the players should be to find the answer as fast
                     as possible to stay on top of the leaderboard. At the end of
                     the event, the player at the top of leaderboard will be
-                    declared as the winner of CryptX 2021. This gripping
+                    declared as the winner of CryptX 2022. This gripping
                     competition will up-skill the competitors and hone their
                     investigative skills, while testing their logical and
                     analytical skills as they search for clues all over the
