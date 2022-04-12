@@ -182,7 +182,7 @@ const SignInNew = ({ loginUser, auth }) => {
 								onChange={e => {
 									setInputData({
 										...inputData,
-										email: e.target.value,
+										email: e.target.value ? (e.target.value).trim() : e.target.value,
 									})
 								}}
 							/>

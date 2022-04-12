@@ -132,6 +132,7 @@ const SignUpNew = ({ registerUser, auth }) => {
 		university: "",
 		email: "",
 	})
+
 	const calc = (x, y) => [-(y - window.innerHeight / 2) / 200, (x - window.innerWidth / 2) / 200, 1]
 	const trans = (x, y, s) => `perspective(500px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 	const [props, set] = useSpring(() => ({
@@ -202,7 +203,7 @@ const SignUpNew = ({ registerUser, auth }) => {
 								onChange={e => {
 									setInputData({
 										...inputData,
-										email: e.target.value,
+										email: e.target.value ? (e.target.value).trim() : e.target.value,
 									})
 								}}
 							/>
