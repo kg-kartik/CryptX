@@ -19,6 +19,7 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import ProtectedRoute from "./commons/ProtectedRoute";
 import PublicRoute from "./commons/PublicRoute";
 import Team from "./components/Team";
+import WW from "./components/WW";
 
 // export const appHistory = createBrowserHistory();
 
@@ -26,66 +27,62 @@ import Team from "./components/Team";
 const jwtToken = localStorage.getItem("token");
 
 if (jwtToken) {
-    //Set authorization token header
-    setAuthToken(jwtToken);
+  //Set authorization token header
+  setAuthToken(jwtToken);
 
-    //Decode the access token to get user info
-    const decodedToken = jwt_decode(jwtToken);
+  //Decode the access token to get user info
+  const decodedToken = jwt_decode(jwtToken);
 
-    //Dispatch the token for seeting the user to be authenticated
-    store.dispatch(setCurrentUser(decodedToken));
+  //Dispatch the token for seeting the user to be authenticated
+  store.dispatch(setCurrentUser(decodedToken));
 
-    //checking for any expiry date
-    const currentTime = new Date() / 1000;
-    if (decodedToken.exp < currentTime) {
-        //Logout current User
-        store.dispatch(logoutUser());
-    }
+  //checking for any expiry date
+  const currentTime = new Date() / 1000;
+  if (decodedToken.exp < currentTime) {
+    //Logout current User
+    store.dispatch(logoutUser());
+  }
 }
 
 const App = () => {
-    return (
-        <Provider store={store}>
-            <Router>
-                <Alert />
-                <Switch>
-                    <PublicRoute
-                        restricted={false}
-                        exact
-                        path="/"
-                        component={Home}
-                    />
-                    <PublicRoute
-                        restricted={true}
-                        exact
-                        path="/signup"
-                        component={SignUpNew}
-                    />
+  return (
+    <Provider store={store}>
+      <Router>
+        <Alert />
+        <Switch>
+          <PublicRoute restricted={false} exact path="/" component={Home} />
+          <PublicRoute
+            restricted={true}
+            exact
+            path="/signup"
+            component={SignUpNew}
+          />
 
-                    <PublicRoute
-                        restricted={true}
-                        exact
-                        path="/signin"
-                        component={SignInNew}
-                    />
-                    <PublicRoute
-                        restricted={false}
-                        exact
-                        path="/leaderboard"
-                        component={Leaderboard}
-                    />
-                    <PublicRoute
-                        restricted={false}
-                        exact
-                        path="/team"
-                        component={Team}
-                    />
-                    <ProtectedRoute exact path="/level" component={LevelNew} />
-                    <ProtectedRoute exact path="/levelOld" component={Level} />
-                </Switch>
-            </Router>
-        </Provider>
-    );
+          <PublicRoute
+            restricted={true}
+            exact
+            path="/signin"
+            component={SignInNew}
+          />
+          <PublicRoute
+            restricted={false}
+            exact
+            path="/leaderboard"
+            component={Leaderboard}
+          />
+          <PublicRoute restricted={false} exact path="/team" component={Team} />
+          <PublicRoute
+            restricted={false}
+            exact
+            path={`/${atob("QzEwSDE1Tg==")}`}
+            component={WW}
+          />
+          <ProtectedRoute exact path="/level" component={LevelNew} />
+          <ProtectedRoute exact path="/levelOld" component={Level} />
+        </Switch>
+      </Router>
+    </Provider>
+  );
 };
 
 export default App;
