@@ -154,7 +154,7 @@ const Home = () => {
                                 CRACK IT
                             </Link>
                             <a
-                                href="https://discord.gg/75gtvPUW"
+                                href="https://discord.gg/ZNd3HMvT"
                                 className="btn btn-primary btn-lg discord-btn"
                             >
                                 <DiscordLogo />
