@@ -20,6 +20,7 @@ import ProtectedRoute from "./commons/ProtectedRoute";
 import PublicRoute from "./commons/PublicRoute";
 import Team from "./components/Team";
 import WW from "./components/WW";
+import DOC from "./components/DOC";
 
 // export const appHistory = createBrowserHistory();
 
@@ -67,16 +68,22 @@ const App = () => {
           <PublicRoute
             restricted={false}
             exact
+            path={`/${atob("QzEwSDE1Tg==")}`}
+            component={WW}
+          />
+          <PublicRoute
+            restricted={false}
+            exact
+            path={`/${atob("am9yZ2VkZWd1em1hbg==")}`}
+            component={DOC}
+          />
+          <PublicRoute
+            restricted={false}
+            exact
             path="/leaderboard"
             component={Leaderboard}
           />
           <PublicRoute restricted={false} exact path="/team" component={Team} />
-          <PublicRoute
-            restricted={false}
-            exact
-            path={`/${atob("QzEwSDE1Tg==")}`}
-            component={WW}
-          />
           <ProtectedRoute exact path="/level" component={LevelNew} />
           <ProtectedRoute exact path="/levelOld" component={Level} />
         </Switch>
