@@ -88,7 +88,7 @@ const Section = styled.section`
 `;
 
 const Para = styled.p`
-  font-family: "IBM Plex Sans";
+  font-family: "Poppins";
   letter-spacing: 2px;
   color: #cccccc;
   width: 50vw;

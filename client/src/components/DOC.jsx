@@ -25,7 +25,7 @@ const DOC = () => {
             color: "transparent",
           }}
         >
-          You think this is bad? THIS?!?!
+          You think this is bad? THIS?!
         </p>
       </div>
     </section>
