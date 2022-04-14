@@ -198,8 +198,9 @@ const Home = () => {
           <br />
           <br />
           Directly messaging any admin for clues, hints or lead confirmations is
-          not allowed. Participants could use the general chat in the discord
-          server for any queries.
+          not allowed, unless explicitly mentioned. But remember, google is your
+          friend. Participants could use the general chat in the discord server
+          for any queries.
           <br />
           <br />
           Team play, answer sharing and collaborating with other participants is
