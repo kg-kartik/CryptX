@@ -10,8 +10,6 @@ import PropTypes from "prop-types";
 import Waves from "../elements/Waves";
 import Loading from "../elements/Loading";
 import { useMediaQuery } from "react-responsive";
-import Axios from "axios";
-import DiscordLogo from "../styles/DiscordLogo";
 
 const Wrapper = styled.section`
   position: absolute;
@@ -38,6 +36,7 @@ const Container = styled.div`
 const QuestionContainer = styled(animated.div)`
   z-index: 1;
   display: grid;
+  max-width: 45rem;
   grid-template-rows: 0.5fr 1fr 0.25fr 0.25fr;
   grid-auto-columns: auto;
   grid-gap: 1rem;
@@ -65,6 +64,9 @@ const LevelHint = styled.div`
   margin: 1vh 0;
   padding: 0 20px;
   color: #00c896;
+
+  max-height: 15rem;
+  overflow: auto;
 `;
 
 const ButtonContainer = styled.div`
