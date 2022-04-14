@@ -45,7 +45,7 @@ const Navbar = ({ auth: { isAuthenticated, loading } }) => {
                                     HOME
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <NavLink
                                     activeClassName="selected"
                                     className="nav-link"
@@ -53,7 +53,7 @@ const Navbar = ({ auth: { isAuthenticated, loading } }) => {
                                 >
                                     SIGNUP
                                 </NavLink>
-                            </li>
+                            </li> */}
                             <li className="nav-item">
                                 <NavLink
                                     activeClassName="selected"

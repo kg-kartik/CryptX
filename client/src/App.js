@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Home from "./components/Home";
-import SignUpNew from "./components/SignUpNew";
+// import SignUpNew from "./components/SignUpNew";
 import SignInNew from "./components/SignInNew";
 import LevelNew from "./components/LevelNew";
 import Level from "./components/Level";
@@ -52,12 +52,12 @@ const App = () => {
         <Alert />
         <Switch>
           <PublicRoute restricted={false} exact path="/" component={Home} />
-          <PublicRoute
+          {/* <PublicRoute
             restricted={true}
             exact
             path="/signup"
             component={SignUpNew}
-          />
+          /> */}
 
           <PublicRoute
             restricted={true}

@@ -259,9 +259,9 @@ const SignInNew = ({ loginUser, auth }) => {
             clickEvent={(e) => login(e)}
             type="submit"
           />
-          <SignUpText>
+          {/* <SignUpText>
             <NavLink to="/signup">Don't have an account? SignUp</NavLink>
-          </SignUpText>
+          </SignUpText> */}
         </LoginContainer>
         {!isTabletOrMobile && <Waves signin />}
       </Container>
