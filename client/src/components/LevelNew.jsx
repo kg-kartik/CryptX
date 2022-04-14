@@ -181,26 +181,12 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1300px)" });
   const [answer, setAnswer] = useState("");
 
-  const [date, setDate] = useState(true); //g1>g2
-
   const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    const fetchServerTime = () => {
-      Axios.get(`${apiUrl}/getdate`).then((res) => {
-        setDate(res.data.bool);
-      });
-    };
-    fetchServerTime();
+    getCurrentLevel();
     // eslint-disable-next-line
-  }, [getCurrentLevel]);
-
-  useEffect(() => {
-    if (date === false) {
-      getCurrentLevel();
-    }
-    // eslint-disable-next-line
-  }, [date]);
+  }, []);
 
   const submitAnswer = (e) => {
     e.preventDefault();
@@ -240,84 +226,57 @@ const LevelNew = ({ getCurrentLevel, level, updateLevel }) => {
   return (
     <Wrapper>
       <Navbar />
-
-      {date ? (
-        <NLTContainer>
-          <NotLiveText
-            onMouseMove={({ clientX: x, clientY: y }) =>
-              set({ xys: calc(x, y) })
-            }
-            onMouseLeave={() => set({ xys: [0, 0, 1] })}
-            style={{ transform: props.xys.to(trans) }}
-          >
-            The hunt has not yet started. <br />
-            It will go live on <br />
-            14th April , 18:00 Hrs. Meanwhile, join our discord 👀
-            <a
-              href="https://discord.gg/ZNd3HMvT"
-              className="btn btn-primary btn-lg discord-btn"
-            >
-              <DiscordLogo />
-              <span className="align-middle">JOIN DISCORD</span>
-            </a>
-          </NotLiveText>
-        </NLTContainer>
-      ) : (
-        <Container>
-          <NameHeading>
-            {level.isLoading ? " " : `Hey ${level.levelDetails.name}!`}
-          </NameHeading>
-          <QuestionContainer
-            onMouseMove={({ clientX: x, clientY: y }) =>
-              set({ xys: calc(x, y) })
-            }
-            onMouseLeave={() => set({ xys: [0, 0, 1] })}
-            style={{ transform: props.xys.to(trans) }}
-          >
-            {level.isLoading ? (
-              <Loading />
-            ) : (
-              <>
-                <LevelInfoContainer>
-                  <LevelHeading>
-                    Level {level.levelDetails.atLevel._id}
-                  </LevelHeading>
-                  <LevelHint>{level.levelDetails.atLevel.hint}</LevelHint>
-                </LevelInfoContainer>
-                <ImageContainer>
-                  <Image src={level.levelDetails.atLevel.question} />
-                </ImageContainer>
-                <InputContainer>
-                  <input
-                    className={`styled-input ${!inputIsEmpty && "has-content"}`}
-                    type="text"
-                    key={0}
-                    placeholder=""
-                    onChange={handleInput}
-                    value={answer}
-                    onKeyUp={(e) => {
-                      (e.key === "Enter" || e.keyCode === 13) &&
-                        submitAnswer(e);
-                    }}
-                  />
-                  <label>Your Answer</label>
-                  <span className="focus-border">
-                    <i></i>
+      <Container>
+        <NameHeading>
+          {level.isLoading ? " " : `Hey ${level.levelDetails.name}!`}
+        </NameHeading>
+        <QuestionContainer
+          onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+          onMouseLeave={() => set({ xys: [0, 0, 1] })}
+          style={{ transform: props.xys.to(trans) }}
+        >
+          {level.isLoading ? (
+            <Loading />
+          ) : (
+            <>
+              <LevelInfoContainer>
+                <LevelHeading>
+                  Level {level.levelDetails.atLevel._id}
+                </LevelHeading>
+                <LevelHint>{level.levelDetails.atLevel.hint}</LevelHint>
+              </LevelInfoContainer>
+              <ImageContainer>
+                <Image src={level.levelDetails.atLevel.question} />
+              </ImageContainer>
+              <InputContainer>
+                <input
+                  className={`styled-input ${!inputIsEmpty && "has-content"}`}
+                  type="text"
+                  key={0}
+                  placeholder=""
+                  onChange={handleInput}
+                  value={answer}
+                  onKeyUp={(e) => {
+                    (e.key === "Enter" || e.keyCode === 13) && submitAnswer(e);
+                  }}
+                />
+                <label>Your Answer</label>
+                <span className="focus-border">
+                  <i></i>
+                </span>
+              </InputContainer>
+              <ButtonContainer>
+                <Button onClick={(e) => submitAnswer(e)}>
+                  {level.isUpdateLevelLoading ? "Checking" : "Level++"}
+                  <span role="img" aria-label="eye emoji">
+                    👀
                   </span>
-                </InputContainer>
-                <ButtonContainer>
-                  <Button onClick={(e) => submitAnswer(e)}>
-                    {level.isUpdateLevelLoading ? "Checking" : "Level++"}
-                    <span role="img" aria-label="eye emoji">
-                      👀
-                    </span>
-                  </Button>
-                </ButtonContainer>
-              </>
-            )}
-          </QuestionContainer>
-        </Container>
-      )}
+                </Button>
+              </ButtonContainer>
+            </>
+          )}
+        </QuestionContainer>
+      </Container>
 
       {!isTabletOrMobile && <Waves />}
     </Wrapper>
